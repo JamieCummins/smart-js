@@ -1345,42 +1345,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -1404,10 +1368,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -1416,7 +1384,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -1509,7 +1479,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -1628,7 +1598,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -2701,42 +2671,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -2760,10 +2694,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -2772,7 +2710,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -2865,7 +2805,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -2984,7 +2924,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -4057,42 +3997,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -4116,10 +4020,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -4128,7 +4036,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -4221,7 +4131,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -4340,7 +4250,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -5413,42 +5323,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -5472,10 +5346,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -5484,7 +5362,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -5577,7 +5457,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -5696,7 +5576,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -6769,42 +6649,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -6828,10 +6672,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -6840,7 +6688,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -6933,7 +6783,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -7052,7 +6902,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -8125,42 +7975,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -8184,10 +7998,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -8196,7 +8014,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -8289,7 +8109,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -8408,7 +8228,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -9481,42 +9301,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -9540,10 +9324,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -9552,7 +9340,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -9645,7 +9435,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -9764,7 +9554,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -10837,42 +10627,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -10896,10 +10650,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -10908,7 +10666,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -11001,7 +10761,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -11120,7 +10880,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -12193,42 +11953,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -12252,10 +11976,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -12264,7 +11992,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -12357,7 +12087,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -12476,7 +12206,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -13549,42 +13279,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -13608,10 +13302,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -13620,7 +13318,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -13713,7 +13413,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -13832,7 +13532,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -14905,42 +14605,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -14964,10 +14628,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -14976,7 +14644,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -15069,7 +14739,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -15188,7 +14858,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -16261,42 +15931,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -16320,10 +15954,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -16332,7 +15970,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -16425,7 +16065,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -16544,7 +16184,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -17617,42 +17257,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -17676,10 +17280,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -17688,7 +17296,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -17781,7 +17391,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -17900,7 +17510,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -18973,42 +18583,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -19032,10 +18606,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -19044,7 +18622,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -19137,7 +18717,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -19256,7 +18836,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -20329,42 +19909,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -20388,10 +19932,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -20400,7 +19948,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -20493,7 +20043,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -20612,7 +20162,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
@@ -21685,42 +21235,6 @@ document.getElementById("current-character").src=this.state.current_pokemon_imag
                     "skip": "${this.state.skip_chunk == 1}",
                     "content": [
                       {
-                        "type": "lab.canvas.Screen",
-                        "content": [
-                          {
-                            "type": "i-text",
-                            "left": 0,
-                            "top": 0,
-                            "angle": 0,
-                            "width": 18.69,
-                            "height": 36.16,
-                            "stroke": null,
-                            "strokeWidth": 1,
-                            "fill": "black",
-                            "text": "+",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "fontSize": "64",
-                            "fontFamily": "sans-serif",
-                            "lineHeight": 1.16,
-                            "textAlign": "center"
-                          }
-                        ],
-                        "viewport": [
-                          800,
-                          600
-                        ],
-                        "files": {},
-                        "responses": {
-                          "": ""
-                        },
-                        "parameters": {},
-                        "messageHandlers": {},
-                        "title": "iti",
-                        "timeout": "1000",
-                        "tardy": true
-                      },
-                      {
                         "type": "lab.html.Screen",
                         "files": {},
                         "responses": {
@@ -21744,10 +21258,14 @@ this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
 
 
-if (this.parameters.stim_3_id == '2') { 
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
   this.parameters.stim_3 = this.state.stimulus_2;
 } else if (this.parameters.stim_3_id == 3) {
   this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
 };
 
 if (this.parameters.stim_4_id == 1) { 
@@ -21756,7 +21274,9 @@ if (this.parameters.stim_4_id == 1) {
   this.parameters.stim_4 = this.state.stimulus_2;
 } else if (this.parameters.stim_4_id == 3) {
   this.parameters.stim_4 = this.state.stimulus_3;
-};
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
 
 if (this.parameters.stim_5_id == 1) { 
   this.parameters.stim_5 = this.state.stimulus_1;
@@ -21849,7 +21369,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "standard_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
@@ -21968,7 +21488,5311 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         },
                         "title": "mathematical_trials",
                         "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
-                        "timeout": "30000",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 167.11,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#a8ca09",
+                            "text": "CORRECT!",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally += 1
+}
+                        },
+                        "title": "correct",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${this.state.correct == 0 || this.state.trial_time \u003E= 30000 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 126.2,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#d6341a",
+                            "text": "WRONG",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally = 0
+}
+                        },
+                        "title": "wrong",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${(this.state.correct != 0 & this.state.trial_time \u003C 30000) || this.state.correct == 1 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "Training part completed!",
+                      "content": "You got 16 correct answers in a row in the training part of this level!\u003Cbr\u003E\u003Cbr\u003EYou will now move on to the testing part. Get all 16 testing questions correct, and you move on to the next level.\u003Cbr\u003EBut be careful: if you get even one wrong, you have to start the training part all over again!\u003Cbr\u003E\u003Cbr\u003EWhen you're ready, click 'continue' to start the testing part of this level. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.phase = "Testing";
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "Trial 1 of 16";
+this.state.current_tally = 0;
+}
+                  },
+                  "title": "phase_transition",
+                  "tardy": true,
+                  "skip": "${this.state.current_tally != 16 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "",
+                      "content": "You didn’t manage to get all of the questions right in that round. You’ll go back to the training part of this level. Don’t worry - practice makes perfect! Keep trying and you will get there. When you’re ready, click on “continue” to keep going. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.testing_trial_number = 1;
+this.state.phase = "Training";
+this.state.current_tally = 0;
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "";
+
+}
+                  },
+                  "title": "return_to_training",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.testing_trial_number \u003C 17 || (this.state.testing_trial_number == 17 & this.state.current_tally \u003E 15) || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.flow.Sequence",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {},
+                  "title": "level_transition",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.current_tally \u003C 16 || this.state.skip_chunk == 1}",
+                  "content": [
+                    {
+                      "type": "lab.flow.Sequence",
+                      "files": {},
+                      "responses": {
+                        "": ""
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+document.getElementById("level-display").innerHTML = "";
+document.getElementById("trial-display").innerHTML = "";
+
+this.state.stage = ~~this.state.stage + 1;
+
+if (this.state.stage == 5) { 
+ this.state.current_pokemon_image = 'static/Bulbasaur 5.png' 
+         }
+else if (this.state.stage == 6) { 
+ this.state.current_pokemon_image = 'static/Ivysaur 6.png' 
+         }
+else if (this.state.stage == 7) { 
+ this.state.current_pokemon_image = 'static/Venusaur 7.png' 
+         }
+else if (this.state.stage == 8) { 
+ this.state.current_pokemon_image = 'static/Charmander 8.png' 
+         }
+else if (this.state.stage == 9) { 
+ this.state.current_pokemon_image = 'static/Charmeleon 9.png' 
+         }
+else if (this.state.stage == 10) { 
+ this.state.current_pokemon_image = 'static/Charizard 10.png' 
+         }
+else if (this.state.stage == 11) { 
+ this.state.current_pokemon_image = 'static/Squirtle 11.png' 
+         }
+else if (this.state.stage == 12) { 
+ this.state.current_pokemon_image = 'static/Wartortle 12.png' 
+         }
+else if (this.state.stage == 13) { 
+ this.state.current_pokemon_image = 'static/Blastoise 13.png' 
+         }
+else if (this.state.stage == 14) { 
+ this.state.current_pokemon_image = 'static/Caterpie 14.png' 
+         }
+else if (this.state.stage == 15) { 
+ this.state.current_pokemon_image = 'static/Metapod 15.png' 
+         }
+else if (this.state.stage == 16) { 
+ this.state.current_pokemon_image = 'static/Butterfree 16.png' 
+         }
+else if (this.state.stage == 17) { 
+ this.state.current_pokemon_image = 'static/Weedle 17.png' 
+         }
+else if (this.state.stage == 18) { 
+ this.state.current_pokemon_image = 'static/Kakuna 18.png' 
+         }
+else if (this.state.stage == 19) { 
+ this.state.current_pokemon_image = 'static/Beedrill 19.png' 
+         }
+else if (this.state.stage == 20) { 
+ this.state.current_pokemon_image = 'static/Pidgey 20.png' 
+         }
+else if (this.state.stage == 21) { 
+ this.state.current_pokemon_image = 'static/Pidgeotto 21.png' 
+         }
+else if (this.state.stage == 22) { 
+ this.state.current_pokemon_image = 'static/Pidgeot 22.png' 
+         }
+else if (this.state.stage == 23) { 
+ this.state.current_pokemon_image = 'static/Rattata 23.png' 
+         }
+else if (this.state.stage == 24) { 
+ this.state.current_pokemon_image = 'static/Raticate 24.png' 
+         }
+else if (this.state.stage == 25) { 
+ this.state.current_pokemon_image = 'static/Pikachu 25.png' 
+         }
+else if (this.state.stage == 26) { 
+ this.state.current_pokemon_image = 'static/Raichu 26.png' 
+         }
+else if (this.state.stage == 27) { 
+ this.state.current_pokemon_image = 'static/Sandshrew 27.png' 
+         }
+else if (this.state.stage == 28) { 
+ this.state.current_pokemon_image = 'static/Sandslash 28.png' 
+         }
+else if (this.state.stage == 29) { 
+ this.state.current_pokemon_image = 'static/Articuno 29.png' 
+         }
+else if (this.state.stage == 30) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Female 30.png' 
+         }
+else if (this.state.stage == 31) { 
+ this.state.current_pokemon_image = 'static/Nidorina 31.png' 
+         }
+else if (this.state.stage == 32) { 
+ this.state.current_pokemon_image = 'static/Nidoqueen 32.png' 
+         }
+else if (this.state.stage == 33) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Male 33.png' 
+         }
+else if (this.state.stage == 34) { 
+ this.state.current_pokemon_image = 'static/Nidorino 34.png' 
+         }
+else if (this.state.stage == 35) { 
+ this.state.current_pokemon_image = 'static/Nidoking 35.png' 
+         }
+else if (this.state.stage == 36) { 
+ this.state.current_pokemon_image = 'static/Clefairy 36.png' 
+         }
+else if (this.state.stage == 37) { 
+ this.state.current_pokemon_image = 'static/Clefable 37.png' 
+         }
+else if (this.state.stage == 38) { 
+ this.state.current_pokemon_image = 'static/Vulpix 38.png' 
+         }
+else if (this.state.stage == 39) { 
+ this.state.current_pokemon_image = 'static/Ninetales 39.png' 
+         }
+else if (this.state.stage == 40) { 
+ this.state.current_pokemon_image = 'static/Jigglypuff 40.png' 
+         }
+else if (this.state.stage == 41) { 
+ this.state.current_pokemon_image = 'static/Wigglytuff 41.png' 
+         }
+else if (this.state.stage == 42) { 
+ this.state.current_pokemon_image = 'static/Zubat 42.png' 
+         }
+else if (this.state.stage == 43) { 
+ this.state.current_pokemon_image = 'static/Golbat 43.png' 
+         }
+else if (this.state.stage == 44) { 
+ this.state.current_pokemon_image = 'static/Oddish 44.png' 
+         }
+else if (this.state.stage == 45) { 
+ this.state.current_pokemon_image = 'static/Gloom 45.png' 
+         }
+else if (this.state.stage == 46) { 
+ this.state.current_pokemon_image = 'static/Vileplume 46.png' 
+         }
+else if (this.state.stage == 47) { 
+ this.state.current_pokemon_image = 'static/Meowth 47.png' 
+         }
+else if (this.state.stage == 48) { 
+ this.state.current_pokemon_image = 'static/Persian 48.png' 
+         }
+else if (this.state.stage == 49) { 
+ this.state.current_pokemon_image = 'static/Psyduck 49.png' 
+         }
+else if (this.state.stage == 50) { 
+ this.state.current_pokemon_image = 'static/Golduck 50.png' 
+         }
+else if (this.state.stage == 51) { 
+ this.state.current_pokemon_image = 'static/Mankey 51.png' 
+         }
+else if (this.state.stage == 52) { 
+ this.state.current_pokemon_image = 'static/Primeape 52.png' 
+         }
+else if (this.state.stage == 53) { 
+ this.state.current_pokemon_image = 'static/Growlithe 53.png' 
+         }
+else if (this.state.stage == 54) { 
+ this.state.current_pokemon_image = 'static/Arcanine 54.png' 
+         }
+else if (this.state.stage == 55) { 
+ this.state.current_pokemon_image = 'static/Zapdos 55.png' 
+         }
+else if (this.state.stage == 56) { 
+ this.state.current_pokemon_image = 'static/Poliwag 56.png' 
+         }
+else if (this.state.stage == 57) { 
+ this.state.current_pokemon_image = 'static/Poliwhirl 57.png' 
+         }
+else if (this.state.stage == 58) { 
+ this.state.current_pokemon_image = 'static/Poliwrath 58.png' 
+         }
+else if (this.state.stage == 59) { 
+ this.state.current_pokemon_image = 'static/Abra 59.png' 
+         }
+else if (this.state.stage == 60) { 
+ this.state.current_pokemon_image = 'static/Kadabra 60.png' 
+         }
+else if (this.state.stage == 61) { 
+ this.state.current_pokemon_image = 'static/Alakazam 61.png' 
+         }
+else if (this.state.stage == 62) { 
+ this.state.current_pokemon_image = 'static/Machop 62.png' 
+         }
+else if (this.state.stage == 63) { 
+ this.state.current_pokemon_image = 'static/Machoke 63.png' 
+         }
+else if (this.state.stage == 64) { 
+ this.state.current_pokemon_image = 'static/Machamp 64.png' 
+         }
+else if (this.state.stage == 65) { 
+ this.state.current_pokemon_image = 'static/Bellsprout 65.png' 
+         }
+else if (this.state.stage == 66) { 
+ this.state.current_pokemon_image = 'static/Weepinbell 66.png' 
+         }
+else if (this.state.stage == 67) { 
+ this.state.current_pokemon_image = 'static/Victreebel 67.png' 
+         }
+else if (this.state.stage == 68) { 
+ this.state.current_pokemon_image = 'static/Tentacool 68.png' 
+         }
+else if (this.state.stage == 69) { 
+ this.state.current_pokemon_image = 'static/Tentacruel 69.png' 
+         }
+else if (this.state.stage == 70) { 
+ this.state.current_pokemon_image = 'static/Geodude 70.png' 
+         }
+else if (this.state.stage == 71) { 
+ this.state.current_pokemon_image = 'static/Graveler 71.png' 
+         }
+else if (this.state.stage == 72) { 
+ this.state.current_pokemon_image = 'static/Golem 72.png' 
+         }
+else if (this.state.stage == 73) { 
+ this.state.current_pokemon_image = 'static/Ponyta 73.png' 
+         }
+else if (this.state.stage == 74) { 
+ this.state.current_pokemon_image = 'static/Rapidash 74.png' 
+         }
+else if (this.state.stage == 75) { 
+ this.state.current_pokemon_image = 'static/Slowpoke 75.png' 
+         }
+else if (this.state.stage == 76) { 
+ this.state.current_pokemon_image = 'static/Slowbro 76.png' 
+         }
+else if (this.state.stage == 77) { 
+ this.state.current_pokemon_image = 'static/Magnemite 77.png' 
+         }
+else if (this.state.stage == 78) { 
+ this.state.current_pokemon_image = 'static/Magneton 78.png' 
+         }
+else if (this.state.stage == 79) { 
+ this.state.current_pokemon_image = 'static/Doduo 79.png' 
+         }
+else if (this.state.stage == 80) { 
+ this.state.current_pokemon_image = 'static/Dodrio 80.png' 
+         }
+else if (this.state.stage == 81) { 
+ this.state.current_pokemon_image = 'static/Moltres 81.png' 
+         }
+else if (this.state.stage == 82) { 
+ this.state.current_pokemon_image = 'static/Farfetchd 82.png' 
+         }
+else if (this.state.stage == 83) { 
+ this.state.current_pokemon_image = 'static/Seel 83.png' 
+         }
+else if (this.state.stage == 84) { 
+ this.state.current_pokemon_image = 'static/Dewgong 84.png' 
+         }
+else if (this.state.stage == 85) { 
+ this.state.current_pokemon_image = 'static/Grimer 85.png' 
+         }
+else if (this.state.stage == 86) { 
+ this.state.current_pokemon_image = 'static/Muk 86.png' 
+         }
+else if (this.state.stage == 87) { 
+ this.state.current_pokemon_image = 'static/Shellder 87.png' 
+         }
+else if (this.state.stage == 88) { 
+ this.state.current_pokemon_image = 'static/Cloyster 88.png' 
+         }
+else if (this.state.stage == 89) { 
+ this.state.current_pokemon_image = 'static/Gastly 89.png' 
+         }
+else if (this.state.stage == 90) { 
+ this.state.current_pokemon_image = 'static/Haunter 90.png' 
+         }
+else if (this.state.stage == 91) { 
+ this.state.current_pokemon_image = 'static/Gengar 91.png' 
+         }
+else if (this.state.stage == 92) { 
+ this.state.current_pokemon_image = 'static/Onix 92.png' 
+         }
+else if (this.state.stage == 93) { 
+ this.state.current_pokemon_image = 'static/Drowzee 93.png' 
+         }
+else if (this.state.stage == 94) { 
+ this.state.current_pokemon_image = 'static/Hypno 94.png' 
+         }
+else if (this.state.stage == 95) { 
+ this.state.current_pokemon_image = 'static/Krabby 95.png' 
+         }
+else if (this.state.stage == 96) { 
+ this.state.current_pokemon_image = 'static/Kingler 96.png' 
+         }
+else if (this.state.stage == 97) { 
+ this.state.current_pokemon_image = 'static/Voltorb 97.png' 
+         }
+else if (this.state.stage == 98) { 
+ this.state.current_pokemon_image = 'static/Electrode 98.png' 
+         }
+else if (this.state.stage == 99) { 
+ this.state.current_pokemon_image = 'static/Hitmonlee 99.png' 
+         }
+else if (this.state.stage == 100) { 
+ this.state.current_pokemon_image = 'static/Hitmonchan 100.png' 
+         }
+else if (this.state.stage == 101) { 
+ this.state.current_pokemon_image = 'static/Rhyhorn 101.png' 
+         }
+else if (this.state.stage == 102) { 
+ this.state.current_pokemon_image = 'static/Rhydon 102.png' 
+         }
+else if (this.state.stage == 103) { 
+ this.state.current_pokemon_image = 'static/Mewtwo 103.png' 
+         }
+else if (this.state.stage == 104) { 
+ this.state.current_pokemon_image = 'static/Lickitung 104.png' 
+         }
+else if (this.state.stage == 105) { 
+ this.state.current_pokemon_image = 'static/Chansey 105.png' 
+         }
+else if (this.state.stage == 106) { 
+ this.state.current_pokemon_image = 'static/Kangaskhan 106.png' 
+         }
+else if (this.state.stage == 107) { 
+ this.state.current_pokemon_image = 'static/Horsea 107.png' 
+         }
+else if (this.state.stage == 108) { 
+ this.state.current_pokemon_image = 'static/Seadra 108.png' 
+         }
+else if (this.state.stage == 109) { 
+ this.state.current_pokemon_image = 'static/Staryu 109.png' 
+         }
+else if (this.state.stage == 110) { 
+ this.state.current_pokemon_image = 'static/Starmie 110.png' 
+         }
+else if (this.state.stage == 111) { 
+ this.state.current_pokemon_image = 'static/Scyther 111.png' 
+         }
+else if (this.state.stage == 112) { 
+ this.state.current_pokemon_image = 'static/Tauros 112.png' 
+         }
+else if (this.state.stage == 113) { 
+ this.state.current_pokemon_image = 'static/Magikarp 113.png' 
+         }
+else if (this.state.stage == 114) { 
+ this.state.current_pokemon_image = 'static/Gyarados 114.png' 
+         }
+else if (this.state.stage == 115) { 
+ this.state.current_pokemon_image = 'static/Eevee 115.png' 
+         }
+else if (this.state.stage == 116) { 
+ this.state.current_pokemon_image = 'static/Aerodactyl 116.png' 
+         }
+else if (this.state.stage == 117) { 
+ this.state.current_pokemon_image = 'static/Snorlax 117.png' 
+         }
+else if (this.state.stage == 118) { 
+ this.state.current_pokemon_image = 'static/Dratini 118.png' 
+         }
+else if (this.state.stage == 119) { 
+ this.state.current_pokemon_image = 'static/Dragonair 119.png' 
+         }
+else if (this.state.stage == 120) { 
+ this.state.current_pokemon_image = 'static/Dragonite 120.png' 
+         }
+else if (this.state.stage == 121) { 
+ this.state.current_pokemon_image = 'static/Lapras 121.png' 
+         }
+else if (this.state.stage == 122) { 
+ this.state.current_pokemon_image = 'static/Mew 122.png' 
+         }
+
+
+// get Pokemon's name 
+this.state.current_pokemon_name = this.state.current_pokemon_image.split(' ').shift().split('/').pop();
+}
+                      },
+                      "title": "New Pokemon",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}",
+                      "content": [
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "intro",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "3",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "3",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "2",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "2",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "1",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "1",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 8.89,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "!",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "wait",
+                          "timeout": "2000"
+                        },
+                        {
+                          "type": "lab.html.Screen",
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "reveal!",
+                          "content": "\u003Cmain\u003E\n\n\u003Cimg src=\"${this.state.current_pokemon_image}\" height=\"250px\" width=\"250px\"\u003E\n\u003Ch1\u003E ${this.state.current_pokemon_name}! \u003C\u002Fh1\u003E\n\n\u003C\u002Fmain\u003E",
+                          "timeout": "10000",
+                          "tardy": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "lab.html.Screen",
+                      "files": {},
+                      "responses": {
+                        "mousedown button#continue": "continue"
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+this.state.skip_chunk = 1
+}
+                      },
+                      "title": "next_stage",
+                      "content": "\u003Cmain\u003E \n  \u003Cdiv class=\"introduction-central-container\"\u003E\n\n    \u003Cdiv\u003E\n    \u003Cimg src=\"static\u002Fprofessor.jpeg\"\u003E\n    \u003C\u002Fdiv\u003E\n\n    \u003Cdiv\u003E\n\n      \u003Cdiv\u003E\n      \u003Cp\u003E You just unlocked a new stage - great job! Now you have ${this.state.current_pokemon_name} by your side for the next level. Exciting!\u003Cbr\u003E\u003Cbr\u003EFeel free to take a few seconds as a break, and when you're ready,\u003Cbr\u003Eclick \"Continue\" to move on to the next level. Good luck to you both!\u003C\u002Fp\u003E\u003C\u002Fdiv\u003E\n      \u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\n      \u003Cbutton id=\"continue\"\u003EContinue\u003C\u002Fbutton\u003E\n\n    \u003C\u002Fdiv\u003E\n\n  \u003C\u002Fdiv\u003E\n\u003C\u002Fmain\u003E",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "lab.html.Page",
+            "items": [
+              {
+                "type": "text"
+              }
+            ],
+            "scrollTop": true,
+            "submitButtonText": "Continue →",
+            "submitButtonPosition": "hidden",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+this.state.skip_chunk = 0
+this.state.phase = "Training"
+this.state.testing_trial_number = 1
+this.state.current_tally = 0
+this.state.stage = (Number(this.state.stage) + 1).toString()
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+}
+            },
+            "title": "skip_chunk_reset",
+            "skip": "${this.state.skip_chunk == 0}",
+            "tardy": true,
+            "timeout": "1000"
+          },
+          {
+            "type": "lab.flow.Loop",
+            "templateParameters": [],
+            "sample": {
+              "mode": "draw-shuffle",
+              "n": "200"
+            },
+            "files": {
+              "stage_5.csv": "embedded\u002Fbf5cd0b1a80923bdb06069b9f2500967ae66845e2586046e12de7681017f8e82.csv",
+              "stage_118.csv": "embedded\u002Fb63062f65b4cd3ae94899aa25daf1ae670f0b4af11ddc7e455828b8cd151e5c7.csv",
+              "stage_10.csv": "embedded\u002F687d3f4e9a518dff10b23ec3a9a3246e56ef9293e267668a20916a3b0c41f7ba.csv",
+              "stage_11.csv": "embedded\u002F5711cf764bd9767fb4af2018d440a7c1c908002d8eba71a4da850298fa10011a.csv"
+            },
+            "responses": {},
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": async function anonymous(
+) {
+this.state.url_text = "https://www.drjamiecummins.com/school-rct/st-pauls/trials/stage_";
+this.state.file_type = ".csv";
+
+
+this.state.url = this.state.url_text.concat(this.state.stage, this.state.file_type)
+
+var csv2json = await new Promise((resolve, reject) => {
+  Papa.parse(this.state.url, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(result) {
+      resolve(result.data);
+    }
+  })
+})
+console.log(csv2json)
+this.options.templateParameters = csv2json
+
+
+
+
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+
+this.state.current_tally = 0
+this.state.testing_trial_number = 1
+this.state.phase = "Training"
+
+
+}
+            },
+            "title": "trial_chunk",
+            "tardy": true,
+            "skip": "${this.state.skip_chunk == 1}",
+            "shuffleGroups": [],
+            "template": {
+              "type": "lab.flow.Sequence",
+              "files": {},
+              "responses": {
+                "": ""
+              },
+              "parameters": {},
+              "messageHandlers": {},
+              "title": "trials-and-breaks",
+              "tardy": true,
+              "skip": "${this.state.skip_chunk == 1}",
+              "content": [
+                {
+                  "type": "lab.html.Frame",
+                  "contextSelector": "[data-labjs-section=\"frame\"]",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+if (this.state.first_trial == 1) {
+document.getElementById("pokemon-motivation").innerHTML = "Let's get started - you've got this!";
+};
+
+
+if (this.state.phase == "Training") {
+  document.getElementById("trial-display").innerHTML = this.state.current_tally + " of 16 correct";
+} else if (this.state.phase == "Testing") {
+  document.getElementById("trial-display").innerHTML = "Trial " + this.state.testing_trial_number + " of 16";
+}
+
+var pieChart = document.getElementById('timer-circle');
+pieChart.width = pieChart.height = 100;
+
+var counter = document.createElement("p");
+
+
+var ctx = pieChart.getContext('2d');
+var secondsPassed = 0;
+
+interval = setInterval(function() {
+  ctx.clearRect(0, 0, pieChart.width, pieChart.height);
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, 0, Math.PI*2);
+  ctx.fillStyle = '#03879E';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, -Math.PI/2, (-Math.PI/2) + Math.PI*2*secondsPassed/30);
+  ctx.fillStyle = '#00ADEF';
+  ctx.fill();
+  ctx.font = "30px Verdana";
+  ctx.fillStyle = "white";
+  secondsPassed++;
+}, 1000);
+
+
+time_left = 30;
+trialTimer = setInterval(function(){
+  if(time_left <= 9){
+    ctx.fillText(Math.trunc(time_left), 40, 60);
+  } else {
+    ctx.fillText(Math.trunc(time_left), 31, 60);
+  }
+  time_left -= 1;
+}, 1000);
+
+
+// motivational speech items
+motivations = ['The more we practice, the better we get!',
+              'The bigger the challenge, the bigger the victory!',
+              'The best way to learn is to make mistakes!',
+              'I know that we can do this together!',
+              'This can sometimes be tough - but we can do it!',
+              'Hard work will always pay off!',
+              'Stay focused - we can do this!',
+              'I wonder what Pokémon you’ll find next…',
+              'Just 30 minutes of practice - easy peasy!',
+              'You’re doing great - I’m proud of you!',
+              'Even if you get stuck, just keep trying - you’ll get it!',
+              'My favourite feeling is making progress after getting stuck for a while!',
+              'If you complete an especially hard level, you can unlock a legendary Pokémon…',
+              'Practice makes perfect!',
+              'Every question you answer helps, even if you get it wrong!',
+              'Practice can sometimes be boring - but it always pays off!',
+              'Someone told me there are over 100 Pokémon to find in this training...',
+              'I wonder does Professor SMART ever do his own training...',
+              'I bet Professor SMART got so smart because he did this training!',
+              'If you are getting really stuck on a level, ask your teacher for help!',
+              'Over 1000 children in Ireland are using SMART...that is a lot!',
+              'The 30 second countdown keeps you on your toes!',
+              'The training can be frustrating, but it can be fun too!',
+              'Try to treat the training like a puzzle that you can solve!',
+              'Focus on getting the answers right - do not worry if you are slow!',
+              'You will get faster and faster with more practice!',
+              'If you are finding it easy, try to go faster!',
+              'The training is designed to make you smarter - so do not worry if you do not feel smart at the start!',
+              'Remember, getting answers wrong is how you learn!',
+              'Try answer the questions in your head - do not write anything down!',
+              'Training many times over a few weeks makes the training even more powerful!',
+              'It is better to be right than to be fast - speed comes with practice!',
+              'Try to push yourself a little bit more in every new session!',
+              'Shortcuts will not make you smarter - solving the problems with hard work will!',
+              'Easy, medium, hard, it does not matter - every question you answer helps you!',
+              'Getting better can take time - be patient and never give up!',
+              'How do you catch a squirrel?<br>Climb up a tree and act like a nut!',
+              'What appears over Professor SMART\'s head when he gets an idea? A LightBulbasaur!',
+              'What’s better than one Pikachu?<br>PikaTWO!',
+              'I believe in you!',
+              'You can do it - keep pushing!',
+              'Be proud of yourself for working hard!',
+              'Sometimes you will pass many levels, other times you will not - but it is all practice!',
+              'Practice is always valuable!']
+
+
+
+
+},
+                    "after:end": function anonymous(
+) {
+clearInterval(interval)
+clearInterval(trialTimer)
+
+this.state.first_trial = 0;
+}
+                  },
+                  "title": "whole-trial-frame",
+                  "tardy": true,
+                  "skip": "${this.state.skip_chunk == 1}",
+                  "content": {
+                    "type": "lab.flow.Sequence",
+                    "files": {},
+                    "responses": {
+                      "": ""
+                    },
+                    "parameters": {},
+                    "messageHandlers": {
+                      "run": function anonymous(
+) {
+document.getElementById("current-character").src=this.state.current_pokemon_image;
+}
+                    },
+                    "title": "trial_sequence",
+                    "tardy": true,
+                    "skip": "${this.state.skip_chunk == 1}",
+                    "content": [
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+
+if (this.parameters.stage <= 55) {
+  this.parameters.q_word = "Is";
+} else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
+  this.parameters.q_word = "Does";
+};
+  
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+
+
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
+  this.parameters.stim_3 = this.state.stimulus_2;
+} else if (this.parameters.stim_3_id == 3) {
+  this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_4_id == 1) { 
+  this.parameters.stim_4 = this.state.stimulus_1;
+} else if (this.parameters.stim_4_id == 2) {
+  this.parameters.stim_4 = this.state.stimulus_2;
+} else if (this.parameters.stim_4_id == 3) {
+  this.parameters.stim_4 = this.state.stimulus_3;
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
+
+if (this.parameters.stim_5_id == 1) { 
+  this.parameters.stim_5 = this.state.stimulus_1;
+} else if (this.parameters.stim_5_id == 2) {
+  this.parameters.stim_5 = this.state.stimulus_2;
+} else if (this.parameters.stim_5_id == 3) { 
+  this.parameters.stim_5 = this.state.stimulus_3;
+} else if (this.parameters.stim_5_id == 4) {
+  this.parameters.stim_5 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_6_id == 1) { 
+  this.parameters.stim_6 = this.state.stimulus_1;
+} else if (this.parameters.stim_6_id == 2) {
+  this.parameters.stim_6 = this.state.stimulus_2;
+} else if (this.parameters.stim_6_id == 3) { 
+  this.parameters.stim_6 = this.state.stimulus_3;
+} else if (this.parameters.stim_6_id == 4) {
+  this.parameters.stim_6 = this.state.stimulus_4;
+}
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+} 
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+} 
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+if (this.state.phase == "Testing" & this.state.correct == true) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" & this.state.correct == false) {
+  this.state.current_tally = 0;
+};
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+
+}
+                        },
+                        "title": "standard_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                      },
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.stim_3 = this.state.stimulus_3
+this.parameters.stim_4 = this.state.stimulus_4
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+this.parameters.q_stim_3 = this.state.stimulus_3
+this.parameters.q_stim_4 = this.state.stimulus_4
+
+if (this.parameters.meta_stim_1_id == 1) { 
+  this.parameters.meta_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_1_id == 2) {
+  this.parameters.meta_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_1_id == 3) {
+  this.parameters.meta_stim_1 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_1_id == 4) {
+  this.parameters.meta_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.meta_stim_2_id == 1) { 
+  this.parameters.meta_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_2_id == 2) {
+  this.parameters.meta_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_2_id == 3) {
+  this.parameters.meta_stim_2 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_2_id == 4) {
+  this.parameters.meta_stim_2 = this.state.stimulus_4;
+};
+
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+};
+
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+
+if (this.state.phase == "Testing" && this.state.correct == 1) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" && this.state.correct == 0) {
+  this.state.current_tally = 0
+}
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+}
+                        },
+                        "title": "mathematical_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 167.11,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#a8ca09",
+                            "text": "CORRECT!",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally += 1
+}
+                        },
+                        "title": "correct",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${this.state.correct == 0 || this.state.trial_time \u003E= 30000 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 126.2,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#d6341a",
+                            "text": "WRONG",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally = 0
+}
+                        },
+                        "title": "wrong",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${(this.state.correct != 0 & this.state.trial_time \u003C 30000) || this.state.correct == 1 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "Training part completed!",
+                      "content": "You got 16 correct answers in a row in the training part of this level!\u003Cbr\u003E\u003Cbr\u003EYou will now move on to the testing part. Get all 16 testing questions correct, and you move on to the next level.\u003Cbr\u003EBut be careful: if you get even one wrong, you have to start the training part all over again!\u003Cbr\u003E\u003Cbr\u003EWhen you're ready, click 'continue' to start the testing part of this level. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.phase = "Testing";
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "Trial 1 of 16";
+this.state.current_tally = 0;
+}
+                  },
+                  "title": "phase_transition",
+                  "tardy": true,
+                  "skip": "${this.state.current_tally != 16 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "",
+                      "content": "You didn’t manage to get all of the questions right in that round. You’ll go back to the training part of this level. Don’t worry - practice makes perfect! Keep trying and you will get there. When you’re ready, click on “continue” to keep going. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.testing_trial_number = 1;
+this.state.phase = "Training";
+this.state.current_tally = 0;
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "";
+
+}
+                  },
+                  "title": "return_to_training",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.testing_trial_number \u003C 17 || (this.state.testing_trial_number == 17 & this.state.current_tally \u003E 15) || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.flow.Sequence",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {},
+                  "title": "level_transition",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.current_tally \u003C 16 || this.state.skip_chunk == 1}",
+                  "content": [
+                    {
+                      "type": "lab.flow.Sequence",
+                      "files": {},
+                      "responses": {
+                        "": ""
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+document.getElementById("level-display").innerHTML = "";
+document.getElementById("trial-display").innerHTML = "";
+
+this.state.stage = ~~this.state.stage + 1;
+
+if (this.state.stage == 5) { 
+ this.state.current_pokemon_image = 'static/Bulbasaur 5.png' 
+         }
+else if (this.state.stage == 6) { 
+ this.state.current_pokemon_image = 'static/Ivysaur 6.png' 
+         }
+else if (this.state.stage == 7) { 
+ this.state.current_pokemon_image = 'static/Venusaur 7.png' 
+         }
+else if (this.state.stage == 8) { 
+ this.state.current_pokemon_image = 'static/Charmander 8.png' 
+         }
+else if (this.state.stage == 9) { 
+ this.state.current_pokemon_image = 'static/Charmeleon 9.png' 
+         }
+else if (this.state.stage == 10) { 
+ this.state.current_pokemon_image = 'static/Charizard 10.png' 
+         }
+else if (this.state.stage == 11) { 
+ this.state.current_pokemon_image = 'static/Squirtle 11.png' 
+         }
+else if (this.state.stage == 12) { 
+ this.state.current_pokemon_image = 'static/Wartortle 12.png' 
+         }
+else if (this.state.stage == 13) { 
+ this.state.current_pokemon_image = 'static/Blastoise 13.png' 
+         }
+else if (this.state.stage == 14) { 
+ this.state.current_pokemon_image = 'static/Caterpie 14.png' 
+         }
+else if (this.state.stage == 15) { 
+ this.state.current_pokemon_image = 'static/Metapod 15.png' 
+         }
+else if (this.state.stage == 16) { 
+ this.state.current_pokemon_image = 'static/Butterfree 16.png' 
+         }
+else if (this.state.stage == 17) { 
+ this.state.current_pokemon_image = 'static/Weedle 17.png' 
+         }
+else if (this.state.stage == 18) { 
+ this.state.current_pokemon_image = 'static/Kakuna 18.png' 
+         }
+else if (this.state.stage == 19) { 
+ this.state.current_pokemon_image = 'static/Beedrill 19.png' 
+         }
+else if (this.state.stage == 20) { 
+ this.state.current_pokemon_image = 'static/Pidgey 20.png' 
+         }
+else if (this.state.stage == 21) { 
+ this.state.current_pokemon_image = 'static/Pidgeotto 21.png' 
+         }
+else if (this.state.stage == 22) { 
+ this.state.current_pokemon_image = 'static/Pidgeot 22.png' 
+         }
+else if (this.state.stage == 23) { 
+ this.state.current_pokemon_image = 'static/Rattata 23.png' 
+         }
+else if (this.state.stage == 24) { 
+ this.state.current_pokemon_image = 'static/Raticate 24.png' 
+         }
+else if (this.state.stage == 25) { 
+ this.state.current_pokemon_image = 'static/Pikachu 25.png' 
+         }
+else if (this.state.stage == 26) { 
+ this.state.current_pokemon_image = 'static/Raichu 26.png' 
+         }
+else if (this.state.stage == 27) { 
+ this.state.current_pokemon_image = 'static/Sandshrew 27.png' 
+         }
+else if (this.state.stage == 28) { 
+ this.state.current_pokemon_image = 'static/Sandslash 28.png' 
+         }
+else if (this.state.stage == 29) { 
+ this.state.current_pokemon_image = 'static/Articuno 29.png' 
+         }
+else if (this.state.stage == 30) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Female 30.png' 
+         }
+else if (this.state.stage == 31) { 
+ this.state.current_pokemon_image = 'static/Nidorina 31.png' 
+         }
+else if (this.state.stage == 32) { 
+ this.state.current_pokemon_image = 'static/Nidoqueen 32.png' 
+         }
+else if (this.state.stage == 33) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Male 33.png' 
+         }
+else if (this.state.stage == 34) { 
+ this.state.current_pokemon_image = 'static/Nidorino 34.png' 
+         }
+else if (this.state.stage == 35) { 
+ this.state.current_pokemon_image = 'static/Nidoking 35.png' 
+         }
+else if (this.state.stage == 36) { 
+ this.state.current_pokemon_image = 'static/Clefairy 36.png' 
+         }
+else if (this.state.stage == 37) { 
+ this.state.current_pokemon_image = 'static/Clefable 37.png' 
+         }
+else if (this.state.stage == 38) { 
+ this.state.current_pokemon_image = 'static/Vulpix 38.png' 
+         }
+else if (this.state.stage == 39) { 
+ this.state.current_pokemon_image = 'static/Ninetales 39.png' 
+         }
+else if (this.state.stage == 40) { 
+ this.state.current_pokemon_image = 'static/Jigglypuff 40.png' 
+         }
+else if (this.state.stage == 41) { 
+ this.state.current_pokemon_image = 'static/Wigglytuff 41.png' 
+         }
+else if (this.state.stage == 42) { 
+ this.state.current_pokemon_image = 'static/Zubat 42.png' 
+         }
+else if (this.state.stage == 43) { 
+ this.state.current_pokemon_image = 'static/Golbat 43.png' 
+         }
+else if (this.state.stage == 44) { 
+ this.state.current_pokemon_image = 'static/Oddish 44.png' 
+         }
+else if (this.state.stage == 45) { 
+ this.state.current_pokemon_image = 'static/Gloom 45.png' 
+         }
+else if (this.state.stage == 46) { 
+ this.state.current_pokemon_image = 'static/Vileplume 46.png' 
+         }
+else if (this.state.stage == 47) { 
+ this.state.current_pokemon_image = 'static/Meowth 47.png' 
+         }
+else if (this.state.stage == 48) { 
+ this.state.current_pokemon_image = 'static/Persian 48.png' 
+         }
+else if (this.state.stage == 49) { 
+ this.state.current_pokemon_image = 'static/Psyduck 49.png' 
+         }
+else if (this.state.stage == 50) { 
+ this.state.current_pokemon_image = 'static/Golduck 50.png' 
+         }
+else if (this.state.stage == 51) { 
+ this.state.current_pokemon_image = 'static/Mankey 51.png' 
+         }
+else if (this.state.stage == 52) { 
+ this.state.current_pokemon_image = 'static/Primeape 52.png' 
+         }
+else if (this.state.stage == 53) { 
+ this.state.current_pokemon_image = 'static/Growlithe 53.png' 
+         }
+else if (this.state.stage == 54) { 
+ this.state.current_pokemon_image = 'static/Arcanine 54.png' 
+         }
+else if (this.state.stage == 55) { 
+ this.state.current_pokemon_image = 'static/Zapdos 55.png' 
+         }
+else if (this.state.stage == 56) { 
+ this.state.current_pokemon_image = 'static/Poliwag 56.png' 
+         }
+else if (this.state.stage == 57) { 
+ this.state.current_pokemon_image = 'static/Poliwhirl 57.png' 
+         }
+else if (this.state.stage == 58) { 
+ this.state.current_pokemon_image = 'static/Poliwrath 58.png' 
+         }
+else if (this.state.stage == 59) { 
+ this.state.current_pokemon_image = 'static/Abra 59.png' 
+         }
+else if (this.state.stage == 60) { 
+ this.state.current_pokemon_image = 'static/Kadabra 60.png' 
+         }
+else if (this.state.stage == 61) { 
+ this.state.current_pokemon_image = 'static/Alakazam 61.png' 
+         }
+else if (this.state.stage == 62) { 
+ this.state.current_pokemon_image = 'static/Machop 62.png' 
+         }
+else if (this.state.stage == 63) { 
+ this.state.current_pokemon_image = 'static/Machoke 63.png' 
+         }
+else if (this.state.stage == 64) { 
+ this.state.current_pokemon_image = 'static/Machamp 64.png' 
+         }
+else if (this.state.stage == 65) { 
+ this.state.current_pokemon_image = 'static/Bellsprout 65.png' 
+         }
+else if (this.state.stage == 66) { 
+ this.state.current_pokemon_image = 'static/Weepinbell 66.png' 
+         }
+else if (this.state.stage == 67) { 
+ this.state.current_pokemon_image = 'static/Victreebel 67.png' 
+         }
+else if (this.state.stage == 68) { 
+ this.state.current_pokemon_image = 'static/Tentacool 68.png' 
+         }
+else if (this.state.stage == 69) { 
+ this.state.current_pokemon_image = 'static/Tentacruel 69.png' 
+         }
+else if (this.state.stage == 70) { 
+ this.state.current_pokemon_image = 'static/Geodude 70.png' 
+         }
+else if (this.state.stage == 71) { 
+ this.state.current_pokemon_image = 'static/Graveler 71.png' 
+         }
+else if (this.state.stage == 72) { 
+ this.state.current_pokemon_image = 'static/Golem 72.png' 
+         }
+else if (this.state.stage == 73) { 
+ this.state.current_pokemon_image = 'static/Ponyta 73.png' 
+         }
+else if (this.state.stage == 74) { 
+ this.state.current_pokemon_image = 'static/Rapidash 74.png' 
+         }
+else if (this.state.stage == 75) { 
+ this.state.current_pokemon_image = 'static/Slowpoke 75.png' 
+         }
+else if (this.state.stage == 76) { 
+ this.state.current_pokemon_image = 'static/Slowbro 76.png' 
+         }
+else if (this.state.stage == 77) { 
+ this.state.current_pokemon_image = 'static/Magnemite 77.png' 
+         }
+else if (this.state.stage == 78) { 
+ this.state.current_pokemon_image = 'static/Magneton 78.png' 
+         }
+else if (this.state.stage == 79) { 
+ this.state.current_pokemon_image = 'static/Doduo 79.png' 
+         }
+else if (this.state.stage == 80) { 
+ this.state.current_pokemon_image = 'static/Dodrio 80.png' 
+         }
+else if (this.state.stage == 81) { 
+ this.state.current_pokemon_image = 'static/Moltres 81.png' 
+         }
+else if (this.state.stage == 82) { 
+ this.state.current_pokemon_image = 'static/Farfetchd 82.png' 
+         }
+else if (this.state.stage == 83) { 
+ this.state.current_pokemon_image = 'static/Seel 83.png' 
+         }
+else if (this.state.stage == 84) { 
+ this.state.current_pokemon_image = 'static/Dewgong 84.png' 
+         }
+else if (this.state.stage == 85) { 
+ this.state.current_pokemon_image = 'static/Grimer 85.png' 
+         }
+else if (this.state.stage == 86) { 
+ this.state.current_pokemon_image = 'static/Muk 86.png' 
+         }
+else if (this.state.stage == 87) { 
+ this.state.current_pokemon_image = 'static/Shellder 87.png' 
+         }
+else if (this.state.stage == 88) { 
+ this.state.current_pokemon_image = 'static/Cloyster 88.png' 
+         }
+else if (this.state.stage == 89) { 
+ this.state.current_pokemon_image = 'static/Gastly 89.png' 
+         }
+else if (this.state.stage == 90) { 
+ this.state.current_pokemon_image = 'static/Haunter 90.png' 
+         }
+else if (this.state.stage == 91) { 
+ this.state.current_pokemon_image = 'static/Gengar 91.png' 
+         }
+else if (this.state.stage == 92) { 
+ this.state.current_pokemon_image = 'static/Onix 92.png' 
+         }
+else if (this.state.stage == 93) { 
+ this.state.current_pokemon_image = 'static/Drowzee 93.png' 
+         }
+else if (this.state.stage == 94) { 
+ this.state.current_pokemon_image = 'static/Hypno 94.png' 
+         }
+else if (this.state.stage == 95) { 
+ this.state.current_pokemon_image = 'static/Krabby 95.png' 
+         }
+else if (this.state.stage == 96) { 
+ this.state.current_pokemon_image = 'static/Kingler 96.png' 
+         }
+else if (this.state.stage == 97) { 
+ this.state.current_pokemon_image = 'static/Voltorb 97.png' 
+         }
+else if (this.state.stage == 98) { 
+ this.state.current_pokemon_image = 'static/Electrode 98.png' 
+         }
+else if (this.state.stage == 99) { 
+ this.state.current_pokemon_image = 'static/Hitmonlee 99.png' 
+         }
+else if (this.state.stage == 100) { 
+ this.state.current_pokemon_image = 'static/Hitmonchan 100.png' 
+         }
+else if (this.state.stage == 101) { 
+ this.state.current_pokemon_image = 'static/Rhyhorn 101.png' 
+         }
+else if (this.state.stage == 102) { 
+ this.state.current_pokemon_image = 'static/Rhydon 102.png' 
+         }
+else if (this.state.stage == 103) { 
+ this.state.current_pokemon_image = 'static/Mewtwo 103.png' 
+         }
+else if (this.state.stage == 104) { 
+ this.state.current_pokemon_image = 'static/Lickitung 104.png' 
+         }
+else if (this.state.stage == 105) { 
+ this.state.current_pokemon_image = 'static/Chansey 105.png' 
+         }
+else if (this.state.stage == 106) { 
+ this.state.current_pokemon_image = 'static/Kangaskhan 106.png' 
+         }
+else if (this.state.stage == 107) { 
+ this.state.current_pokemon_image = 'static/Horsea 107.png' 
+         }
+else if (this.state.stage == 108) { 
+ this.state.current_pokemon_image = 'static/Seadra 108.png' 
+         }
+else if (this.state.stage == 109) { 
+ this.state.current_pokemon_image = 'static/Staryu 109.png' 
+         }
+else if (this.state.stage == 110) { 
+ this.state.current_pokemon_image = 'static/Starmie 110.png' 
+         }
+else if (this.state.stage == 111) { 
+ this.state.current_pokemon_image = 'static/Scyther 111.png' 
+         }
+else if (this.state.stage == 112) { 
+ this.state.current_pokemon_image = 'static/Tauros 112.png' 
+         }
+else if (this.state.stage == 113) { 
+ this.state.current_pokemon_image = 'static/Magikarp 113.png' 
+         }
+else if (this.state.stage == 114) { 
+ this.state.current_pokemon_image = 'static/Gyarados 114.png' 
+         }
+else if (this.state.stage == 115) { 
+ this.state.current_pokemon_image = 'static/Eevee 115.png' 
+         }
+else if (this.state.stage == 116) { 
+ this.state.current_pokemon_image = 'static/Aerodactyl 116.png' 
+         }
+else if (this.state.stage == 117) { 
+ this.state.current_pokemon_image = 'static/Snorlax 117.png' 
+         }
+else if (this.state.stage == 118) { 
+ this.state.current_pokemon_image = 'static/Dratini 118.png' 
+         }
+else if (this.state.stage == 119) { 
+ this.state.current_pokemon_image = 'static/Dragonair 119.png' 
+         }
+else if (this.state.stage == 120) { 
+ this.state.current_pokemon_image = 'static/Dragonite 120.png' 
+         }
+else if (this.state.stage == 121) { 
+ this.state.current_pokemon_image = 'static/Lapras 121.png' 
+         }
+else if (this.state.stage == 122) { 
+ this.state.current_pokemon_image = 'static/Mew 122.png' 
+         }
+
+
+// get Pokemon's name 
+this.state.current_pokemon_name = this.state.current_pokemon_image.split(' ').shift().split('/').pop();
+}
+                      },
+                      "title": "New Pokemon",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}",
+                      "content": [
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "intro",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "3",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "3",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "2",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "2",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "1",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "1",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 8.89,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "!",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "wait",
+                          "timeout": "2000"
+                        },
+                        {
+                          "type": "lab.html.Screen",
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "reveal!",
+                          "content": "\u003Cmain\u003E\n\n\u003Cimg src=\"${this.state.current_pokemon_image}\" height=\"250px\" width=\"250px\"\u003E\n\u003Ch1\u003E ${this.state.current_pokemon_name}! \u003C\u002Fh1\u003E\n\n\u003C\u002Fmain\u003E",
+                          "timeout": "10000",
+                          "tardy": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "lab.html.Screen",
+                      "files": {},
+                      "responses": {
+                        "mousedown button#continue": "continue"
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+this.state.skip_chunk = 1
+}
+                      },
+                      "title": "next_stage",
+                      "content": "\u003Cmain\u003E \n  \u003Cdiv class=\"introduction-central-container\"\u003E\n\n    \u003Cdiv\u003E\n    \u003Cimg src=\"static\u002Fprofessor.jpeg\"\u003E\n    \u003C\u002Fdiv\u003E\n\n    \u003Cdiv\u003E\n\n      \u003Cdiv\u003E\n      \u003Cp\u003E You just unlocked a new stage - great job! Now you have ${this.state.current_pokemon_name} by your side for the next level. Exciting!\u003Cbr\u003E\u003Cbr\u003EFeel free to take a few seconds as a break, and when you're ready,\u003Cbr\u003Eclick \"Continue\" to move on to the next level. Good luck to you both!\u003C\u002Fp\u003E\u003C\u002Fdiv\u003E\n      \u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\n      \u003Cbutton id=\"continue\"\u003EContinue\u003C\u002Fbutton\u003E\n\n    \u003C\u002Fdiv\u003E\n\n  \u003C\u002Fdiv\u003E\n\u003C\u002Fmain\u003E",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "lab.html.Page",
+            "items": [
+              {
+                "type": "text"
+              }
+            ],
+            "scrollTop": true,
+            "submitButtonText": "Continue →",
+            "submitButtonPosition": "hidden",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+this.state.skip_chunk = 0
+this.state.phase = "Training"
+this.state.testing_trial_number = 1
+this.state.current_tally = 0
+this.state.stage = (Number(this.state.stage) + 1).toString()
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+}
+            },
+            "title": "skip_chunk_reset",
+            "skip": "${this.state.skip_chunk == 0}",
+            "tardy": true,
+            "timeout": "1000"
+          },
+          {
+            "type": "lab.flow.Loop",
+            "templateParameters": [],
+            "sample": {
+              "mode": "draw-shuffle",
+              "n": "200"
+            },
+            "files": {
+              "stage_5.csv": "embedded\u002Fbf5cd0b1a80923bdb06069b9f2500967ae66845e2586046e12de7681017f8e82.csv",
+              "stage_118.csv": "embedded\u002Fb63062f65b4cd3ae94899aa25daf1ae670f0b4af11ddc7e455828b8cd151e5c7.csv",
+              "stage_10.csv": "embedded\u002F687d3f4e9a518dff10b23ec3a9a3246e56ef9293e267668a20916a3b0c41f7ba.csv",
+              "stage_11.csv": "embedded\u002F5711cf764bd9767fb4af2018d440a7c1c908002d8eba71a4da850298fa10011a.csv"
+            },
+            "responses": {},
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": async function anonymous(
+) {
+this.state.url_text = "https://www.drjamiecummins.com/school-rct/st-pauls/trials/stage_";
+this.state.file_type = ".csv";
+
+
+this.state.url = this.state.url_text.concat(this.state.stage, this.state.file_type)
+
+var csv2json = await new Promise((resolve, reject) => {
+  Papa.parse(this.state.url, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(result) {
+      resolve(result.data);
+    }
+  })
+})
+console.log(csv2json)
+this.options.templateParameters = csv2json
+
+
+
+
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+
+this.state.current_tally = 0
+this.state.testing_trial_number = 1
+this.state.phase = "Training"
+
+
+}
+            },
+            "title": "trial_chunk",
+            "tardy": true,
+            "skip": "${this.state.skip_chunk == 1}",
+            "shuffleGroups": [],
+            "template": {
+              "type": "lab.flow.Sequence",
+              "files": {},
+              "responses": {
+                "": ""
+              },
+              "parameters": {},
+              "messageHandlers": {},
+              "title": "trials-and-breaks",
+              "tardy": true,
+              "skip": "${this.state.skip_chunk == 1}",
+              "content": [
+                {
+                  "type": "lab.html.Frame",
+                  "contextSelector": "[data-labjs-section=\"frame\"]",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+if (this.state.first_trial == 1) {
+document.getElementById("pokemon-motivation").innerHTML = "Let's get started - you've got this!";
+};
+
+
+if (this.state.phase == "Training") {
+  document.getElementById("trial-display").innerHTML = this.state.current_tally + " of 16 correct";
+} else if (this.state.phase == "Testing") {
+  document.getElementById("trial-display").innerHTML = "Trial " + this.state.testing_trial_number + " of 16";
+}
+
+var pieChart = document.getElementById('timer-circle');
+pieChart.width = pieChart.height = 100;
+
+var counter = document.createElement("p");
+
+
+var ctx = pieChart.getContext('2d');
+var secondsPassed = 0;
+
+interval = setInterval(function() {
+  ctx.clearRect(0, 0, pieChart.width, pieChart.height);
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, 0, Math.PI*2);
+  ctx.fillStyle = '#03879E';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, -Math.PI/2, (-Math.PI/2) + Math.PI*2*secondsPassed/30);
+  ctx.fillStyle = '#00ADEF';
+  ctx.fill();
+  ctx.font = "30px Verdana";
+  ctx.fillStyle = "white";
+  secondsPassed++;
+}, 1000);
+
+
+time_left = 30;
+trialTimer = setInterval(function(){
+  if(time_left <= 9){
+    ctx.fillText(Math.trunc(time_left), 40, 60);
+  } else {
+    ctx.fillText(Math.trunc(time_left), 31, 60);
+  }
+  time_left -= 1;
+}, 1000);
+
+
+// motivational speech items
+motivations = ['The more we practice, the better we get!',
+              'The bigger the challenge, the bigger the victory!',
+              'The best way to learn is to make mistakes!',
+              'I know that we can do this together!',
+              'This can sometimes be tough - but we can do it!',
+              'Hard work will always pay off!',
+              'Stay focused - we can do this!',
+              'I wonder what Pokémon you’ll find next…',
+              'Just 30 minutes of practice - easy peasy!',
+              'You’re doing great - I’m proud of you!',
+              'Even if you get stuck, just keep trying - you’ll get it!',
+              'My favourite feeling is making progress after getting stuck for a while!',
+              'If you complete an especially hard level, you can unlock a legendary Pokémon…',
+              'Practice makes perfect!',
+              'Every question you answer helps, even if you get it wrong!',
+              'Practice can sometimes be boring - but it always pays off!',
+              'Someone told me there are over 100 Pokémon to find in this training...',
+              'I wonder does Professor SMART ever do his own training...',
+              'I bet Professor SMART got so smart because he did this training!',
+              'If you are getting really stuck on a level, ask your teacher for help!',
+              'Over 1000 children in Ireland are using SMART...that is a lot!',
+              'The 30 second countdown keeps you on your toes!',
+              'The training can be frustrating, but it can be fun too!',
+              'Try to treat the training like a puzzle that you can solve!',
+              'Focus on getting the answers right - do not worry if you are slow!',
+              'You will get faster and faster with more practice!',
+              'If you are finding it easy, try to go faster!',
+              'The training is designed to make you smarter - so do not worry if you do not feel smart at the start!',
+              'Remember, getting answers wrong is how you learn!',
+              'Try answer the questions in your head - do not write anything down!',
+              'Training many times over a few weeks makes the training even more powerful!',
+              'It is better to be right than to be fast - speed comes with practice!',
+              'Try to push yourself a little bit more in every new session!',
+              'Shortcuts will not make you smarter - solving the problems with hard work will!',
+              'Easy, medium, hard, it does not matter - every question you answer helps you!',
+              'Getting better can take time - be patient and never give up!',
+              'How do you catch a squirrel?<br>Climb up a tree and act like a nut!',
+              'What appears over Professor SMART\'s head when he gets an idea? A LightBulbasaur!',
+              'What’s better than one Pikachu?<br>PikaTWO!',
+              'I believe in you!',
+              'You can do it - keep pushing!',
+              'Be proud of yourself for working hard!',
+              'Sometimes you will pass many levels, other times you will not - but it is all practice!',
+              'Practice is always valuable!']
+
+
+
+
+},
+                    "after:end": function anonymous(
+) {
+clearInterval(interval)
+clearInterval(trialTimer)
+
+this.state.first_trial = 0;
+}
+                  },
+                  "title": "whole-trial-frame",
+                  "tardy": true,
+                  "skip": "${this.state.skip_chunk == 1}",
+                  "content": {
+                    "type": "lab.flow.Sequence",
+                    "files": {},
+                    "responses": {
+                      "": ""
+                    },
+                    "parameters": {},
+                    "messageHandlers": {
+                      "run": function anonymous(
+) {
+document.getElementById("current-character").src=this.state.current_pokemon_image;
+}
+                    },
+                    "title": "trial_sequence",
+                    "tardy": true,
+                    "skip": "${this.state.skip_chunk == 1}",
+                    "content": [
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+
+if (this.parameters.stage <= 55) {
+  this.parameters.q_word = "Is";
+} else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
+  this.parameters.q_word = "Does";
+};
+  
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+
+
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
+  this.parameters.stim_3 = this.state.stimulus_2;
+} else if (this.parameters.stim_3_id == 3) {
+  this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_4_id == 1) { 
+  this.parameters.stim_4 = this.state.stimulus_1;
+} else if (this.parameters.stim_4_id == 2) {
+  this.parameters.stim_4 = this.state.stimulus_2;
+} else if (this.parameters.stim_4_id == 3) {
+  this.parameters.stim_4 = this.state.stimulus_3;
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
+
+if (this.parameters.stim_5_id == 1) { 
+  this.parameters.stim_5 = this.state.stimulus_1;
+} else if (this.parameters.stim_5_id == 2) {
+  this.parameters.stim_5 = this.state.stimulus_2;
+} else if (this.parameters.stim_5_id == 3) { 
+  this.parameters.stim_5 = this.state.stimulus_3;
+} else if (this.parameters.stim_5_id == 4) {
+  this.parameters.stim_5 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_6_id == 1) { 
+  this.parameters.stim_6 = this.state.stimulus_1;
+} else if (this.parameters.stim_6_id == 2) {
+  this.parameters.stim_6 = this.state.stimulus_2;
+} else if (this.parameters.stim_6_id == 3) { 
+  this.parameters.stim_6 = this.state.stimulus_3;
+} else if (this.parameters.stim_6_id == 4) {
+  this.parameters.stim_6 = this.state.stimulus_4;
+}
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+} 
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+} 
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+if (this.state.phase == "Testing" & this.state.correct == true) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" & this.state.correct == false) {
+  this.state.current_tally = 0;
+};
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+
+}
+                        },
+                        "title": "standard_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                      },
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.stim_3 = this.state.stimulus_3
+this.parameters.stim_4 = this.state.stimulus_4
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+this.parameters.q_stim_3 = this.state.stimulus_3
+this.parameters.q_stim_4 = this.state.stimulus_4
+
+if (this.parameters.meta_stim_1_id == 1) { 
+  this.parameters.meta_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_1_id == 2) {
+  this.parameters.meta_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_1_id == 3) {
+  this.parameters.meta_stim_1 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_1_id == 4) {
+  this.parameters.meta_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.meta_stim_2_id == 1) { 
+  this.parameters.meta_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_2_id == 2) {
+  this.parameters.meta_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_2_id == 3) {
+  this.parameters.meta_stim_2 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_2_id == 4) {
+  this.parameters.meta_stim_2 = this.state.stimulus_4;
+};
+
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+};
+
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+
+if (this.state.phase == "Testing" && this.state.correct == 1) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" && this.state.correct == 0) {
+  this.state.current_tally = 0
+}
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+}
+                        },
+                        "title": "mathematical_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 167.11,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#a8ca09",
+                            "text": "CORRECT!",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally += 1
+}
+                        },
+                        "title": "correct",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${this.state.correct == 0 || this.state.trial_time \u003E= 30000 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 126.2,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#d6341a",
+                            "text": "WRONG",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally = 0
+}
+                        },
+                        "title": "wrong",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${(this.state.correct != 0 & this.state.trial_time \u003C 30000) || this.state.correct == 1 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "Training part completed!",
+                      "content": "You got 16 correct answers in a row in the training part of this level!\u003Cbr\u003E\u003Cbr\u003EYou will now move on to the testing part. Get all 16 testing questions correct, and you move on to the next level.\u003Cbr\u003EBut be careful: if you get even one wrong, you have to start the training part all over again!\u003Cbr\u003E\u003Cbr\u003EWhen you're ready, click 'continue' to start the testing part of this level. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.phase = "Testing";
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "Trial 1 of 16";
+this.state.current_tally = 0;
+}
+                  },
+                  "title": "phase_transition",
+                  "tardy": true,
+                  "skip": "${this.state.current_tally != 16 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "",
+                      "content": "You didn’t manage to get all of the questions right in that round. You’ll go back to the training part of this level. Don’t worry - practice makes perfect! Keep trying and you will get there. When you’re ready, click on “continue” to keep going. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.testing_trial_number = 1;
+this.state.phase = "Training";
+this.state.current_tally = 0;
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "";
+
+}
+                  },
+                  "title": "return_to_training",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.testing_trial_number \u003C 17 || (this.state.testing_trial_number == 17 & this.state.current_tally \u003E 15) || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.flow.Sequence",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {},
+                  "title": "level_transition",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.current_tally \u003C 16 || this.state.skip_chunk == 1}",
+                  "content": [
+                    {
+                      "type": "lab.flow.Sequence",
+                      "files": {},
+                      "responses": {
+                        "": ""
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+document.getElementById("level-display").innerHTML = "";
+document.getElementById("trial-display").innerHTML = "";
+
+this.state.stage = ~~this.state.stage + 1;
+
+if (this.state.stage == 5) { 
+ this.state.current_pokemon_image = 'static/Bulbasaur 5.png' 
+         }
+else if (this.state.stage == 6) { 
+ this.state.current_pokemon_image = 'static/Ivysaur 6.png' 
+         }
+else if (this.state.stage == 7) { 
+ this.state.current_pokemon_image = 'static/Venusaur 7.png' 
+         }
+else if (this.state.stage == 8) { 
+ this.state.current_pokemon_image = 'static/Charmander 8.png' 
+         }
+else if (this.state.stage == 9) { 
+ this.state.current_pokemon_image = 'static/Charmeleon 9.png' 
+         }
+else if (this.state.stage == 10) { 
+ this.state.current_pokemon_image = 'static/Charizard 10.png' 
+         }
+else if (this.state.stage == 11) { 
+ this.state.current_pokemon_image = 'static/Squirtle 11.png' 
+         }
+else if (this.state.stage == 12) { 
+ this.state.current_pokemon_image = 'static/Wartortle 12.png' 
+         }
+else if (this.state.stage == 13) { 
+ this.state.current_pokemon_image = 'static/Blastoise 13.png' 
+         }
+else if (this.state.stage == 14) { 
+ this.state.current_pokemon_image = 'static/Caterpie 14.png' 
+         }
+else if (this.state.stage == 15) { 
+ this.state.current_pokemon_image = 'static/Metapod 15.png' 
+         }
+else if (this.state.stage == 16) { 
+ this.state.current_pokemon_image = 'static/Butterfree 16.png' 
+         }
+else if (this.state.stage == 17) { 
+ this.state.current_pokemon_image = 'static/Weedle 17.png' 
+         }
+else if (this.state.stage == 18) { 
+ this.state.current_pokemon_image = 'static/Kakuna 18.png' 
+         }
+else if (this.state.stage == 19) { 
+ this.state.current_pokemon_image = 'static/Beedrill 19.png' 
+         }
+else if (this.state.stage == 20) { 
+ this.state.current_pokemon_image = 'static/Pidgey 20.png' 
+         }
+else if (this.state.stage == 21) { 
+ this.state.current_pokemon_image = 'static/Pidgeotto 21.png' 
+         }
+else if (this.state.stage == 22) { 
+ this.state.current_pokemon_image = 'static/Pidgeot 22.png' 
+         }
+else if (this.state.stage == 23) { 
+ this.state.current_pokemon_image = 'static/Rattata 23.png' 
+         }
+else if (this.state.stage == 24) { 
+ this.state.current_pokemon_image = 'static/Raticate 24.png' 
+         }
+else if (this.state.stage == 25) { 
+ this.state.current_pokemon_image = 'static/Pikachu 25.png' 
+         }
+else if (this.state.stage == 26) { 
+ this.state.current_pokemon_image = 'static/Raichu 26.png' 
+         }
+else if (this.state.stage == 27) { 
+ this.state.current_pokemon_image = 'static/Sandshrew 27.png' 
+         }
+else if (this.state.stage == 28) { 
+ this.state.current_pokemon_image = 'static/Sandslash 28.png' 
+         }
+else if (this.state.stage == 29) { 
+ this.state.current_pokemon_image = 'static/Articuno 29.png' 
+         }
+else if (this.state.stage == 30) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Female 30.png' 
+         }
+else if (this.state.stage == 31) { 
+ this.state.current_pokemon_image = 'static/Nidorina 31.png' 
+         }
+else if (this.state.stage == 32) { 
+ this.state.current_pokemon_image = 'static/Nidoqueen 32.png' 
+         }
+else if (this.state.stage == 33) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Male 33.png' 
+         }
+else if (this.state.stage == 34) { 
+ this.state.current_pokemon_image = 'static/Nidorino 34.png' 
+         }
+else if (this.state.stage == 35) { 
+ this.state.current_pokemon_image = 'static/Nidoking 35.png' 
+         }
+else if (this.state.stage == 36) { 
+ this.state.current_pokemon_image = 'static/Clefairy 36.png' 
+         }
+else if (this.state.stage == 37) { 
+ this.state.current_pokemon_image = 'static/Clefable 37.png' 
+         }
+else if (this.state.stage == 38) { 
+ this.state.current_pokemon_image = 'static/Vulpix 38.png' 
+         }
+else if (this.state.stage == 39) { 
+ this.state.current_pokemon_image = 'static/Ninetales 39.png' 
+         }
+else if (this.state.stage == 40) { 
+ this.state.current_pokemon_image = 'static/Jigglypuff 40.png' 
+         }
+else if (this.state.stage == 41) { 
+ this.state.current_pokemon_image = 'static/Wigglytuff 41.png' 
+         }
+else if (this.state.stage == 42) { 
+ this.state.current_pokemon_image = 'static/Zubat 42.png' 
+         }
+else if (this.state.stage == 43) { 
+ this.state.current_pokemon_image = 'static/Golbat 43.png' 
+         }
+else if (this.state.stage == 44) { 
+ this.state.current_pokemon_image = 'static/Oddish 44.png' 
+         }
+else if (this.state.stage == 45) { 
+ this.state.current_pokemon_image = 'static/Gloom 45.png' 
+         }
+else if (this.state.stage == 46) { 
+ this.state.current_pokemon_image = 'static/Vileplume 46.png' 
+         }
+else if (this.state.stage == 47) { 
+ this.state.current_pokemon_image = 'static/Meowth 47.png' 
+         }
+else if (this.state.stage == 48) { 
+ this.state.current_pokemon_image = 'static/Persian 48.png' 
+         }
+else if (this.state.stage == 49) { 
+ this.state.current_pokemon_image = 'static/Psyduck 49.png' 
+         }
+else if (this.state.stage == 50) { 
+ this.state.current_pokemon_image = 'static/Golduck 50.png' 
+         }
+else if (this.state.stage == 51) { 
+ this.state.current_pokemon_image = 'static/Mankey 51.png' 
+         }
+else if (this.state.stage == 52) { 
+ this.state.current_pokemon_image = 'static/Primeape 52.png' 
+         }
+else if (this.state.stage == 53) { 
+ this.state.current_pokemon_image = 'static/Growlithe 53.png' 
+         }
+else if (this.state.stage == 54) { 
+ this.state.current_pokemon_image = 'static/Arcanine 54.png' 
+         }
+else if (this.state.stage == 55) { 
+ this.state.current_pokemon_image = 'static/Zapdos 55.png' 
+         }
+else if (this.state.stage == 56) { 
+ this.state.current_pokemon_image = 'static/Poliwag 56.png' 
+         }
+else if (this.state.stage == 57) { 
+ this.state.current_pokemon_image = 'static/Poliwhirl 57.png' 
+         }
+else if (this.state.stage == 58) { 
+ this.state.current_pokemon_image = 'static/Poliwrath 58.png' 
+         }
+else if (this.state.stage == 59) { 
+ this.state.current_pokemon_image = 'static/Abra 59.png' 
+         }
+else if (this.state.stage == 60) { 
+ this.state.current_pokemon_image = 'static/Kadabra 60.png' 
+         }
+else if (this.state.stage == 61) { 
+ this.state.current_pokemon_image = 'static/Alakazam 61.png' 
+         }
+else if (this.state.stage == 62) { 
+ this.state.current_pokemon_image = 'static/Machop 62.png' 
+         }
+else if (this.state.stage == 63) { 
+ this.state.current_pokemon_image = 'static/Machoke 63.png' 
+         }
+else if (this.state.stage == 64) { 
+ this.state.current_pokemon_image = 'static/Machamp 64.png' 
+         }
+else if (this.state.stage == 65) { 
+ this.state.current_pokemon_image = 'static/Bellsprout 65.png' 
+         }
+else if (this.state.stage == 66) { 
+ this.state.current_pokemon_image = 'static/Weepinbell 66.png' 
+         }
+else if (this.state.stage == 67) { 
+ this.state.current_pokemon_image = 'static/Victreebel 67.png' 
+         }
+else if (this.state.stage == 68) { 
+ this.state.current_pokemon_image = 'static/Tentacool 68.png' 
+         }
+else if (this.state.stage == 69) { 
+ this.state.current_pokemon_image = 'static/Tentacruel 69.png' 
+         }
+else if (this.state.stage == 70) { 
+ this.state.current_pokemon_image = 'static/Geodude 70.png' 
+         }
+else if (this.state.stage == 71) { 
+ this.state.current_pokemon_image = 'static/Graveler 71.png' 
+         }
+else if (this.state.stage == 72) { 
+ this.state.current_pokemon_image = 'static/Golem 72.png' 
+         }
+else if (this.state.stage == 73) { 
+ this.state.current_pokemon_image = 'static/Ponyta 73.png' 
+         }
+else if (this.state.stage == 74) { 
+ this.state.current_pokemon_image = 'static/Rapidash 74.png' 
+         }
+else if (this.state.stage == 75) { 
+ this.state.current_pokemon_image = 'static/Slowpoke 75.png' 
+         }
+else if (this.state.stage == 76) { 
+ this.state.current_pokemon_image = 'static/Slowbro 76.png' 
+         }
+else if (this.state.stage == 77) { 
+ this.state.current_pokemon_image = 'static/Magnemite 77.png' 
+         }
+else if (this.state.stage == 78) { 
+ this.state.current_pokemon_image = 'static/Magneton 78.png' 
+         }
+else if (this.state.stage == 79) { 
+ this.state.current_pokemon_image = 'static/Doduo 79.png' 
+         }
+else if (this.state.stage == 80) { 
+ this.state.current_pokemon_image = 'static/Dodrio 80.png' 
+         }
+else if (this.state.stage == 81) { 
+ this.state.current_pokemon_image = 'static/Moltres 81.png' 
+         }
+else if (this.state.stage == 82) { 
+ this.state.current_pokemon_image = 'static/Farfetchd 82.png' 
+         }
+else if (this.state.stage == 83) { 
+ this.state.current_pokemon_image = 'static/Seel 83.png' 
+         }
+else if (this.state.stage == 84) { 
+ this.state.current_pokemon_image = 'static/Dewgong 84.png' 
+         }
+else if (this.state.stage == 85) { 
+ this.state.current_pokemon_image = 'static/Grimer 85.png' 
+         }
+else if (this.state.stage == 86) { 
+ this.state.current_pokemon_image = 'static/Muk 86.png' 
+         }
+else if (this.state.stage == 87) { 
+ this.state.current_pokemon_image = 'static/Shellder 87.png' 
+         }
+else if (this.state.stage == 88) { 
+ this.state.current_pokemon_image = 'static/Cloyster 88.png' 
+         }
+else if (this.state.stage == 89) { 
+ this.state.current_pokemon_image = 'static/Gastly 89.png' 
+         }
+else if (this.state.stage == 90) { 
+ this.state.current_pokemon_image = 'static/Haunter 90.png' 
+         }
+else if (this.state.stage == 91) { 
+ this.state.current_pokemon_image = 'static/Gengar 91.png' 
+         }
+else if (this.state.stage == 92) { 
+ this.state.current_pokemon_image = 'static/Onix 92.png' 
+         }
+else if (this.state.stage == 93) { 
+ this.state.current_pokemon_image = 'static/Drowzee 93.png' 
+         }
+else if (this.state.stage == 94) { 
+ this.state.current_pokemon_image = 'static/Hypno 94.png' 
+         }
+else if (this.state.stage == 95) { 
+ this.state.current_pokemon_image = 'static/Krabby 95.png' 
+         }
+else if (this.state.stage == 96) { 
+ this.state.current_pokemon_image = 'static/Kingler 96.png' 
+         }
+else if (this.state.stage == 97) { 
+ this.state.current_pokemon_image = 'static/Voltorb 97.png' 
+         }
+else if (this.state.stage == 98) { 
+ this.state.current_pokemon_image = 'static/Electrode 98.png' 
+         }
+else if (this.state.stage == 99) { 
+ this.state.current_pokemon_image = 'static/Hitmonlee 99.png' 
+         }
+else if (this.state.stage == 100) { 
+ this.state.current_pokemon_image = 'static/Hitmonchan 100.png' 
+         }
+else if (this.state.stage == 101) { 
+ this.state.current_pokemon_image = 'static/Rhyhorn 101.png' 
+         }
+else if (this.state.stage == 102) { 
+ this.state.current_pokemon_image = 'static/Rhydon 102.png' 
+         }
+else if (this.state.stage == 103) { 
+ this.state.current_pokemon_image = 'static/Mewtwo 103.png' 
+         }
+else if (this.state.stage == 104) { 
+ this.state.current_pokemon_image = 'static/Lickitung 104.png' 
+         }
+else if (this.state.stage == 105) { 
+ this.state.current_pokemon_image = 'static/Chansey 105.png' 
+         }
+else if (this.state.stage == 106) { 
+ this.state.current_pokemon_image = 'static/Kangaskhan 106.png' 
+         }
+else if (this.state.stage == 107) { 
+ this.state.current_pokemon_image = 'static/Horsea 107.png' 
+         }
+else if (this.state.stage == 108) { 
+ this.state.current_pokemon_image = 'static/Seadra 108.png' 
+         }
+else if (this.state.stage == 109) { 
+ this.state.current_pokemon_image = 'static/Staryu 109.png' 
+         }
+else if (this.state.stage == 110) { 
+ this.state.current_pokemon_image = 'static/Starmie 110.png' 
+         }
+else if (this.state.stage == 111) { 
+ this.state.current_pokemon_image = 'static/Scyther 111.png' 
+         }
+else if (this.state.stage == 112) { 
+ this.state.current_pokemon_image = 'static/Tauros 112.png' 
+         }
+else if (this.state.stage == 113) { 
+ this.state.current_pokemon_image = 'static/Magikarp 113.png' 
+         }
+else if (this.state.stage == 114) { 
+ this.state.current_pokemon_image = 'static/Gyarados 114.png' 
+         }
+else if (this.state.stage == 115) { 
+ this.state.current_pokemon_image = 'static/Eevee 115.png' 
+         }
+else if (this.state.stage == 116) { 
+ this.state.current_pokemon_image = 'static/Aerodactyl 116.png' 
+         }
+else if (this.state.stage == 117) { 
+ this.state.current_pokemon_image = 'static/Snorlax 117.png' 
+         }
+else if (this.state.stage == 118) { 
+ this.state.current_pokemon_image = 'static/Dratini 118.png' 
+         }
+else if (this.state.stage == 119) { 
+ this.state.current_pokemon_image = 'static/Dragonair 119.png' 
+         }
+else if (this.state.stage == 120) { 
+ this.state.current_pokemon_image = 'static/Dragonite 120.png' 
+         }
+else if (this.state.stage == 121) { 
+ this.state.current_pokemon_image = 'static/Lapras 121.png' 
+         }
+else if (this.state.stage == 122) { 
+ this.state.current_pokemon_image = 'static/Mew 122.png' 
+         }
+
+
+// get Pokemon's name 
+this.state.current_pokemon_name = this.state.current_pokemon_image.split(' ').shift().split('/').pop();
+}
+                      },
+                      "title": "New Pokemon",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}",
+                      "content": [
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "intro",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "3",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "3",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "2",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "2",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "1",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "1",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 8.89,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "!",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "wait",
+                          "timeout": "2000"
+                        },
+                        {
+                          "type": "lab.html.Screen",
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "reveal!",
+                          "content": "\u003Cmain\u003E\n\n\u003Cimg src=\"${this.state.current_pokemon_image}\" height=\"250px\" width=\"250px\"\u003E\n\u003Ch1\u003E ${this.state.current_pokemon_name}! \u003C\u002Fh1\u003E\n\n\u003C\u002Fmain\u003E",
+                          "timeout": "10000",
+                          "tardy": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "lab.html.Screen",
+                      "files": {},
+                      "responses": {
+                        "mousedown button#continue": "continue"
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+this.state.skip_chunk = 1
+}
+                      },
+                      "title": "next_stage",
+                      "content": "\u003Cmain\u003E \n  \u003Cdiv class=\"introduction-central-container\"\u003E\n\n    \u003Cdiv\u003E\n    \u003Cimg src=\"static\u002Fprofessor.jpeg\"\u003E\n    \u003C\u002Fdiv\u003E\n\n    \u003Cdiv\u003E\n\n      \u003Cdiv\u003E\n      \u003Cp\u003E You just unlocked a new stage - great job! Now you have ${this.state.current_pokemon_name} by your side for the next level. Exciting!\u003Cbr\u003E\u003Cbr\u003EFeel free to take a few seconds as a break, and when you're ready,\u003Cbr\u003Eclick \"Continue\" to move on to the next level. Good luck to you both!\u003C\u002Fp\u003E\u003C\u002Fdiv\u003E\n      \u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\n      \u003Cbutton id=\"continue\"\u003EContinue\u003C\u002Fbutton\u003E\n\n    \u003C\u002Fdiv\u003E\n\n  \u003C\u002Fdiv\u003E\n\u003C\u002Fmain\u003E",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "lab.html.Page",
+            "items": [
+              {
+                "type": "text"
+              }
+            ],
+            "scrollTop": true,
+            "submitButtonText": "Continue →",
+            "submitButtonPosition": "hidden",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+this.state.skip_chunk = 0
+this.state.phase = "Training"
+this.state.testing_trial_number = 1
+this.state.current_tally = 0
+this.state.stage = (Number(this.state.stage) + 1).toString()
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+}
+            },
+            "title": "skip_chunk_reset",
+            "skip": "${this.state.skip_chunk == 0}",
+            "tardy": true,
+            "timeout": "1000"
+          },
+          {
+            "type": "lab.flow.Loop",
+            "templateParameters": [],
+            "sample": {
+              "mode": "draw-shuffle",
+              "n": "200"
+            },
+            "files": {
+              "stage_5.csv": "embedded\u002Fbf5cd0b1a80923bdb06069b9f2500967ae66845e2586046e12de7681017f8e82.csv",
+              "stage_118.csv": "embedded\u002Fb63062f65b4cd3ae94899aa25daf1ae670f0b4af11ddc7e455828b8cd151e5c7.csv",
+              "stage_10.csv": "embedded\u002F687d3f4e9a518dff10b23ec3a9a3246e56ef9293e267668a20916a3b0c41f7ba.csv",
+              "stage_11.csv": "embedded\u002F5711cf764bd9767fb4af2018d440a7c1c908002d8eba71a4da850298fa10011a.csv"
+            },
+            "responses": {},
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": async function anonymous(
+) {
+this.state.url_text = "https://www.drjamiecummins.com/school-rct/st-pauls/trials/stage_";
+this.state.file_type = ".csv";
+
+
+this.state.url = this.state.url_text.concat(this.state.stage, this.state.file_type)
+
+var csv2json = await new Promise((resolve, reject) => {
+  Papa.parse(this.state.url, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(result) {
+      resolve(result.data);
+    }
+  })
+})
+console.log(csv2json)
+this.options.templateParameters = csv2json
+
+
+
+
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+
+this.state.current_tally = 0
+this.state.testing_trial_number = 1
+this.state.phase = "Training"
+
+
+}
+            },
+            "title": "trial_chunk",
+            "tardy": true,
+            "skip": "${this.state.skip_chunk == 1}",
+            "shuffleGroups": [],
+            "template": {
+              "type": "lab.flow.Sequence",
+              "files": {},
+              "responses": {
+                "": ""
+              },
+              "parameters": {},
+              "messageHandlers": {},
+              "title": "trials-and-breaks",
+              "tardy": true,
+              "skip": "${this.state.skip_chunk == 1}",
+              "content": [
+                {
+                  "type": "lab.html.Frame",
+                  "contextSelector": "[data-labjs-section=\"frame\"]",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+if (this.state.first_trial == 1) {
+document.getElementById("pokemon-motivation").innerHTML = "Let's get started - you've got this!";
+};
+
+
+if (this.state.phase == "Training") {
+  document.getElementById("trial-display").innerHTML = this.state.current_tally + " of 16 correct";
+} else if (this.state.phase == "Testing") {
+  document.getElementById("trial-display").innerHTML = "Trial " + this.state.testing_trial_number + " of 16";
+}
+
+var pieChart = document.getElementById('timer-circle');
+pieChart.width = pieChart.height = 100;
+
+var counter = document.createElement("p");
+
+
+var ctx = pieChart.getContext('2d');
+var secondsPassed = 0;
+
+interval = setInterval(function() {
+  ctx.clearRect(0, 0, pieChart.width, pieChart.height);
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, 0, Math.PI*2);
+  ctx.fillStyle = '#03879E';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, -Math.PI/2, (-Math.PI/2) + Math.PI*2*secondsPassed/30);
+  ctx.fillStyle = '#00ADEF';
+  ctx.fill();
+  ctx.font = "30px Verdana";
+  ctx.fillStyle = "white";
+  secondsPassed++;
+}, 1000);
+
+
+time_left = 30;
+trialTimer = setInterval(function(){
+  if(time_left <= 9){
+    ctx.fillText(Math.trunc(time_left), 40, 60);
+  } else {
+    ctx.fillText(Math.trunc(time_left), 31, 60);
+  }
+  time_left -= 1;
+}, 1000);
+
+
+// motivational speech items
+motivations = ['The more we practice, the better we get!',
+              'The bigger the challenge, the bigger the victory!',
+              'The best way to learn is to make mistakes!',
+              'I know that we can do this together!',
+              'This can sometimes be tough - but we can do it!',
+              'Hard work will always pay off!',
+              'Stay focused - we can do this!',
+              'I wonder what Pokémon you’ll find next…',
+              'Just 30 minutes of practice - easy peasy!',
+              'You’re doing great - I’m proud of you!',
+              'Even if you get stuck, just keep trying - you’ll get it!',
+              'My favourite feeling is making progress after getting stuck for a while!',
+              'If you complete an especially hard level, you can unlock a legendary Pokémon…',
+              'Practice makes perfect!',
+              'Every question you answer helps, even if you get it wrong!',
+              'Practice can sometimes be boring - but it always pays off!',
+              'Someone told me there are over 100 Pokémon to find in this training...',
+              'I wonder does Professor SMART ever do his own training...',
+              'I bet Professor SMART got so smart because he did this training!',
+              'If you are getting really stuck on a level, ask your teacher for help!',
+              'Over 1000 children in Ireland are using SMART...that is a lot!',
+              'The 30 second countdown keeps you on your toes!',
+              'The training can be frustrating, but it can be fun too!',
+              'Try to treat the training like a puzzle that you can solve!',
+              'Focus on getting the answers right - do not worry if you are slow!',
+              'You will get faster and faster with more practice!',
+              'If you are finding it easy, try to go faster!',
+              'The training is designed to make you smarter - so do not worry if you do not feel smart at the start!',
+              'Remember, getting answers wrong is how you learn!',
+              'Try answer the questions in your head - do not write anything down!',
+              'Training many times over a few weeks makes the training even more powerful!',
+              'It is better to be right than to be fast - speed comes with practice!',
+              'Try to push yourself a little bit more in every new session!',
+              'Shortcuts will not make you smarter - solving the problems with hard work will!',
+              'Easy, medium, hard, it does not matter - every question you answer helps you!',
+              'Getting better can take time - be patient and never give up!',
+              'How do you catch a squirrel?<br>Climb up a tree and act like a nut!',
+              'What appears over Professor SMART\'s head when he gets an idea? A LightBulbasaur!',
+              'What’s better than one Pikachu?<br>PikaTWO!',
+              'I believe in you!',
+              'You can do it - keep pushing!',
+              'Be proud of yourself for working hard!',
+              'Sometimes you will pass many levels, other times you will not - but it is all practice!',
+              'Practice is always valuable!']
+
+
+
+
+},
+                    "after:end": function anonymous(
+) {
+clearInterval(interval)
+clearInterval(trialTimer)
+
+this.state.first_trial = 0;
+}
+                  },
+                  "title": "whole-trial-frame",
+                  "tardy": true,
+                  "skip": "${this.state.skip_chunk == 1}",
+                  "content": {
+                    "type": "lab.flow.Sequence",
+                    "files": {},
+                    "responses": {
+                      "": ""
+                    },
+                    "parameters": {},
+                    "messageHandlers": {
+                      "run": function anonymous(
+) {
+document.getElementById("current-character").src=this.state.current_pokemon_image;
+}
+                    },
+                    "title": "trial_sequence",
+                    "tardy": true,
+                    "skip": "${this.state.skip_chunk == 1}",
+                    "content": [
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+
+if (this.parameters.stage <= 55) {
+  this.parameters.q_word = "Is";
+} else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
+  this.parameters.q_word = "Does";
+};
+  
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+
+
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
+  this.parameters.stim_3 = this.state.stimulus_2;
+} else if (this.parameters.stim_3_id == 3) {
+  this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_4_id == 1) { 
+  this.parameters.stim_4 = this.state.stimulus_1;
+} else if (this.parameters.stim_4_id == 2) {
+  this.parameters.stim_4 = this.state.stimulus_2;
+} else if (this.parameters.stim_4_id == 3) {
+  this.parameters.stim_4 = this.state.stimulus_3;
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
+
+if (this.parameters.stim_5_id == 1) { 
+  this.parameters.stim_5 = this.state.stimulus_1;
+} else if (this.parameters.stim_5_id == 2) {
+  this.parameters.stim_5 = this.state.stimulus_2;
+} else if (this.parameters.stim_5_id == 3) { 
+  this.parameters.stim_5 = this.state.stimulus_3;
+} else if (this.parameters.stim_5_id == 4) {
+  this.parameters.stim_5 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_6_id == 1) { 
+  this.parameters.stim_6 = this.state.stimulus_1;
+} else if (this.parameters.stim_6_id == 2) {
+  this.parameters.stim_6 = this.state.stimulus_2;
+} else if (this.parameters.stim_6_id == 3) { 
+  this.parameters.stim_6 = this.state.stimulus_3;
+} else if (this.parameters.stim_6_id == 4) {
+  this.parameters.stim_6 = this.state.stimulus_4;
+}
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+} 
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+} 
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+if (this.state.phase == "Testing" & this.state.correct == true) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" & this.state.correct == false) {
+  this.state.current_tally = 0;
+};
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+
+}
+                        },
+                        "title": "standard_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                      },
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.stim_3 = this.state.stimulus_3
+this.parameters.stim_4 = this.state.stimulus_4
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+this.parameters.q_stim_3 = this.state.stimulus_3
+this.parameters.q_stim_4 = this.state.stimulus_4
+
+if (this.parameters.meta_stim_1_id == 1) { 
+  this.parameters.meta_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_1_id == 2) {
+  this.parameters.meta_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_1_id == 3) {
+  this.parameters.meta_stim_1 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_1_id == 4) {
+  this.parameters.meta_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.meta_stim_2_id == 1) { 
+  this.parameters.meta_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_2_id == 2) {
+  this.parameters.meta_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_2_id == 3) {
+  this.parameters.meta_stim_2 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_2_id == 4) {
+  this.parameters.meta_stim_2 = this.state.stimulus_4;
+};
+
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+};
+
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+
+if (this.state.phase == "Testing" && this.state.correct == 1) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" && this.state.correct == 0) {
+  this.state.current_tally = 0
+}
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+}
+                        },
+                        "title": "mathematical_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 167.11,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#a8ca09",
+                            "text": "CORRECT!",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally += 1
+}
+                        },
+                        "title": "correct",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${this.state.correct == 0 || this.state.trial_time \u003E= 30000 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      },
+                      {
+                        "type": "lab.canvas.Screen",
+                        "content": [
+                          {
+                            "type": "i-text",
+                            "left": 0,
+                            "top": 0,
+                            "angle": 0,
+                            "width": 126.2,
+                            "height": 36.16,
+                            "stroke": null,
+                            "strokeWidth": 1,
+                            "fill": "#d6341a",
+                            "text": "WRONG",
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "fontSize": 32,
+                            "fontFamily": "sans-serif",
+                            "lineHeight": 1.16,
+                            "textAlign": "center"
+                          }
+                        ],
+                        "viewport": [
+                          800,
+                          600
+                        ],
+                        "files": {},
+                        "responses": {
+                          "": ""
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "run": function anonymous(
+) {
+this.state.current_tally = 0
+}
+                        },
+                        "title": "wrong",
+                        "timeout": "500",
+                        "tardy": true,
+                        "skip": "${(this.state.correct != 0 & this.state.trial_time \u003C 30000) || this.state.correct == 1 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "Training part completed!",
+                      "content": "You got 16 correct answers in a row in the training part of this level!\u003Cbr\u003E\u003Cbr\u003EYou will now move on to the testing part. Get all 16 testing questions correct, and you move on to the next level.\u003Cbr\u003EBut be careful: if you get even one wrong, you have to start the training part all over again!\u003Cbr\u003E\u003Cbr\u003EWhen you're ready, click 'continue' to start the testing part of this level. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.phase = "Testing";
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "Trial 1 of 16";
+this.state.current_tally = 0;
+}
+                  },
+                  "title": "phase_transition",
+                  "tardy": true,
+                  "skip": "${this.state.current_tally != 16 || this.state.phase == \"Testing\" || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "type": "text",
+                      "title": "",
+                      "content": "You didn’t manage to get all of the questions right in that round. You’ll go back to the training part of this level. Don’t worry - practice makes perfect! Keep trying and you will get there. When you’re ready, click on “continue” to keep going. Good luck!"
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "right",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+this.state.testing_trial_number = 1;
+this.state.phase = "Training";
+this.state.current_tally = 0;
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+document.getElementById("trial-display").innerHTML = "";
+
+}
+                  },
+                  "title": "return_to_training",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.testing_trial_number \u003C 17 || (this.state.testing_trial_number == 17 & this.state.current_tally \u003E 15) || this.state.skip_chunk == 1}"
+                },
+                {
+                  "type": "lab.flow.Sequence",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {},
+                  "title": "level_transition",
+                  "tardy": true,
+                  "skip": "${this.state.phase == \"Training\" || this.state.current_tally \u003C 16 || this.state.skip_chunk == 1}",
+                  "content": [
+                    {
+                      "type": "lab.flow.Sequence",
+                      "files": {},
+                      "responses": {
+                        "": ""
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+document.getElementById("level-display").innerHTML = "";
+document.getElementById("trial-display").innerHTML = "";
+
+this.state.stage = ~~this.state.stage + 1;
+
+if (this.state.stage == 5) { 
+ this.state.current_pokemon_image = 'static/Bulbasaur 5.png' 
+         }
+else if (this.state.stage == 6) { 
+ this.state.current_pokemon_image = 'static/Ivysaur 6.png' 
+         }
+else if (this.state.stage == 7) { 
+ this.state.current_pokemon_image = 'static/Venusaur 7.png' 
+         }
+else if (this.state.stage == 8) { 
+ this.state.current_pokemon_image = 'static/Charmander 8.png' 
+         }
+else if (this.state.stage == 9) { 
+ this.state.current_pokemon_image = 'static/Charmeleon 9.png' 
+         }
+else if (this.state.stage == 10) { 
+ this.state.current_pokemon_image = 'static/Charizard 10.png' 
+         }
+else if (this.state.stage == 11) { 
+ this.state.current_pokemon_image = 'static/Squirtle 11.png' 
+         }
+else if (this.state.stage == 12) { 
+ this.state.current_pokemon_image = 'static/Wartortle 12.png' 
+         }
+else if (this.state.stage == 13) { 
+ this.state.current_pokemon_image = 'static/Blastoise 13.png' 
+         }
+else if (this.state.stage == 14) { 
+ this.state.current_pokemon_image = 'static/Caterpie 14.png' 
+         }
+else if (this.state.stage == 15) { 
+ this.state.current_pokemon_image = 'static/Metapod 15.png' 
+         }
+else if (this.state.stage == 16) { 
+ this.state.current_pokemon_image = 'static/Butterfree 16.png' 
+         }
+else if (this.state.stage == 17) { 
+ this.state.current_pokemon_image = 'static/Weedle 17.png' 
+         }
+else if (this.state.stage == 18) { 
+ this.state.current_pokemon_image = 'static/Kakuna 18.png' 
+         }
+else if (this.state.stage == 19) { 
+ this.state.current_pokemon_image = 'static/Beedrill 19.png' 
+         }
+else if (this.state.stage == 20) { 
+ this.state.current_pokemon_image = 'static/Pidgey 20.png' 
+         }
+else if (this.state.stage == 21) { 
+ this.state.current_pokemon_image = 'static/Pidgeotto 21.png' 
+         }
+else if (this.state.stage == 22) { 
+ this.state.current_pokemon_image = 'static/Pidgeot 22.png' 
+         }
+else if (this.state.stage == 23) { 
+ this.state.current_pokemon_image = 'static/Rattata 23.png' 
+         }
+else if (this.state.stage == 24) { 
+ this.state.current_pokemon_image = 'static/Raticate 24.png' 
+         }
+else if (this.state.stage == 25) { 
+ this.state.current_pokemon_image = 'static/Pikachu 25.png' 
+         }
+else if (this.state.stage == 26) { 
+ this.state.current_pokemon_image = 'static/Raichu 26.png' 
+         }
+else if (this.state.stage == 27) { 
+ this.state.current_pokemon_image = 'static/Sandshrew 27.png' 
+         }
+else if (this.state.stage == 28) { 
+ this.state.current_pokemon_image = 'static/Sandslash 28.png' 
+         }
+else if (this.state.stage == 29) { 
+ this.state.current_pokemon_image = 'static/Articuno 29.png' 
+         }
+else if (this.state.stage == 30) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Female 30.png' 
+         }
+else if (this.state.stage == 31) { 
+ this.state.current_pokemon_image = 'static/Nidorina 31.png' 
+         }
+else if (this.state.stage == 32) { 
+ this.state.current_pokemon_image = 'static/Nidoqueen 32.png' 
+         }
+else if (this.state.stage == 33) { 
+ this.state.current_pokemon_image = 'static/Nidoran-Male 33.png' 
+         }
+else if (this.state.stage == 34) { 
+ this.state.current_pokemon_image = 'static/Nidorino 34.png' 
+         }
+else if (this.state.stage == 35) { 
+ this.state.current_pokemon_image = 'static/Nidoking 35.png' 
+         }
+else if (this.state.stage == 36) { 
+ this.state.current_pokemon_image = 'static/Clefairy 36.png' 
+         }
+else if (this.state.stage == 37) { 
+ this.state.current_pokemon_image = 'static/Clefable 37.png' 
+         }
+else if (this.state.stage == 38) { 
+ this.state.current_pokemon_image = 'static/Vulpix 38.png' 
+         }
+else if (this.state.stage == 39) { 
+ this.state.current_pokemon_image = 'static/Ninetales 39.png' 
+         }
+else if (this.state.stage == 40) { 
+ this.state.current_pokemon_image = 'static/Jigglypuff 40.png' 
+         }
+else if (this.state.stage == 41) { 
+ this.state.current_pokemon_image = 'static/Wigglytuff 41.png' 
+         }
+else if (this.state.stage == 42) { 
+ this.state.current_pokemon_image = 'static/Zubat 42.png' 
+         }
+else if (this.state.stage == 43) { 
+ this.state.current_pokemon_image = 'static/Golbat 43.png' 
+         }
+else if (this.state.stage == 44) { 
+ this.state.current_pokemon_image = 'static/Oddish 44.png' 
+         }
+else if (this.state.stage == 45) { 
+ this.state.current_pokemon_image = 'static/Gloom 45.png' 
+         }
+else if (this.state.stage == 46) { 
+ this.state.current_pokemon_image = 'static/Vileplume 46.png' 
+         }
+else if (this.state.stage == 47) { 
+ this.state.current_pokemon_image = 'static/Meowth 47.png' 
+         }
+else if (this.state.stage == 48) { 
+ this.state.current_pokemon_image = 'static/Persian 48.png' 
+         }
+else if (this.state.stage == 49) { 
+ this.state.current_pokemon_image = 'static/Psyduck 49.png' 
+         }
+else if (this.state.stage == 50) { 
+ this.state.current_pokemon_image = 'static/Golduck 50.png' 
+         }
+else if (this.state.stage == 51) { 
+ this.state.current_pokemon_image = 'static/Mankey 51.png' 
+         }
+else if (this.state.stage == 52) { 
+ this.state.current_pokemon_image = 'static/Primeape 52.png' 
+         }
+else if (this.state.stage == 53) { 
+ this.state.current_pokemon_image = 'static/Growlithe 53.png' 
+         }
+else if (this.state.stage == 54) { 
+ this.state.current_pokemon_image = 'static/Arcanine 54.png' 
+         }
+else if (this.state.stage == 55) { 
+ this.state.current_pokemon_image = 'static/Zapdos 55.png' 
+         }
+else if (this.state.stage == 56) { 
+ this.state.current_pokemon_image = 'static/Poliwag 56.png' 
+         }
+else if (this.state.stage == 57) { 
+ this.state.current_pokemon_image = 'static/Poliwhirl 57.png' 
+         }
+else if (this.state.stage == 58) { 
+ this.state.current_pokemon_image = 'static/Poliwrath 58.png' 
+         }
+else if (this.state.stage == 59) { 
+ this.state.current_pokemon_image = 'static/Abra 59.png' 
+         }
+else if (this.state.stage == 60) { 
+ this.state.current_pokemon_image = 'static/Kadabra 60.png' 
+         }
+else if (this.state.stage == 61) { 
+ this.state.current_pokemon_image = 'static/Alakazam 61.png' 
+         }
+else if (this.state.stage == 62) { 
+ this.state.current_pokemon_image = 'static/Machop 62.png' 
+         }
+else if (this.state.stage == 63) { 
+ this.state.current_pokemon_image = 'static/Machoke 63.png' 
+         }
+else if (this.state.stage == 64) { 
+ this.state.current_pokemon_image = 'static/Machamp 64.png' 
+         }
+else if (this.state.stage == 65) { 
+ this.state.current_pokemon_image = 'static/Bellsprout 65.png' 
+         }
+else if (this.state.stage == 66) { 
+ this.state.current_pokemon_image = 'static/Weepinbell 66.png' 
+         }
+else if (this.state.stage == 67) { 
+ this.state.current_pokemon_image = 'static/Victreebel 67.png' 
+         }
+else if (this.state.stage == 68) { 
+ this.state.current_pokemon_image = 'static/Tentacool 68.png' 
+         }
+else if (this.state.stage == 69) { 
+ this.state.current_pokemon_image = 'static/Tentacruel 69.png' 
+         }
+else if (this.state.stage == 70) { 
+ this.state.current_pokemon_image = 'static/Geodude 70.png' 
+         }
+else if (this.state.stage == 71) { 
+ this.state.current_pokemon_image = 'static/Graveler 71.png' 
+         }
+else if (this.state.stage == 72) { 
+ this.state.current_pokemon_image = 'static/Golem 72.png' 
+         }
+else if (this.state.stage == 73) { 
+ this.state.current_pokemon_image = 'static/Ponyta 73.png' 
+         }
+else if (this.state.stage == 74) { 
+ this.state.current_pokemon_image = 'static/Rapidash 74.png' 
+         }
+else if (this.state.stage == 75) { 
+ this.state.current_pokemon_image = 'static/Slowpoke 75.png' 
+         }
+else if (this.state.stage == 76) { 
+ this.state.current_pokemon_image = 'static/Slowbro 76.png' 
+         }
+else if (this.state.stage == 77) { 
+ this.state.current_pokemon_image = 'static/Magnemite 77.png' 
+         }
+else if (this.state.stage == 78) { 
+ this.state.current_pokemon_image = 'static/Magneton 78.png' 
+         }
+else if (this.state.stage == 79) { 
+ this.state.current_pokemon_image = 'static/Doduo 79.png' 
+         }
+else if (this.state.stage == 80) { 
+ this.state.current_pokemon_image = 'static/Dodrio 80.png' 
+         }
+else if (this.state.stage == 81) { 
+ this.state.current_pokemon_image = 'static/Moltres 81.png' 
+         }
+else if (this.state.stage == 82) { 
+ this.state.current_pokemon_image = 'static/Farfetchd 82.png' 
+         }
+else if (this.state.stage == 83) { 
+ this.state.current_pokemon_image = 'static/Seel 83.png' 
+         }
+else if (this.state.stage == 84) { 
+ this.state.current_pokemon_image = 'static/Dewgong 84.png' 
+         }
+else if (this.state.stage == 85) { 
+ this.state.current_pokemon_image = 'static/Grimer 85.png' 
+         }
+else if (this.state.stage == 86) { 
+ this.state.current_pokemon_image = 'static/Muk 86.png' 
+         }
+else if (this.state.stage == 87) { 
+ this.state.current_pokemon_image = 'static/Shellder 87.png' 
+         }
+else if (this.state.stage == 88) { 
+ this.state.current_pokemon_image = 'static/Cloyster 88.png' 
+         }
+else if (this.state.stage == 89) { 
+ this.state.current_pokemon_image = 'static/Gastly 89.png' 
+         }
+else if (this.state.stage == 90) { 
+ this.state.current_pokemon_image = 'static/Haunter 90.png' 
+         }
+else if (this.state.stage == 91) { 
+ this.state.current_pokemon_image = 'static/Gengar 91.png' 
+         }
+else if (this.state.stage == 92) { 
+ this.state.current_pokemon_image = 'static/Onix 92.png' 
+         }
+else if (this.state.stage == 93) { 
+ this.state.current_pokemon_image = 'static/Drowzee 93.png' 
+         }
+else if (this.state.stage == 94) { 
+ this.state.current_pokemon_image = 'static/Hypno 94.png' 
+         }
+else if (this.state.stage == 95) { 
+ this.state.current_pokemon_image = 'static/Krabby 95.png' 
+         }
+else if (this.state.stage == 96) { 
+ this.state.current_pokemon_image = 'static/Kingler 96.png' 
+         }
+else if (this.state.stage == 97) { 
+ this.state.current_pokemon_image = 'static/Voltorb 97.png' 
+         }
+else if (this.state.stage == 98) { 
+ this.state.current_pokemon_image = 'static/Electrode 98.png' 
+         }
+else if (this.state.stage == 99) { 
+ this.state.current_pokemon_image = 'static/Hitmonlee 99.png' 
+         }
+else if (this.state.stage == 100) { 
+ this.state.current_pokemon_image = 'static/Hitmonchan 100.png' 
+         }
+else if (this.state.stage == 101) { 
+ this.state.current_pokemon_image = 'static/Rhyhorn 101.png' 
+         }
+else if (this.state.stage == 102) { 
+ this.state.current_pokemon_image = 'static/Rhydon 102.png' 
+         }
+else if (this.state.stage == 103) { 
+ this.state.current_pokemon_image = 'static/Mewtwo 103.png' 
+         }
+else if (this.state.stage == 104) { 
+ this.state.current_pokemon_image = 'static/Lickitung 104.png' 
+         }
+else if (this.state.stage == 105) { 
+ this.state.current_pokemon_image = 'static/Chansey 105.png' 
+         }
+else if (this.state.stage == 106) { 
+ this.state.current_pokemon_image = 'static/Kangaskhan 106.png' 
+         }
+else if (this.state.stage == 107) { 
+ this.state.current_pokemon_image = 'static/Horsea 107.png' 
+         }
+else if (this.state.stage == 108) { 
+ this.state.current_pokemon_image = 'static/Seadra 108.png' 
+         }
+else if (this.state.stage == 109) { 
+ this.state.current_pokemon_image = 'static/Staryu 109.png' 
+         }
+else if (this.state.stage == 110) { 
+ this.state.current_pokemon_image = 'static/Starmie 110.png' 
+         }
+else if (this.state.stage == 111) { 
+ this.state.current_pokemon_image = 'static/Scyther 111.png' 
+         }
+else if (this.state.stage == 112) { 
+ this.state.current_pokemon_image = 'static/Tauros 112.png' 
+         }
+else if (this.state.stage == 113) { 
+ this.state.current_pokemon_image = 'static/Magikarp 113.png' 
+         }
+else if (this.state.stage == 114) { 
+ this.state.current_pokemon_image = 'static/Gyarados 114.png' 
+         }
+else if (this.state.stage == 115) { 
+ this.state.current_pokemon_image = 'static/Eevee 115.png' 
+         }
+else if (this.state.stage == 116) { 
+ this.state.current_pokemon_image = 'static/Aerodactyl 116.png' 
+         }
+else if (this.state.stage == 117) { 
+ this.state.current_pokemon_image = 'static/Snorlax 117.png' 
+         }
+else if (this.state.stage == 118) { 
+ this.state.current_pokemon_image = 'static/Dratini 118.png' 
+         }
+else if (this.state.stage == 119) { 
+ this.state.current_pokemon_image = 'static/Dragonair 119.png' 
+         }
+else if (this.state.stage == 120) { 
+ this.state.current_pokemon_image = 'static/Dragonite 120.png' 
+         }
+else if (this.state.stage == 121) { 
+ this.state.current_pokemon_image = 'static/Lapras 121.png' 
+         }
+else if (this.state.stage == 122) { 
+ this.state.current_pokemon_image = 'static/Mew 122.png' 
+         }
+
+
+// get Pokemon's name 
+this.state.current_pokemon_name = this.state.current_pokemon_image.split(' ').shift().split('/').pop();
+}
+                      },
+                      "title": "New Pokemon",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}",
+                      "content": [
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "intro",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "3",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "3",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "2",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "2",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 17.8,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "1",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "1",
+                          "timeout": "1000"
+                        },
+                        {
+                          "type": "lab.canvas.Screen",
+                          "content": [
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": -250,
+                              "angle": 0,
+                              "width": 482.69,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "You just caught a new Pokémon...",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            },
+                            {
+                              "type": "i-text",
+                              "left": 0,
+                              "top": 0,
+                              "angle": 0,
+                              "width": 8.89,
+                              "height": 36.16,
+                              "stroke": null,
+                              "strokeWidth": 1,
+                              "fill": "black",
+                              "text": "!",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "fontSize": 32,
+                              "fontFamily": "sans-serif",
+                              "lineHeight": 1.16,
+                              "textAlign": "center"
+                            }
+                          ],
+                          "viewport": [
+                            800,
+                            600
+                          ],
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "wait",
+                          "timeout": "2000"
+                        },
+                        {
+                          "type": "lab.html.Screen",
+                          "files": {},
+                          "responses": {
+                            "": ""
+                          },
+                          "parameters": {},
+                          "messageHandlers": {},
+                          "title": "reveal!",
+                          "content": "\u003Cmain\u003E\n\n\u003Cimg src=\"${this.state.current_pokemon_image}\" height=\"250px\" width=\"250px\"\u003E\n\u003Ch1\u003E ${this.state.current_pokemon_name}! \u003C\u002Fh1\u003E\n\n\u003C\u002Fmain\u003E",
+                          "timeout": "10000",
+                          "tardy": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "lab.html.Screen",
+                      "files": {},
+                      "responses": {
+                        "mousedown button#continue": "continue"
+                      },
+                      "parameters": {},
+                      "messageHandlers": {
+                        "run": function anonymous(
+) {
+this.state.skip_chunk = 1
+}
+                      },
+                      "title": "next_stage",
+                      "content": "\u003Cmain\u003E \n  \u003Cdiv class=\"introduction-central-container\"\u003E\n\n    \u003Cdiv\u003E\n    \u003Cimg src=\"static\u002Fprofessor.jpeg\"\u003E\n    \u003C\u002Fdiv\u003E\n\n    \u003Cdiv\u003E\n\n      \u003Cdiv\u003E\n      \u003Cp\u003E You just unlocked a new stage - great job! Now you have ${this.state.current_pokemon_name} by your side for the next level. Exciting!\u003Cbr\u003E\u003Cbr\u003EFeel free to take a few seconds as a break, and when you're ready,\u003Cbr\u003Eclick \"Continue\" to move on to the next level. Good luck to you both!\u003C\u002Fp\u003E\u003C\u002Fdiv\u003E\n      \u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\u003Cbr\u003E\n      \u003Cbutton id=\"continue\"\u003EContinue\u003C\u002Fbutton\u003E\n\n    \u003C\u002Fdiv\u003E\n\n  \u003C\u002Fdiv\u003E\n\u003C\u002Fmain\u003E",
+                      "tardy": true,
+                      "skip": "${this.state.skip_chunk == 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "lab.html.Page",
+            "items": [
+              {
+                "type": "text"
+              }
+            ],
+            "scrollTop": true,
+            "submitButtonText": "Continue →",
+            "submitButtonPosition": "hidden",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+this.state.skip_chunk = 0
+this.state.phase = "Training"
+this.state.testing_trial_number = 1
+this.state.current_tally = 0
+this.state.stage = (Number(this.state.stage) + 1).toString()
+document.getElementById("level-display").innerHTML = "Level " + this.state.stage + ": " + this.state.phase;
+}
+            },
+            "title": "skip_chunk_reset",
+            "skip": "${this.state.skip_chunk == 0}",
+            "tardy": true,
+            "timeout": "1000"
+          },
+          {
+            "type": "lab.flow.Loop",
+            "templateParameters": [],
+            "sample": {
+              "mode": "draw-shuffle",
+              "n": "200"
+            },
+            "files": {
+              "stage_5.csv": "embedded\u002Fbf5cd0b1a80923bdb06069b9f2500967ae66845e2586046e12de7681017f8e82.csv",
+              "stage_118.csv": "embedded\u002Fb63062f65b4cd3ae94899aa25daf1ae670f0b4af11ddc7e455828b8cd151e5c7.csv",
+              "stage_10.csv": "embedded\u002F687d3f4e9a518dff10b23ec3a9a3246e56ef9293e267668a20916a3b0c41f7ba.csv",
+              "stage_11.csv": "embedded\u002F5711cf764bd9767fb4af2018d440a7c1c908002d8eba71a4da850298fa10011a.csv"
+            },
+            "responses": {},
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": async function anonymous(
+) {
+this.state.url_text = "https://www.drjamiecummins.com/school-rct/st-pauls/trials/stage_";
+this.state.file_type = ".csv";
+
+
+this.state.url = this.state.url_text.concat(this.state.stage, this.state.file_type)
+
+var csv2json = await new Promise((resolve, reject) => {
+  Papa.parse(this.state.url, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(result) {
+      resolve(result.data);
+    }
+  })
+})
+console.log(csv2json)
+this.options.templateParameters = csv2json
+
+
+
+
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+
+this.state.current_tally = 0
+this.state.testing_trial_number = 1
+this.state.phase = "Training"
+
+
+}
+            },
+            "title": "trial_chunk",
+            "tardy": true,
+            "skip": "${this.state.skip_chunk == 1}",
+            "shuffleGroups": [],
+            "template": {
+              "type": "lab.flow.Sequence",
+              "files": {},
+              "responses": {
+                "": ""
+              },
+              "parameters": {},
+              "messageHandlers": {},
+              "title": "trials-and-breaks",
+              "tardy": true,
+              "skip": "${this.state.skip_chunk == 1}",
+              "content": [
+                {
+                  "type": "lab.html.Frame",
+                  "contextSelector": "[data-labjs-section=\"frame\"]",
+                  "files": {},
+                  "responses": {
+                    "": ""
+                  },
+                  "parameters": {},
+                  "messageHandlers": {
+                    "run": function anonymous(
+) {
+if (this.state.first_trial == 1) {
+document.getElementById("pokemon-motivation").innerHTML = "Let's get started - you've got this!";
+};
+
+
+if (this.state.phase == "Training") {
+  document.getElementById("trial-display").innerHTML = this.state.current_tally + " of 16 correct";
+} else if (this.state.phase == "Testing") {
+  document.getElementById("trial-display").innerHTML = "Trial " + this.state.testing_trial_number + " of 16";
+}
+
+var pieChart = document.getElementById('timer-circle');
+pieChart.width = pieChart.height = 100;
+
+var counter = document.createElement("p");
+
+
+var ctx = pieChart.getContext('2d');
+var secondsPassed = 0;
+
+interval = setInterval(function() {
+  ctx.clearRect(0, 0, pieChart.width, pieChart.height);
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, 0, Math.PI*2);
+  ctx.fillStyle = '#03879E';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(pieChart.width/2, pieChart.height/2);
+  ctx.arc(pieChart.width/2, pieChart.height/2, pieChart.width/2, -Math.PI/2, (-Math.PI/2) + Math.PI*2*secondsPassed/30);
+  ctx.fillStyle = '#00ADEF';
+  ctx.fill();
+  ctx.font = "30px Verdana";
+  ctx.fillStyle = "white";
+  secondsPassed++;
+}, 1000);
+
+
+time_left = 30;
+trialTimer = setInterval(function(){
+  if(time_left <= 9){
+    ctx.fillText(Math.trunc(time_left), 40, 60);
+  } else {
+    ctx.fillText(Math.trunc(time_left), 31, 60);
+  }
+  time_left -= 1;
+}, 1000);
+
+
+// motivational speech items
+motivations = ['The more we practice, the better we get!',
+              'The bigger the challenge, the bigger the victory!',
+              'The best way to learn is to make mistakes!',
+              'I know that we can do this together!',
+              'This can sometimes be tough - but we can do it!',
+              'Hard work will always pay off!',
+              'Stay focused - we can do this!',
+              'I wonder what Pokémon you’ll find next…',
+              'Just 30 minutes of practice - easy peasy!',
+              'You’re doing great - I’m proud of you!',
+              'Even if you get stuck, just keep trying - you’ll get it!',
+              'My favourite feeling is making progress after getting stuck for a while!',
+              'If you complete an especially hard level, you can unlock a legendary Pokémon…',
+              'Practice makes perfect!',
+              'Every question you answer helps, even if you get it wrong!',
+              'Practice can sometimes be boring - but it always pays off!',
+              'Someone told me there are over 100 Pokémon to find in this training...',
+              'I wonder does Professor SMART ever do his own training...',
+              'I bet Professor SMART got so smart because he did this training!',
+              'If you are getting really stuck on a level, ask your teacher for help!',
+              'Over 1000 children in Ireland are using SMART...that is a lot!',
+              'The 30 second countdown keeps you on your toes!',
+              'The training can be frustrating, but it can be fun too!',
+              'Try to treat the training like a puzzle that you can solve!',
+              'Focus on getting the answers right - do not worry if you are slow!',
+              'You will get faster and faster with more practice!',
+              'If you are finding it easy, try to go faster!',
+              'The training is designed to make you smarter - so do not worry if you do not feel smart at the start!',
+              'Remember, getting answers wrong is how you learn!',
+              'Try answer the questions in your head - do not write anything down!',
+              'Training many times over a few weeks makes the training even more powerful!',
+              'It is better to be right than to be fast - speed comes with practice!',
+              'Try to push yourself a little bit more in every new session!',
+              'Shortcuts will not make you smarter - solving the problems with hard work will!',
+              'Easy, medium, hard, it does not matter - every question you answer helps you!',
+              'Getting better can take time - be patient and never give up!',
+              'How do you catch a squirrel?<br>Climb up a tree and act like a nut!',
+              'What appears over Professor SMART\'s head when he gets an idea? A LightBulbasaur!',
+              'What’s better than one Pikachu?<br>PikaTWO!',
+              'I believe in you!',
+              'You can do it - keep pushing!',
+              'Be proud of yourself for working hard!',
+              'Sometimes you will pass many levels, other times you will not - but it is all practice!',
+              'Practice is always valuable!']
+
+
+
+
+},
+                    "after:end": function anonymous(
+) {
+clearInterval(interval)
+clearInterval(trialTimer)
+
+this.state.first_trial = 0;
+}
+                  },
+                  "title": "whole-trial-frame",
+                  "tardy": true,
+                  "skip": "${this.state.skip_chunk == 1}",
+                  "content": {
+                    "type": "lab.flow.Sequence",
+                    "files": {},
+                    "responses": {
+                      "": ""
+                    },
+                    "parameters": {},
+                    "messageHandlers": {
+                      "run": function anonymous(
+) {
+document.getElementById("current-character").src=this.state.current_pokemon_image;
+}
+                    },
+                    "title": "trial_sequence",
+                    "tardy": true,
+                    "skip": "${this.state.skip_chunk == 1}",
+                    "content": [
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+
+if (this.parameters.stage <= 55) {
+  this.parameters.q_word = "Is";
+} else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
+  this.parameters.q_word = "Does";
+};
+  
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+
+
+if (this.parameters.stim_3_id == 1) { 
+  this.parameters.stim_3 = this.state.stimulus_1;
+} else if (this.parameters.stim_3_id == 2) { 
+  this.parameters.stim_3 = this.state.stimulus_2;
+} else if (this.parameters.stim_3_id == 3) {
+  this.parameters.stim_3 = this.state.stimulus_3;
+} else if (this.parameters.stim_3_id == 4) {
+  this.parameters.stim_3 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_4_id == 1) { 
+  this.parameters.stim_4 = this.state.stimulus_1;
+} else if (this.parameters.stim_4_id == 2) {
+  this.parameters.stim_4 = this.state.stimulus_2;
+} else if (this.parameters.stim_4_id == 3) {
+  this.parameters.stim_4 = this.state.stimulus_3;
+} else if (this.parameters.stim_4_id == 4) {
+  this.parameters.stim_4 = this.state.stimulus_4;
+};;
+
+if (this.parameters.stim_5_id == 1) { 
+  this.parameters.stim_5 = this.state.stimulus_1;
+} else if (this.parameters.stim_5_id == 2) {
+  this.parameters.stim_5 = this.state.stimulus_2;
+} else if (this.parameters.stim_5_id == 3) { 
+  this.parameters.stim_5 = this.state.stimulus_3;
+} else if (this.parameters.stim_5_id == 4) {
+  this.parameters.stim_5 = this.state.stimulus_4;
+};
+
+if (this.parameters.stim_6_id == 1) { 
+  this.parameters.stim_6 = this.state.stimulus_1;
+} else if (this.parameters.stim_6_id == 2) {
+  this.parameters.stim_6 = this.state.stimulus_2;
+} else if (this.parameters.stim_6_id == 3) { 
+  this.parameters.stim_6 = this.state.stimulus_3;
+} else if (this.parameters.stim_6_id == 4) {
+  this.parameters.stim_6 = this.state.stimulus_4;
+}
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+} 
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+} 
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage <= 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+if (this.state.phase == "Testing" & this.state.correct == true) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" & this.state.correct == false) {
+  this.state.current_tally = 0;
+};
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+
+}
+                        },
+                        "title": "standard_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4} \u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_5} ${this.parameters.relation_3} ${this.parameters.stim_6} \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"separator\"\u003E\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
+                        "correctResponse": "${parameters.correct_response}",
+                        "tardy": true,
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                      },
+                      {
+                        "type": "lab.html.Screen",
+                        "files": {},
+                        "responses": {
+                          "mousedown div#yes": "yes",
+                          "mousedown div#no": "no"
+                        },
+                        "parameters": {},
+                        "messageHandlers": {
+                          "before:prepare": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+this.parameters.stim_1 = this.state.stimulus_1
+this.parameters.stim_2 = this.state.stimulus_2
+this.parameters.stim_3 = this.state.stimulus_3
+this.parameters.stim_4 = this.state.stimulus_4
+this.parameters.q_stim_1 = this.state.stimulus_1
+this.parameters.q_stim_2 = this.state.stimulus_2
+this.parameters.q_stim_3 = this.state.stimulus_3
+this.parameters.q_stim_4 = this.state.stimulus_4
+
+if (this.parameters.meta_stim_1_id == 1) { 
+  this.parameters.meta_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_1_id == 2) {
+  this.parameters.meta_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_1_id == 3) {
+  this.parameters.meta_stim_1 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_1_id == 4) {
+  this.parameters.meta_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.meta_stim_2_id == 1) { 
+  this.parameters.meta_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.meta_stim_2_id == 2) {
+  this.parameters.meta_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.meta_stim_2_id == 3) {
+  this.parameters.meta_stim_2 = this.state.stimulus_3;
+}  else if (this.parameters.meta_stim_2_id == 4) {
+  this.parameters.meta_stim_2 = this.state.stimulus_4;
+};
+
+
+if (this.parameters.q_stim_1_id == 1) { 
+  this.parameters.q_stim_1 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_1_id == 2) {
+  this.parameters.q_stim_1 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_1_id == 3) {
+  this.parameters.q_stim_1 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_1_id == 4) {
+  this.parameters.q_stim_1 = this.state.stimulus_4;
+};
+
+if (this.parameters.q_stim_2_id == 1) { 
+  this.parameters.q_stim_2 = this.state.stimulus_1;
+} else if (this.parameters.q_stim_2_id == 2) {
+  this.parameters.q_stim_2 = this.state.stimulus_2;
+} else if (this.parameters.q_stim_2_id == 3) {
+  this.parameters.q_stim_2 = this.state.stimulus_3;
+} else if (this.parameters.q_stim_2_id == 4) {
+  this.parameters.q_stim_2 = this.state.stimulus_4;
+};
+
+
+};
+},
+                          "after:end": function anonymous(
+) {
+if (this.state.stage > 103) {
+
+// remove currently used stimuli from buckets
+stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
+stimulus_2_bucket = stimulus_2_bucket.filter(item => item !== this.state.stimulus_2)
+stimulus_3_bucket = stimulus_3_bucket.filter(item => item !== this.state.stimulus_3)
+stimulus_4_bucket = stimulus_4_bucket.filter(item => item !== this.state.stimulus_4)
+
+// select the new stimuli for the next trial //
+this.state.stimulus_1 = stimulus_1_bucket[Math.random() * stimulus_1_bucket.length | 0];
+this.state.stimulus_2 = stimulus_2_bucket[Math.random() * stimulus_2_bucket.length | 0];
+this.state.stimulus_3 = stimulus_3_bucket[Math.random() * stimulus_3_bucket.length | 0];
+this.state.stimulus_4 = stimulus_4_bucket[Math.random() * stimulus_4_bucket.length | 0];
+
+if (this.state.phase == "Testing") {
+  this.state.testing_trial_number += 1;
+};
+
+if (this.state.phase == "Testing" && this.state.correct == 1) {
+  this.state.current_tally += 1;
+} else if (this.state.phase == "Testing" && this.state.correct == 0) {
+  this.state.current_tally = 0
+}
+
+this.state.trial_time = this.state.duration;
+
+if (this.state.trial_time >= 30000) {
+  this.state.correct = 0;
+}
+};
+},
+                          "run": function anonymous(
+) {
+this.state.positions = ['left', 'right']
+randomNumber = Math.floor(Math.random()*this.state.positions.length);
+this.state.position1 = this.state.positions[randomNumber];
+this.state.position2 = this.state.positions[(1 - randomNumber)];
+
+// randomise response options positions
+document.getElementById("yes").style.cssFloat = this.state.position2;
+document.getElementById("no").style.cssFloat = this.state.position1;
+
+}
+                        },
+                        "title": "mathematical_trials",
+                        "content": "\u003Cdiv class=\"trial-propositions\"\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_1} ${this.parameters.relation_1} ${this.parameters.stim_2}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_relation_1}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.stim_3} ${this.parameters.relation_2} ${this.parameters.stim_4}\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"trial-proposition\"\u003E${this.parameters.meta_stim_1} ${this.parameters.meta_relation_2} ${this.parameters.meta_stim_2}\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\n\u003Cdiv class=\"trial-question\"\u003E\n  ${this.parameters.q_word} ${this.parameters.q_stim_1} ${this.parameters.q_rel} ${this.parameters.q_stim_2}?\u003C\u002Fdiv\u003E\n\n\n\u003Cfooter class=\"footer-trials\"\u003E\n\u003Cdiv class=\"response-options\"\u003E\n  \u003Cdiv class=\"response-option\" id=\"yes\"\u003E\u003Cb\u003EYES\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n  \u003Cdiv class=\"response-option\" id=\"no\"\u003E\u003Cb\u003ENO\u003C\u002Fb\u003E\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Ffooter\u003E",
+                        "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
                         "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"

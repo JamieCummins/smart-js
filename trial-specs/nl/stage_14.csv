@@ -1,0 +1,13 @@
+relation_1,stim_3_id,relation_2,stim_4_id,stim_5_id,relation_3,stim_6_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,yes_x_coord,no_x_coord,stage
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,3,hetzelfde als,1,yes,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,1,hetzelfde als,3,yes,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,3,het tegenovergestelde van,1,no,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,1,het tegenovergestelde van,3,no,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,3,hetzelfde als,2,no,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,2,hetzelfde als,3,no,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,3,het tegenovergestelde van,2,yes,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,2,het tegenovergestelde van,3,yes,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,1,hetzelfde als,2,no,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,2,hetzelfde als,1,no,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,1,het tegenovergestelde van,2,yes,-250,250,14
+is het tegenovergestelde van,2,is het tegenovergestelde van,3,,,,2,het tegenovergestelde van,1,yes,-250,250,14

@@ -1,0 +1,17 @@
+relation_1,meta_relation_1,relation_2,meta_stim_1_id,meta_relation_2,meta_stim_2_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,stage,yes_x_coord,no_x_coord,q_word
+min,is hetzelfde als,min,1,is minder dan,3,2,minder dan,4,yes,118,-250,250,Is
+min,is hetzelfde als,min,1,is minder dan,3,4,minder dan,2,no,118,-250,250,Is
+min,is hetzelfde als,min,3,is minder dan,1,2,minder dan,4,no,118,-250,250,Is
+min,is hetzelfde als,min,3,is minder dan,1,4,minder dan,2,yes,118,-250,250,Is
+min,is hetzelfde als,min,2,is minder dan,4,1,minder dan,3,yes,118,-250,250,Is
+min,is hetzelfde als,min,2,is minder dan,4,3,minder dan,1,no,118,-250,250,Is
+min,is hetzelfde als,min,4,is minder dan,2,1,minder dan,3,no,118,-250,250,Is
+min,is hetzelfde als,min,4,is minder dan,2,3,minder dan,1,yes,118,-250,250,Is
+min,is minder dan,min,1,is hetzelfde als,3,2,minder dan,4,no,118,-250,250,Is
+min,is minder dan,min,1,is hetzelfde als,3,4,minder dan,2,yes,118,-250,250,Is
+min,is minder dan,min,3,is hetzelfde als,1,2,minder dan,4,no,118,-250,250,Is
+min,is minder dan,min,3,is hetzelfde als,1,4,minder dan,2,yes,118,-250,250,Is
+min,is minder dan,min,2,is hetzelfde als,4,1,minder dan,3,yes,118,-250,250,Is
+min,is minder dan,min,2,is hetzelfde als,4,3,minder dan,1,no,118,-250,250,Is
+min,is minder dan,min,4,is hetzelfde als,2,1,minder dan,3,yes,118,-250,250,Is
+min,is minder dan,min,4,is hetzelfde als,2,3,minder dan,1,no,118,-250,250,Is

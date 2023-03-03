@@ -1,0 +1,47 @@
+---
+title: "duplicates_testing"
+author: "Jamie Cummins"
+date: "2/12/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+```{r}
+
+library(tidyverse)
+
+files <- list.files(pattern = ".csv")
+
+
+remove_duplicates_add_coordinates <- function(file_name) {
+  
+  df <- read_csv(file_name)
+  
+  yes_x <- c(rep(c(250, -250), each = nrow(df)))
+  no_x  <- c(rep(c(-250, 250), each = nrow(df)))
+  
+  doubled_up_df <- df
+  
+  full_df <- df %>%
+    bind_rows(doubled_up_df) %>%
+    mutate(yes_x_coord = yes_x,
+           no_x_coord = no_x) %>%
+    mutate_all(funs(ifelse(is.na(.), "", .))) %>%
+    distinct(., .keep_all = TRUE) %>%
+    mutate(stage = str_remove(file_name, c("stage_")),
+           stage = str_remove(stage, ".csv"))
+  
+  write_csv(full_df, file_name)
+  
+}
+
+
+map(files, remove_duplicates_add_coordinates)
+
+```
