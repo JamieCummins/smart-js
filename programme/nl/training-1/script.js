@@ -976,8 +976,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -1213,7 +1234,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -1651,8 +1672,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -1888,7 +1930,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -2326,8 +2368,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -2563,7 +2626,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -3001,8 +3064,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -3238,7 +3322,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -3676,8 +3760,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -3913,7 +4018,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -4351,8 +4456,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -4588,7 +4714,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -5026,8 +5152,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -5263,7 +5410,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -5701,8 +5848,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -5938,7 +6106,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -6376,8 +6544,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -6613,7 +6802,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -7051,8 +7240,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -7288,7 +7498,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -7726,8 +7936,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -7963,7 +8194,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -8401,8 +8632,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -8638,7 +8890,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -9076,8 +9328,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -9313,7 +9586,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -9751,8 +10024,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -9988,7 +10282,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -10426,8 +10720,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -10663,7 +10978,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -11101,8 +11416,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -11338,7 +11674,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -11776,8 +12112,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -12013,7 +12370,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -12451,8 +12808,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -12688,7 +13066,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -13126,8 +13504,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -13363,7 +13762,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -13801,8 +14200,29 @@ if (this.parameters.stage <= 55) {
   this.parameters.q_word = "Komt";
 };
   
-this.parameters.stim_1 = this.state.stimulus_1
-this.parameters.stim_2 = this.state.stimulus_2
+if (this.parameters.stim_1_id == 1) { 
+  this.parameters.stim_1 = this.state.stimulus_1;
+} else if (this.parameters.stim_1_id == 2) { 
+  this.parameters.stim_1 = this.state.stimulus_2;
+} else if (this.parameters.stim_1_id == 3) {
+  this.parameters.stim_1 = this.state.stimulus_3;
+} else if (this.parameters.stim_1_id == 4) {
+  this.parameters.stim_1 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_1 = this.state.stimulus_1;
+};
+
+if (this.parameters.stim_2_id == 1) { 
+  this.parameters.stim_2 = this.state.stimulus_1;
+} else if (this.parameters.stim_2_id == 2) { 
+  this.parameters.stim_2 = this.state.stimulus_2;
+} else if (this.parameters.stim_2_id == 3) {
+  this.parameters.stim_2 = this.state.stimulus_3;
+} else if (this.parameters.stim_2_id == 4) {
+  this.parameters.stim_2 = this.state.stimulus_4;
+} else {
+  this.parameters.stim_2 = this.state.stimulus_2;
+};
 
 
 if (this.parameters.stim_3_id == 1) { 
@@ -14038,7 +14458,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
                       },
                       {
                         "type": "lab.canvas.Screen",

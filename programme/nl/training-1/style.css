@@ -146,7 +146,7 @@
 
 .top-section {
   width: 100%;
-  height: 110px;
+  height: 100px;
 }
 
 .character-section {
@@ -181,7 +181,7 @@
 
 .level-text {
   font-weight: bold;
-  font-size: 48px;
+  font-size: 36px;
   margin: 0 auto;
   color: #00ADEF;
 }
@@ -189,7 +189,7 @@
 .trial-text {
   margin: auto;
   justify-content: center;
-  font-size: 32px;
+  font-size: 28px;
   color: #545454;
 }
 

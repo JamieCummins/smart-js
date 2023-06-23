@@ -1622,7 +1622,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -2969,7 +2969,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -4316,7 +4316,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -5663,7 +5663,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -7010,7 +7010,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -8357,7 +8357,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -9704,7 +9704,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -11051,7 +11051,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -12398,7 +12398,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -13745,7 +13745,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -15092,7 +15092,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -16439,7 +16439,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -17786,7 +17786,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -19133,7 +19133,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -20480,7 +20480,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -21827,7 +21827,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -23174,7 +23174,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -24521,7 +24521,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -25868,7 +25868,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -27215,7 +27215,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || 103 \u003E= Number(this.state.stage)}"
                       },
                       {
                         "type": "lab.canvas.Screen",
