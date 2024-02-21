@@ -1,25 +1,30 @@
-"","relation_1","stim_3_id","relation_2","stim_4_id","stim_5_id","relation_3","stim_6_id","q_stim_1_id","q_rel","q_stim_2_id","correct_response","yes_x_coord","no_x_coord","stage"
-"1","is verschillend van","2","is verschillend van","3",NA,NA,NA,"3","verschillend van","2","yes","250","-250","132"
-"2","is verschillend van","2","is verschillend van","3",NA,NA,NA,"2","verschillend van","3","yes","250","-250","132"
-"3","is verschillend van","3","is verschillend van","2",NA,NA,NA,"3","verschillend van","2","yes","250","-250","132"
-"4","is verschillend van","3","is verschillend van","2",NA,NA,NA,"2","verschillend van","3","yes","250","-250","132"
-"5","is verschillend van","1","is verschillend van","3",NA,NA,NA,"3","verschillend van","1","yes","250","-250","132"
-"6","is verschillend van","1","is verschillend van","3",NA,NA,NA,"1","verschillend van","3","yes","250","-250","132"
-"7","is verschillend van","3","is verschillend van","1",NA,NA,NA,"3","verschillend van","1","yes","250","-250","132"
-"8","is verschillend van","3","is verschillend van","1",NA,NA,NA,"1","verschillend van","3","yes","250","-250","132"
-"9","is verschillend van","1","is verschillend van","3",NA,NA,NA,"2","verschillend van","1","yes","250","-250","132"
-"10","is verschillend van","1","is verschillend van","3",NA,NA,NA,"1","verschillend van","2","yes","250","-250","132"
-"11","is verschillend van","3","is verschillend van","1",NA,NA,NA,"2","verschillend van","1","yes","250","-250","132"
-"12","is verschillend van","3","is verschillend van","1",NA,NA,NA,"1","verschillend van","2","yes","250","-250","132"
-"13","is verschillend van","2","is verschillend van","3",NA,NA,NA,"3","verschillend van","2","yes","-250","250","132"
-"14","is verschillend van","2","is verschillend van","3",NA,NA,NA,"2","verschillend van","3","yes","-250","250","132"
-"15","is verschillend van","3","is verschillend van","2",NA,NA,NA,"3","verschillend van","2","yes","-250","250","132"
-"16","is verschillend van","3","is verschillend van","2",NA,NA,NA,"2","verschillend van","3","yes","-250","250","132"
-"17","is verschillend van","1","is verschillend van","3",NA,NA,NA,"3","verschillend van","1","yes","-250","250","132"
-"18","is verschillend van","1","is verschillend van","3",NA,NA,NA,"1","verschillend van","3","yes","-250","250","132"
-"19","is verschillend van","3","is verschillend van","1",NA,NA,NA,"3","verschillend van","1","yes","-250","250","132"
-"20","is verschillend van","3","is verschillend van","1",NA,NA,NA,"1","verschillend van","3","yes","-250","250","132"
-"21","is verschillend van","1","is verschillend van","3",NA,NA,NA,"2","verschillend van","1","yes","-250","250","132"
-"22","is verschillend van","1","is verschillend van","3",NA,NA,NA,"1","verschillend van","2","yes","-250","250","132"
-"23","is verschillend van","3","is verschillend van","1",NA,NA,NA,"2","verschillend van","1","yes","-250","250","132"
-"24","is verschillend van","3","is verschillend van","1",NA,NA,NA,"1","verschillend van","2","yes","-250","250","132"
+relation_1;stim_3_id;relation_2;stim_4_id;stim_5_id;relation_3;stim_6_id;q_stim_1_id;q_rel;q_stim_2_id;correct_response;yes_x_coord;no_x_coord;stage
+is verschillend van;2;is verschillend van;3;;;;3;verschillend van;2;yes;250;-250;132
+is verschillend van;2;is verschillend van;3;;;;2;verschillend van;3;yes;250;-250;132
+is verschillend van;2;is verschillend van;3;;;;3;hetzelfde als;2;no;250;-250;132
+is verschillend van;3;is verschillend van;2;;;;3;verschillend van;2;yes;250;-250;132
+is verschillend van;3;is verschillend van;2;;;;2;verschillend van;3;yes;250;-250;132
+is verschillend van;3;is verschillend van;2;;;;2;hetzelfde als;3;no;250;-250;132
+is verschillend van;1;is verschillend van;3;;;;3;verschillend van;1;yes;250;-250;132
+is verschillend van;1;is verschillend van;3;;;;1;verschillend van;3;yes;250;-250;132
+is verschillend van;1;is verschillend van;3;;;;3;hetzelfde als;1;no;250;-250;132
+is verschillend van;3;is verschillend van;1;;;;3;verschillend van;1;yes;250;-250;132
+is verschillend van;3;is verschillend van;1;;;;1;verschillend van;3;yes;250;-250;132
+is verschillend van;3;is verschillend van;1;;;;1;hetzelfde als;3;no;250;-250;132
+is verschillend van;1;is verschillend van;3;;;;2;verschillend van;1;yes;250;-250;132
+is verschillend van;1;is verschillend van;3;;;;1;verschillend van;2;yes;250;-250;132
+is verschillend van;1;is verschillend van;3;;;;2;hetzelfde als;1;no;250;-250;132
+is verschillend van;3;is verschillend van;1;;;;2;verschillend van;1;yes;250;-250;132
+is verschillend van;3;is verschillend van;1;;;;1;verschillend van;2;yes;250;-250;132
+is verschillend van;3;is verschillend van;1;;;;1;hetzelfde als;2;no;250;-250;132
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
