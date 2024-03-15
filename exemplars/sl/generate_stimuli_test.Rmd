@@ -1,0 +1,65 @@
+---
+title: "generate_stimuli"
+author: "Jamie Cummins"
+date: "2/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(tidyverse)
+
+stimuli <- read_csv("final_nonsense_words.csv", col_names = "stimulus", locale = locale(encoding = "Windows-1250"))
+
+split_stimuli <- stimuli %>%
+  mutate(value = sample(c("stimulus_1", "stimulus_2", "stimulus_3", "stimulus_4"), nrow(.), replace = TRUE),
+         stimulus = paste("'", stimulus, "',", sep = "")) %>%
+  distinct(stimulus, .keep_all = TRUE)
+
+stimuli_1 <- split_stimuli %>% 
+  filter(value == "stimulus_1") %>%
+  pull(stimulus) %>% 
+  t() %>%
+  toupper() |>
+  as_tibble() |>
+  unite(col = "col", sep = " ") |>
+  pull(col)
+
+stimuli_2 <- split_stimuli %>% 
+  filter(value == "stimulus_2") %>%
+  pull(stimulus) %>% 
+  t() %>%
+  toupper() |>
+  as_tibble() |>
+  unite(col = "col", sep = " ") |>
+  pull(col)
+
+stimuli_3 <- split_stimuli %>% 
+  filter(value == "stimulus_3") %>%
+  pull(stimulus) %>% 
+  t() %>%
+  toupper() |>
+  as_tibble() |>
+  unite(col = "col", sep = " ") |>
+  pull(col)
+
+stimuli_4 <- split_stimuli %>% 
+  filter(value == "stimulus_4") %>%
+  pull(stimulus) %>% 
+  t() %>%
+  toupper() |>
+  as_tibble() |>
+  unite(col = "col", sep = " ") |>
+  pull(col)
+
+stimuli_1 %>% write.table("stimuli_1.txt", quote = FALSE, sep = " ")
+stimuli_2 %>% write.table("stimuli_2.txt", quote = FALSE, sep = " ")
+stimuli_3 %>% write.table("stimuli_3.txt", quote = FALSE, sep = " ")
+stimuli_4 %>% write.table("stimuli_4.txt", quote = FALSE, sep = " ")
+
+
+```

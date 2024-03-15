@@ -1,0 +1,13 @@
+relation_1,stim_3_id,relation_2,stim_4_id,stim_5_id,relation_3,stim_6_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,yes_x_coord,no_x_coord,stage
+je več kot,2,je več kot,3,,,,1,manj kot,2,no,250,-250,34
+je več kot,2,je več kot,3,,,,2,manj kot,3,no,250,-250,34
+je več kot,2,je več kot,3,,,,1,manj kot,3,no,250,-250,34
+je več kot,2,je več kot,3,,,,2,manj kot,1,yes,250,-250,34
+je več kot,2,je več kot,3,,,,3,manj kot,2,yes,250,-250,34
+je več kot,2,je več kot,3,,,,3,manj kot,1,yes,250,-250,34
+je več kot,2,je več kot,3,,,,1,manj kot,2,no,-250,250,34
+je več kot,2,je več kot,3,,,,2,manj kot,3,no,-250,250,34
+je več kot,2,je več kot,3,,,,1,manj kot,3,no,-250,250,34
+je več kot,2,je več kot,3,,,,2,manj kot,1,yes,-250,250,34
+je več kot,2,je več kot,3,,,,3,manj kot,2,yes,-250,250,34
+je več kot,2,je več kot,3,,,,3,manj kot,1,yes,-250,250,34
