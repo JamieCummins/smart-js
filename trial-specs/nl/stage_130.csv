@@ -1,0 +1,17 @@
+X,relation_1,stim_3_id,relation_2,stim_4_id,stim_5_id,relation_3,stim_6_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,yes_x_coord,no_x_coord,stage
+1,is verschillend van,2,is verschillend van,3,,,,3,hetzelfde als,2,no,250,-250,130
+2,is verschillend van,2,is verschillend van,3,,,,2,hetzelfde als,3,no,250,-250,130
+3,is verschillend van,2,is verschillend van,3,,,,3,verschillend van,2,yes,250,-250,130
+4,is verschillend van,2,is verschillend van,3,,,,2,verschillend van,3,yes,250,-250,130
+5,is verschillend van,2,is verschillend van,3,,,,1,hetzelfde als,2,no,250,-250,130
+6,is verschillend van,2,is verschillend van,3,,,,2,hetzelfde als,1,no,250,-250,130
+7,is verschillend van,2,is verschillend van,3,,,,1,verschillend van,2,yes,250,-250,130
+8,is verschillend van,2,is verschillend van,3,,,,2,verschillend van,1,yes,250,-250,130
+9,is verschillend van,2,is verschillend van,3,,,,3,hetzelfde als,2,no,-250,250,130
+10,is verschillend van,2,is verschillend van,3,,,,2,hetzelfde als,3,no,-250,250,130
+11,is verschillend van,2,is verschillend van,3,,,,3,verschillend van,2,yes,-250,250,130
+12,is verschillend van,2,is verschillend van,3,,,,2,verschillend van,3,yes,-250,250,130
+13,is verschillend van,2,is verschillend van,3,,,,1,hetzelfde als,2,no,-250,250,130
+14,is verschillend van,2,is verschillend van,3,,,,2,hetzelfde als,1,no,-250,250,130
+15,is verschillend van,2,is verschillend van,3,,,,1,verschillend van,2,yes,-250,250,130
+16,is verschillend van,2,is verschillend van,3,,,,2,verschillend van,1,yes,-250,250,130
