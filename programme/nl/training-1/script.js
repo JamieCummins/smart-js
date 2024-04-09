@@ -142,7 +142,9 @@ this.state.valid_passwords = [
   5394, 8613, 5894, 7049, 3909, 2247, 8381, 5389, 1606, 3830,
   9737, 3473, 3235, 9445, 9459, 5735, 4481, 3088, 8360, 9855,
   2121, 7680, 1161, 1635, 3753, 6663, 4994, 6816, 5891, 7773,
-  4108, 3820, 5173, 5621, 4739, 4168, 7626, 4545];
+  4108, 3820, 5173, 5621, 4739, 4168, 7626, 4545, 2150, 4564, 
+  6674, 8859, 4577, 5432, 5026, 5634, 4251, 6520, 2292, 3014,
+  2405, 4195, 8230, 3608, 5668, 8795, 9080, 5000, 1001];
 
   this.state.password_validity = 0
 }
@@ -674,6 +676,69 @@ else if (this.state.password == '7626') {
 }
 else if (this.state.password == '4545') { 
  this.state.stage = '122'
+}
+else if (this.state.password == '2150') { 
+ this.state.stage = '123'
+}
+else if (this.state.password == '4564') { 
+ this.state.stage = '124'
+}
+else if (this.state.password == '6674') { 
+ this.state.stage = '125'
+}
+else if (this.state.password == '8859') { 
+ this.state.stage = '126'
+}
+else if (this.state.password == '4577') { 
+ this.state.stage = '127'
+}
+else if (this.state.password == '5432') { 
+ this.state.stage = '128'
+}
+else if (this.state.password == '5026') { 
+ this.state.stage = '129'
+}
+else if (this.state.password == '5634') { 
+ this.state.stage = '130'
+}
+else if (this.state.password == '4251') { 
+ this.state.stage = '131'
+}
+else if (this.state.password == '6520') { 
+ this.state.stage = '132'
+}
+else if (this.state.password == '2292') { 
+ this.state.stage = '133'
+}
+else if (this.state.password == '3014') { 
+ this.state.stage = '134'
+}
+else if (this.state.password == '2405') { 
+ this.state.stage = '135'
+}
+else if (this.state.password == '4195') { 
+ this.state.stage = '136'
+}
+else if (this.state.password == '8230') { 
+ this.state.stage = '137'
+}
+else if (this.state.password == '3608') { 
+ this.state.stage = '138'
+}
+else if (this.state.password == '5668') { 
+ this.state.stage = '139'
+}
+else if (this.state.password == '8795') { 
+ this.state.stage = '140'
+}
+else if (this.state.password == '9080') { 
+ this.state.stage = '141'
+}
+else if (this.state.password == '5000') { 
+ this.state.stage = '142'
+}
+else if (this.state.password == '1001') { 
+ this.state.stage = '143'
 };
 
 this.state.phase = "Training"
@@ -967,10 +1032,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -1064,7 +1129,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -1115,7 +1180,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -1128,7 +1193,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -1185,7 +1250,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -1234,7 +1299,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -1663,10 +1728,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -1760,7 +1825,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -1811,7 +1876,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -1824,7 +1889,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -1881,7 +1946,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -1930,7 +1995,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -2359,10 +2424,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -2456,7 +2521,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -2507,7 +2572,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -2520,7 +2585,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -2577,7 +2642,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -2626,7 +2691,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -3055,10 +3120,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -3152,7 +3217,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -3203,7 +3268,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -3216,7 +3281,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -3273,7 +3338,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -3322,7 +3387,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -3751,10 +3816,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -3848,7 +3913,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -3899,7 +3964,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -3912,7 +3977,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -3969,7 +4034,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -4018,7 +4083,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -4447,10 +4512,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -4544,7 +4609,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -4595,7 +4660,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -4608,7 +4673,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -4665,7 +4730,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -4714,7 +4779,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -5143,10 +5208,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -5240,7 +5305,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -5291,7 +5356,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -5304,7 +5369,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -5361,7 +5426,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -5410,7 +5475,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -5839,10 +5904,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -5936,7 +6001,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -5987,7 +6052,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -6000,7 +6065,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -6057,7 +6122,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -6106,7 +6171,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -6535,10 +6600,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -6632,7 +6697,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -6683,7 +6748,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -6696,7 +6761,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -6753,7 +6818,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -6802,7 +6867,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -7231,10 +7296,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -7328,7 +7393,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -7379,7 +7444,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -7392,7 +7457,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -7449,7 +7514,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -7498,7 +7563,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -7927,10 +7992,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -8024,7 +8089,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -8075,7 +8140,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -8088,7 +8153,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -8145,7 +8210,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -8194,7 +8259,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -8623,10 +8688,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -8720,7 +8785,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -8771,7 +8836,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -8784,7 +8849,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -8841,7 +8906,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -8890,7 +8955,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -9319,10 +9384,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -9416,7 +9481,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -9467,7 +9532,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -9480,7 +9545,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -9537,7 +9602,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -9586,7 +9651,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -10015,10 +10080,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -10112,7 +10177,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -10163,7 +10228,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -10176,7 +10241,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -10233,7 +10298,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -10282,7 +10347,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -10711,10 +10776,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -10808,7 +10873,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -10859,7 +10924,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -10872,7 +10937,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -10929,7 +10994,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -10978,7 +11043,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -11407,10 +11472,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -11504,7 +11569,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -11555,7 +11620,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -11568,7 +11633,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -11625,7 +11690,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -11674,7 +11739,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -12103,10 +12168,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -12200,7 +12265,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -12251,7 +12316,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -12264,7 +12329,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -12321,7 +12386,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -12370,7 +12435,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -12799,10 +12864,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -12896,7 +12961,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -12947,7 +13012,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -12960,7 +13025,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -13017,7 +13082,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -13066,7 +13131,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -13495,10 +13560,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -13592,7 +13657,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -13643,7 +13708,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -13656,7 +13721,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -13713,7 +13778,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -13762,7 +13827,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -14191,10 +14256,10 @@ this.state.first_trial = 0;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 
-if (this.parameters.stage <= 55) {
+if (this.parameters.stage <= 55 || this.parameters.stage >= 123) {
   this.parameters.q_word = "Is";
 } else if (this.parameters.stage <= 81 && this.parameters.stage >= 56) {
   this.parameters.q_word = "Komt";
@@ -14288,7 +14353,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage <= 103) {
+if (this.state.stage <= 103 || this.state.stage >= 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -14339,7 +14404,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003E 103}"
+                        "skip": "${(this.state.skip_chunk == 1) || (Number(this.state.stage) \u003E 103 && Number(this.state.stage) \u003C 123)}"
                       },
                       {
                         "type": "lab.html.Screen",
@@ -14352,7 +14417,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "messageHandlers": {
                           "before:prepare": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 this.parameters.stim_1 = this.state.stimulus_1
 this.parameters.stim_2 = this.state.stimulus_2
@@ -14409,7 +14474,7 @@ if (this.parameters.q_stim_2_id == 1) {
 },
                           "after:end": function anonymous(
 ) {
-if (this.state.stage > 103) {
+if (this.state.stage > 103 && this.state.stage < 123) {
 
 // remove currently used stimuli from buckets
 stimulus_1_bucket = stimulus_1_bucket.filter(item => item !== this.state.stimulus_1)
@@ -14458,7 +14523,7 @@ document.getElementById("no").style.cssFloat = this.state.position1;
                         "timeout": "31000",
                         "correctResponse": "${parameters.correct_response}",
                         "tardy": true,
-                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104}"
+                        "skip": "${(this.state.skip_chunk == 1) || Number(this.state.stage) \u003C 104 || Number(this.state.stage) \u003E= 123}"
                       },
                       {
                         "type": "lab.canvas.Screen",
@@ -14695,7 +14760,7 @@ document.getElementById("level-display").innerHTML = "Level " + this.state.stage
       "title": "completed_training",
       "content": "\u003Cmain height=\"100%\" width=\"100%\"\u003E \n  \u003Cdiv class=\"introduction-central-container\"\u003E\n\n    \u003Cdiv\u003E\n    \u003Cimg src=\"static\u002Fprofessor.jpeg\"\u003E\n    \u003C\u002Fdiv\u003E\n\n    \u003Cdiv\u003E\n\n      \u003Cdiv\u003E\n      \u003Cp\u003EWow - wat een ongelooflijke prestatie - je hebt mijn hele trainingsprogramma voltooid! Niet iedereen komt zo ver - gefeliciteerd!\u003Cbr\u003E\u003Cbr\u003ELaat de onderzoeker weten dat je de opleiding hebt voltooid, en zij zullen je vertellen wat je nu moet doen. Het was een genoegen om je mijn trainingsprogramma te laten voltooien, en ik hoop dat je er net zo van genoten hebt als ik!\u003C\u002Fdiv\u003E\n\n  \u003C\u002Fdiv\u003E\n\u003C\u002Fmain\u003E",
       "tardy": true,
-      "skip": "${this.state.stage \u003C 123}"
+      "skip": "${this.state.stage \u003C 144}"
     },
     {
       "type": "lab.html.Screen",
@@ -15058,6 +15123,69 @@ else if (this.state.stage == 121) {
 }
 else if (this.state.stage == 122) { 
  this.state.password = '4545'
+}
+else if (this.state.stage == 123) { 
+ this.state.password = '2150'
+}
+else if (this.state.stage == 124) { 
+ this.state.password = '4564'
+}
+else if (this.state.stage == 125) { 
+ this.state.password = '6674'
+}
+else if (this.state.stage == 126) { 
+ this.state.password = '8859'
+}
+else if (this.state.stage == 127) { 
+ this.state.password = '4577'
+}
+else if (this.state.stage == 128) { 
+ this.state.password = '5432'
+}
+else if (this.state.stage == 129) { 
+ this.state.password = '5026'
+}
+else if (this.state.stage == 130) { 
+ this.state.password = '5634'
+}
+else if (this.state.stage == 131) { 
+ this.state.password = '4251'
+}
+else if (this.state.stage == 132) { 
+ this.state.password = '6520'
+}
+else if (this.state.stage == 133) { 
+ this.state.password = '2292'
+}
+else if (this.state.stage == 134) { 
+ this.state.password = '3014'
+}
+else if (this.state.stage == 135) { 
+ this.state.password = '2405'
+}
+else if (this.state.stage == 136) { 
+ this.state.password = '4195'
+}
+else if (this.state.stage == 137) { 
+ this.state.password = '8230'
+}
+else if (this.state.stage == 138) { 
+ this.state.password = '3608'
+}
+else if (this.state.stage == 139) { 
+ this.state.password = '5668'
+}
+else if (this.state.stage == 140) { 
+ this.state.password = '8795'
+}
+else if (this.state.stage == 141) { 
+ this.state.password = '9080'
+}
+else if (this.state.stage == 142) { 
+ this.state.password = '5000'
+}
+else if (this.state.stage == 143) { 
+ this.state.password = '1001'
 };
 }
       },
