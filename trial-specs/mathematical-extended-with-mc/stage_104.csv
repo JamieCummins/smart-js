@@ -1,0 +1,5 @@
+relation_1,meta_relation_1,relation_2,meta_stim_1_id,meta_relation_2,meta_stim_2_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,stage,yes_x_coord,no_x_coord,q_word
+plus,is hetzelfde als,plus,1,is meer dan,3,2,meer dan,4,no,104,-250,250,Is
+plus,is hetzelfde als,plus,2,is meer dan,4,1,meer dan,3,no,104,-250,250,Is
+plus,is meer dan,plus,1,is hetzelfde als,3,2,meer dan,4,yes,104,-250,250,Is
+plus,is meer dan,plus,2,is hetzelfde als,4,1,meer dan,3,yes,104,-250,250,Is
