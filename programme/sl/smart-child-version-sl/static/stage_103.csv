@@ -1,0 +1,289 @@
+stim_1_id,relation_1,stim_2_id,stim_3_id,relation_2,stim_4_id,stim_5_id,relation_3,stim_6_id,stim_7_id,relation_4,stim_8_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,q_word,yes_x_coord,no_x_coord,stage
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,vsebuje,2,yes,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,vsebuje,3,yes,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,vsebuje,4,yes,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,vsebuje,3,yes,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,vsebuje,4,yes,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,vsebuje,4,yes,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,vsebuje,1,no,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,vsebuje,2,no,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,vsebuje,3,no,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,vsebuje,1,no,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,vsebuje,2,no,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,vsebuje,1,no,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,znotraj,2,no,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,znotraj,3,no,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,znotraj,4,no,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,znotraj,3,no,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,znotraj,4,no,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,znotraj,4,no,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,znotraj,1,yes,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,znotraj,2,yes,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,znotraj,3,yes,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,znotraj,1,yes,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,znotraj,2,yes,Ali je,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,znotraj,1,yes,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,vsebuje,2,yes,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,vsebuje,3,yes,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,vsebuje,4,yes,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,vsebuje,3,yes,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,vsebuje,4,yes,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,vsebuje,4,yes,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,vsebuje,1,no,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,vsebuje,2,no,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,vsebuje,3,no,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,vsebuje,1,no,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,vsebuje,2,no,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,vsebuje,1,no,Ali,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,znotraj,2,no,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,znotraj,3,no,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,znotraj,4,no,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,znotraj,3,no,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,znotraj,4,no,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,znotraj,4,no,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,znotraj,1,yes,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,znotraj,2,yes,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,znotraj,3,yes,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,znotraj,1,yes,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,znotraj,2,yes,Ali je,250,-250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,znotraj,1,yes,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,vsebuje,2,yes,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,vsebuje,3,yes,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,vsebuje,4,yes,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,vsebuje,3,yes,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,vsebuje,4,yes,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,vsebuje,4,yes,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,vsebuje,1,no,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,vsebuje,2,no,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,vsebuje,3,no,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,vsebuje,1,no,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,vsebuje,2,no,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,vsebuje,1,no,Ali,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,znotraj,2,no,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,znotraj,3,no,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,znotraj,4,no,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,znotraj,3,no,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,znotraj,4,no,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,znotraj,4,no,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,znotraj,1,yes,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,znotraj,2,yes,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,znotraj,3,yes,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,znotraj,1,yes,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,znotraj,2,yes,Ali je,250,-250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,znotraj,1,yes,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,znotraj,2,yes,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,znotraj,3,yes,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,znotraj,4,yes,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,znotraj,3,yes,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,znotraj,4,yes,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,znotraj,4,yes,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,znotraj,1,no,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,znotraj,2,no,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,znotraj,3,no,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,znotraj,1,no,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,znotraj,2,no,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,znotraj,1,no,Ali je,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,vsebuje,2,no,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,vsebuje,3,no,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,vsebuje,4,no,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,vsebuje,3,no,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,vsebuje,4,no,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,vsebuje,4,no,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,vsebuje,1,yes,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,vsebuje,2,yes,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,vsebuje,3,yes,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,vsebuje,1,yes,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,vsebuje,2,yes,Ali,250,-250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,vsebuje,1,yes,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,znotraj,2,yes,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,znotraj,3,yes,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,znotraj,4,yes,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,znotraj,3,yes,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,znotraj,4,yes,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,znotraj,4,yes,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,znotraj,1,no,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,znotraj,2,no,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,znotraj,3,no,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,znotraj,1,no,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,znotraj,2,no,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,znotraj,1,no,Ali je,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,vsebuje,2,no,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,vsebuje,3,no,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,vsebuje,4,no,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,vsebuje,3,no,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,vsebuje,4,no,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,vsebuje,4,no,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,vsebuje,1,yes,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,vsebuje,2,yes,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,vsebuje,3,yes,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,vsebuje,1,yes,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,vsebuje,2,yes,Ali,250,-250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,vsebuje,1,yes,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,znotraj,2,yes,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,znotraj,3,yes,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,znotraj,4,yes,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,znotraj,3,yes,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,znotraj,4,yes,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,znotraj,4,yes,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,znotraj,1,no,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,znotraj,2,no,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,znotraj,3,no,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,znotraj,1,no,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,znotraj,2,no,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,znotraj,1,no,Ali je,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,vsebuje,2,no,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,vsebuje,3,no,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,vsebuje,4,no,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,vsebuje,3,no,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,vsebuje,4,no,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,vsebuje,4,no,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,vsebuje,1,yes,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,vsebuje,2,yes,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,vsebuje,3,yes,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,vsebuje,1,yes,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,vsebuje,2,yes,Ali,250,-250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,vsebuje,1,yes,Ali,250,-250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,vsebuje,2,yes,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,vsebuje,3,yes,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,vsebuje,4,yes,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,vsebuje,3,yes,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,vsebuje,4,yes,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,vsebuje,4,yes,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,vsebuje,1,no,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,vsebuje,2,no,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,vsebuje,3,no,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,vsebuje,1,no,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,vsebuje,2,no,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,vsebuje,1,no,Ali,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,znotraj,2,no,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,znotraj,3,no,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,1,znotraj,4,no,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,znotraj,3,no,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,znotraj,4,no,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,znotraj,4,no,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,znotraj,1,yes,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,znotraj,2,yes,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,4,znotraj,3,yes,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,znotraj,1,yes,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,3,znotraj,2,yes,Ali je,-250,250,103
+4,je znotraj,3,1,vsebuje,2,2,vsebuje,3,,,,2,znotraj,1,yes,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,vsebuje,2,yes,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,vsebuje,3,yes,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,vsebuje,4,yes,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,vsebuje,3,yes,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,vsebuje,4,yes,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,vsebuje,4,yes,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,vsebuje,1,no,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,vsebuje,2,no,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,vsebuje,3,no,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,vsebuje,1,no,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,vsebuje,2,no,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,vsebuje,1,no,Ali,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,znotraj,2,no,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,znotraj,3,no,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,1,znotraj,4,no,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,znotraj,3,no,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,znotraj,4,no,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,znotraj,4,no,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,znotraj,1,yes,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,znotraj,2,yes,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,4,znotraj,3,yes,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,znotraj,1,yes,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,3,znotraj,2,yes,Ali je,-250,250,103
+2,vsebuje,3,3,vsebuje,4,2,je znotraj,1,,,,2,znotraj,1,yes,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,vsebuje,2,yes,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,vsebuje,3,yes,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,vsebuje,4,yes,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,vsebuje,3,yes,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,vsebuje,4,yes,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,vsebuje,4,yes,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,vsebuje,1,no,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,vsebuje,2,no,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,vsebuje,3,no,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,vsebuje,1,no,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,vsebuje,2,no,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,vsebuje,1,no,Ali,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,znotraj,2,no,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,znotraj,3,no,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,1,znotraj,4,no,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,znotraj,3,no,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,znotraj,4,no,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,znotraj,4,no,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,znotraj,1,yes,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,znotraj,2,yes,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,4,znotraj,3,yes,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,znotraj,1,yes,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,3,znotraj,2,yes,Ali je,-250,250,103
+3,vsebuje,4,3,je znotraj,2,1,vsebuje,2,,,,2,znotraj,1,yes,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,znotraj,2,yes,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,znotraj,3,yes,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,znotraj,4,yes,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,znotraj,3,yes,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,znotraj,4,yes,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,znotraj,4,yes,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,znotraj,1,no,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,znotraj,2,no,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,znotraj,3,no,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,znotraj,1,no,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,znotraj,2,no,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,znotraj,1,no,Ali je,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,vsebuje,2,no,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,vsebuje,3,no,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,1,vsebuje,4,no,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,vsebuje,3,no,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,vsebuje,4,no,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,vsebuje,4,no,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,vsebuje,1,yes,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,vsebuje,2,yes,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,4,vsebuje,3,yes,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,vsebuje,1,yes,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,3,vsebuje,2,yes,Ali,-250,250,103
+2,vsebuje,1,2,je znotraj,3,3,je znotraj,4,,,,2,vsebuje,1,yes,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,znotraj,2,yes,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,znotraj,3,yes,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,znotraj,4,yes,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,znotraj,3,yes,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,znotraj,4,yes,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,znotraj,4,yes,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,znotraj,1,no,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,znotraj,2,no,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,znotraj,3,no,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,znotraj,1,no,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,znotraj,2,no,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,znotraj,1,no,Ali je,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,vsebuje,2,no,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,vsebuje,3,no,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,1,vsebuje,4,no,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,vsebuje,3,no,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,vsebuje,4,no,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,vsebuje,4,no,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,vsebuje,1,yes,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,vsebuje,2,yes,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,4,vsebuje,3,yes,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,vsebuje,1,yes,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,3,vsebuje,2,yes,Ali,-250,250,103
+1,je znotraj,2,3,je znotraj,4,3,vsebuje,2,,,,2,vsebuje,1,yes,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,znotraj,2,yes,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,znotraj,3,yes,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,znotraj,4,yes,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,znotraj,3,yes,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,znotraj,4,yes,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,znotraj,4,yes,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,znotraj,1,no,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,znotraj,2,no,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,znotraj,3,no,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,znotraj,1,no,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,znotraj,2,no,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,znotraj,1,no,Ali je,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,vsebuje,2,no,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,vsebuje,3,no,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,1,vsebuje,4,no,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,vsebuje,3,no,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,vsebuje,4,no,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,vsebuje,4,no,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,vsebuje,1,yes,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,vsebuje,2,yes,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,4,vsebuje,3,yes,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,vsebuje,1,yes,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,3,vsebuje,2,yes,Ali,-250,250,103
+2,je znotraj,3,4,vsebuje,3,1,je znotraj,2,,,,2,vsebuje,1,yes,Ali,-250,250,103
