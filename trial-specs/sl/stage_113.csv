@@ -1,0 +1,9 @@
+relation_1,meta_relation_1,relation_2,meta_stim_1_id,meta_relation_2,meta_stim_2_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,stage,yes_x_coord,no_x_coord,q_word
+-,je enako,-,1,je več kot,3,2,več kot,4,yes,113,250,-250,Ali je
+-,je enako,-,2,je več kot,4,1,več kot,3,yes,113,250,-250,Ali je
+-,je več kot,-,1,je enako,3,2,več kot,4,no,113,250,-250,Ali je
+-,je več kot,-,2,je enako,4,1,več kot,3,yes,113,250,-250,Ali je
+-,je enako,-,1,je več kot,3,2,več kot,4,yes,113,-250,250,Ali je
+-,je enako,-,2,je več kot,4,1,več kot,3,yes,113,-250,250,Ali je
+-,je več kot,-,1,je enako,3,2,več kot,4,no,113,-250,250,Ali je
+-,je več kot,-,2,je enako,4,1,več kot,3,yes,113,-250,250,Ali je

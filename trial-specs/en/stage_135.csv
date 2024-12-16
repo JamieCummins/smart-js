@@ -1,0 +1,9 @@
+relation_1,stim_3_id,relation_2,stim_4_id,stim_5_id,relation_3,stim_6_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,yes_x_coord,no_x_coord,stage
+is different to,2,is the same as,3,NA,NA,NA,3,different to,1,yes,250,-250,135
+is different to,2,is the same as,3,NA,NA,NA,1,different to,3,yes,250,-250,135
+is the same as,2,is different to,3,NA,NA,NA,3,different to,1,yes,250,-250,135
+is the same as,2,is different to,3,NA,NA,NA,1,different to,3,yes,250,-250,135
+is different to,2,is the same as,3,NA,NA,NA,3,different to,1,yes,-250,250,135
+is different to,2,is the same as,3,NA,NA,NA,1,different to,3,yes,-250,250,135
+is the same as,2,is different to,3,NA,NA,NA,3,different to,1,yes,-250,250,135
+is the same as,2,is different to,3,NA,NA,NA,1,different to,3,yes,-250,250,135
