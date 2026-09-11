@@ -4,8 +4,9 @@ import assert from 'node:assert/strict';
 // minimal browser globals for the queue module
 const store = new Map();
 globalThis.localStorage = { getItem: (k) => (store.has(k) ? store.get(k) : null), setItem: (k, v) => store.set(k, String(v)), removeItem: (k) => store.delete(k) };
-globalThis.document = { addEventListener() {}, visibilityState: 'visible' };
-globalThis.window = { addEventListener() {} };
+const listeners = {};
+globalThis.document = { addEventListener: (t, f) => { listeners[t] = f; }, visibilityState: 'visible' };
+globalThis.window = { addEventListener: (t, f) => { listeners[t] = f; } };
 
 const { createTrialQueue } = await import('../app/data/queue.js');
 
@@ -54,4 +55,25 @@ test('retries after a network failure and persists across reloads', async () => 
   await q2.flush();
   assert.equal(backend.saved.length, 1);
   assert.equal(q2.pending, 0);
+});
+
+test('tab hide flushes below batch size and keeps rows until acknowledged', async () => {
+  store.clear();
+  const backend = fakeBackend();
+  backend.failTimes(1);
+  const q = createTrialQueue(backend, { username: 'u3', batchSize: 5, flushIntervalMs: 60000 });
+  q.start();
+  q.push({ seq: 1 }); q.push({ seq: 2 });
+  await new Promise((r) => setTimeout(r, 10));
+  assert.equal(backend.saved.length, 0);
+  listeners.pagehide({ type: 'pagehide' });          // first attempt fails (offline)
+  await new Promise((r) => setTimeout(r, 10));
+  assert.equal(backend.saved.length, 0);
+  assert.equal(q.pending, 2, 'rows are kept when the upload fails');
+  document.visibilityState = 'hidden';
+  listeners.visibilitychange({ type: 'visibilitychange' }); // second attempt succeeds
+  await new Promise((r) => setTimeout(r, 10));
+  assert.equal(backend.saved.length, 2);
+  assert.equal(q.pending, 0);
+  q.stop();
 });

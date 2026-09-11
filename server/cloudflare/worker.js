@@ -219,6 +219,20 @@ async function adminSetProgress(env, body) {
   return json({ ok: true });
 }
 
+/** Permanently remove one participant and all their data (used to clean up load-test accounts). */
+async function adminDeleteUser(env, url) {
+  const username = String(url.searchParams.get('username') || '').trim().toLowerCase();
+  const u = await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(username).first();
+  if (!u) throw new HttpError(404, 'not_found');
+  const results = await env.DB.batch([
+    env.DB.prepare('DELETE FROM trials WHERE user_id = ?').bind(u.id),
+    env.DB.prepare('DELETE FROM sessions WHERE user_id = ?').bind(u.id),
+    env.DB.prepare('DELETE FROM progress WHERE user_id = ?').bind(u.id),
+    env.DB.prepare('DELETE FROM users WHERE id = ?').bind(u.id),
+  ]);
+  return json({ deleted: username, trials: results[0].meta.changes, sessions: results[1].meta.changes });
+}
+
 // ---------------------------------------------------------------- router ----
 async function route(request, env) {
   const url = new URL(request.url);
@@ -243,6 +257,7 @@ async function route(request, env) {
     if (path === '/admin/users' && m === 'GET') return adminUsers(env);
     if (path === '/admin/users' && m === 'POST') return adminCreateUsers(env, await readJson(request));
     if (path === '/admin/users' && m === 'PATCH') return adminSetProgress(env, await readJson(request));
+    if (path === '/admin/users' && m === 'DELETE') return adminDeleteUser(env, url);
     const ex = path.match(/^\/admin\/export\/(\w+)$/);
     if (ex && m === 'GET') return exportTable(env, url, ex[1]);
     throw new HttpError(404, 'not_found');

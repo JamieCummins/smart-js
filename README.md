@@ -77,9 +77,14 @@ Everything is relative paths, so it also works from any sub-folder or any other 
 | `rest` | a server implementing [server/API.md](server/API.md) | real data collection |
 
 The app uploads trials in small batches while the child plays, queues them in
-the browser when the network drops, retries, and sends the remainder with
-`sendBeacon` when the tab closes. Records are idempotent (`sessionId + seq`),
-so retries never create duplicates.
+the browser when the network drops, retries, and flushes immediately when the
+tab is hidden or closed. A row is only removed from the browser queue once the
+server has confirmed it, so anything left when a tab closes is uploaded the
+next time that child plays in the same browser. Records are idempotent
+(`sessionId + seq`), so retries never create duplicates.
+
+`node tools/check-export.js smart-trials.csv [smart-sessions.csv]` checks an
+export for missing or duplicated rows per session.
 
 ### Recommended server: Cloudflare Workers + D1 (free)
 

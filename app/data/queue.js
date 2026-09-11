@@ -2,8 +2,12 @@ import { storage } from './storage.js';
 
 /**
  * Buffers trial records, persists them in localStorage and uploads them in
- * batches, retrying on failure. Records survive a page reload; on page hide
- * the remainder is sent with sendBeacon when the backend supports it.
+ * batches, retrying on failure. Records are only removed from the queue once
+ * the server has acknowledged them, so they survive reloads, tab switches and
+ * network drops; whatever is left when the tab closes is uploaded the next
+ * time the same child plays in the same browser. On tab hide / page hide the
+ * queue flushes immediately with a keep-alive request (sendBeacon is not
+ * used: cross-origin JSON beacons are dropped by browsers).
  */
 export function createTrialQueue(backend, { username, batchSize = 5, flushIntervalMs = 15000, onStatus } = {}) {
   const key = `smart.queue.${backend.type}.${username}`;
@@ -20,7 +24,7 @@ export function createTrialQueue(backend, { username, batchSize = 5, flushInterv
     flushing = true;
     try {
       while (pending.length) {
-        const batch = pending.slice(0, Math.max(batchSize, 25));
+        const batch = pending.slice(0, Math.max(batchSize, 20)); // keep-alive requests must stay small
         await backend.saveTrials(batch);
         pending = pending.slice(batch.length);
         persist();
@@ -43,10 +47,8 @@ export function createTrialQueue(backend, { username, batchSize = 5, flushInterv
 
   function start() {
     timer = setInterval(() => flush(true), Math.min(flushIntervalMs * Math.pow(2, Math.min(failures, 4)), 120000));
-    const onHide = () => {
-      if (document.visibilityState === 'hidden' && pending.length && backend.beacon) {
-        if (backend.beacon(pending)) { pending = []; persist(); }
-      }
+    const onHide = (e) => {
+      if (e.type === 'pagehide' || document.visibilityState === 'hidden') flush(true);
     };
     document.addEventListener('visibilitychange', onHide);
     window.addEventListener('pagehide', onHide);

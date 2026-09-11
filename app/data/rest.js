@@ -59,11 +59,6 @@ export function createRestBackend({ url, studyCode }) {
     async startSession(session) { await call('POST', '/sessions', session); },
     async endSession(sessionId, summary) { await call('PATCH', `/sessions/${encodeURIComponent(sessionId)}`, summary); },
     async saveTrials(trials) { return call('POST', '/trials', { trials }); },
-    /** Best-effort delivery when the page is closing (no response available). */
-    beacon(trials) {
-      if (!navigator.sendBeacon || !token) return false;
-      const blob = new Blob([JSON.stringify({ token, trials })], { type: 'application/json' });
-      return navigator.sendBeacon(base + '/trials/beacon', blob);
-    },
+
   };
 }

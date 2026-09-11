@@ -21,7 +21,7 @@ with an HTTP error status; the app shows a message for these codes:
 | POST | `/sessions` | `{id, stage, language, startedAt, userAgent, screen, viewport, debug}` | `201 {ok, sessionId}` |
 | PATCH | `/sessions/:id` | `{endedAt, stageEnd, levelsPassed, trialsCompleted, endReason}` | `{ok}` (increments `sessionsCompleted`) |
 | POST | `/trials` | `{trials: [record, ...]}` (max 200) | `{saved}` |
-| POST | `/trials/beacon` | `{token, trials}` | `{saved}` (used by `navigator.sendBeacon` on page close) |
+| POST | `/trials/beacon` | `{token, trials}` | `{saved}` (token in the body; kept for clients that cannot send headers, unused by the app) |
 
 `user` is `{id, username, language, stage, sessionsCompleted, createdAt, extra}`.
 `stage` is the stage the child starts at in their next session.
@@ -52,6 +52,7 @@ record as JSON in `payload`.
 | GET | `/admin/users` | participants with stage, sessions and trial counts |
 | POST | `/admin/users` | `{users: [{username, pin, language?, stage?}]}` bulk-create accounts |
 | PATCH | `/admin/users` | `{username, stage?, pin?}` reset a PIN or move a child to a stage |
+| DELETE | `/admin/users?username=` | remove a participant and all their data (e.g. load-test accounts) |
 | GET | `/admin/export/trials?username=&since=&format=csv|json` | also `sessions`, `users`, `progress` |
 
 `admin.html` in the repository root is a small page that uses these.
