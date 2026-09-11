@@ -6,33 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <link rel="icon" href="static/Dragonstone.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app/style.css">
 </head>
 <body>
   <div id="background"></div>
   <div id="app">
-    <header id="header" class="header-plain" hidden>
-      <div class="left-top">
-        <img class="header-image" id="current-character" src="" alt="">
-        <img class="header-image hidden" id="target-character" src="" alt="">
-        <div class="text-container">
-          <img src="static/speech_bubble.png" class="speech-bubble" alt="">
-          <div id="dragon-motivation" class="Dragon-speech"></div>
+    <header id="header" class="hud" hidden>
+      <div class="hud-left">
+        <div class="avatar"><img id="current-character" src="" alt=""></div>
+        <div class="bubble"><span id="dragon-motivation"></span></div>
+      </div>
+      <div class="hud-center">
+        <div class="level-pill" id="level-display"></div>
+        <div id="stone-container" class="stones"></div>
+        <div id="test-track" class="test-track" hidden>
+          <div class="track">
+            <div class="track-line"><div class="track-fill" id="track-fill"></div></div>
+            <img id="track-dragon" class="track-dragon" src="" alt="">
+            <img id="target-character" class="track-target" src="" alt="">
+          </div>
+          <div class="trial-text" id="trial-display"></div>
         </div>
       </div>
-      <div class="middle-top">
-        <div class="level-text" id="level-display"></div>
-        <div class="trial-text" id="trial-display"></div>
-        <div id="stone-container" class="stone-container"></div>
-      </div>
-      <div class="right-top"><canvas id="timer-circle" width="100" height="100"></canvas></div>
+      <div class="hud-right"><canvas id="timer-circle" width="120" height="120"></canvas></div>
     </header>
     <main id="screen">
       <div class="centered"><p>Loading…</p></div>
     </main>
     <footer id="session-footer" hidden>
-      <div id="session-timer-container"><div id="session-timer-bar"></div></div>
-      <div id="session-countdown"></div>
+      <div class="session-bar">
+        <div id="session-timer-container"><div id="session-timer-bar"></div></div>
+        <div id="session-countdown"></div>
+      </div>
     </footer>
   </div>
   <div id="debug-panel" hidden></div>

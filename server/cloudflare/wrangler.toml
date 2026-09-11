@@ -5,11 +5,11 @@ compatibility_date = "2025-09-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "smart"
-database_id = "REPLACE_WITH_YOUR_DATABASE_ID"   # printed by: npx wrangler d1 create smart
+database_id = "46bf17c9-c3ab-4edf-95b2-a707c24a14d8"   # printed by: npx wrangler d1 create smart
 
 [vars]
 # Comma-separated origins allowed to call the API, or "*" while testing.
-ALLOWED_ORIGINS = "*"
+ALLOWED_ORIGINS = "https://jamiecummins.github.io,http://localhost:8080"
 
 # Secrets are NOT stored here. Set them with:
 #   npx wrangler secret put AUTH_SECRET     (any long random string)

@@ -4,23 +4,28 @@ import { USERNAME_RE, PIN_RE, normalizeUsername } from '../data/index.js';
 
 const PROFESSOR = 'static/Professor.png';
 
-/** Professor-style narrative screen: professor left, text (+optional picture) right, one button. */
-export async function professor({ html, image, imageClass = 'side-image', button, extra = '' }) {
+/** Professor-style narrative screen: professor avatar, speech card, optional picture, one button. */
+export async function professor({ html, image, imageClass = 'story-image', button, extra = '' }) {
   render(`
-    <div class="introduction-central-container">
-      <div class="inner-main-divs"><img src="${PROFESSOR}" alt="" class="professor-image"></div>
-      <div class="inner-main-divs narrative">
-        <p>${html}</p>
+    <div class="story">
+      <div class="story-professor"><img src="${PROFESSOR}" alt=""></div>
+      <div class="story-card">
+        <div class="story-text">${html}</div>
         ${image ? `<img src="${escapeHtml(image)}" alt="" class="${imageClass}">` : ''}
         ${extra}
-        ${button ? `<br><button class="continue-button" id="continue">${button}</button>` : ''}
+        ${button ? `<div class="story-actions"><button class="btn btn-primary" id="continue">${button}</button></div>` : ''}
       </div>
     </div>`);
   if (button) await waitClick('#continue');
 }
 
 export async function fullscreenPrompt(strings) {
-  render(`<div class="centered"><button class="continue-button big" id="continue">${strings.ui.fullscreen}</button></div>`);
+  render(`
+    <div class="centered splash">
+      <img src="static/Dragonstone.png" alt="" class="splash-logo">
+      <h1>SMART</h1>
+      <button class="btn btn-primary btn-lg" id="continue">${strings.ui.fullscreen}</button>
+    </div>`);
   await waitClick('#continue');
   requestFullscreen();
 }
@@ -33,6 +38,7 @@ export function loginScreen({ strings, backend, language, studyCodeRequired }) {
     const draw = () => {
       render(`
         <div class="login-box">
+          <img src="static/Professor.png" alt="" class="login-avatar">
           <h2>${L.title}</h2>
           <p>${L.intro}</p>
           <div class="tabs">
@@ -47,7 +53,7 @@ export function loginScreen({ strings, backend, language, studyCodeRequired }) {
             ${mode === 'register' ? `<label>${L.pinRepeat}<input name="pin2" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" required></label>` : ''}
             ${mode === 'register' && studyCodeRequired ? `<label>${L.studyCode}<input name="studyCode" type="text" autocapitalize="none" required><small>${L.studyCodeHelp}</small></label>` : ''}
             <div class="form-error" id="form-error" hidden></div>
-            <button class="continue-button" id="submit" type="submit">${mode === 'login' ? L.loginButton : L.registerButton}</button>
+            <button class="btn btn-primary" id="submit" type="submit">${mode === 'login' ? L.loginButton : L.registerButton}</button>
           </form>
         </div>`);
       $$('.tab').forEach((b) => b.addEventListener('click', () => { mode = b.dataset.mode; draw(); }));
@@ -86,20 +92,20 @@ export function loginScreen({ strings, backend, language, studyCodeRequired }) {
 export async function collection({ strings, dragons, stage, part }) {
   render(`
     <div class="collection">
-      <p><b>${fill(strings.collection.title, { part })}</b><br>${strings.collection.body}</p>
-      <div id="dragonGrid"></div>
-      <button class="continue-button" id="continue">${strings.ui.continue}</button>
+      <div class="collection-head">
+        <h2>${fill(strings.collection.title, { part })}</h2>
+        <p>${strings.collection.body}</p>
+      </div>
+      <div id="dragonGrid" class="dragon-grid"></div>
+      <div class="story-actions"><button class="btn btn-primary" id="continue">${strings.ui.continue}</button></div>
     </div>`);
   const grid = $('#dragonGrid');
   for (const d of dragons) {
-    const div = document.createElement('div');
-    div.className = 'dragon';
-    const img = document.createElement('img');
-    img.src = d.image;
-    img.alt = d.name;
-    if (stage < d.stage) img.classList.add('locked');
-    div.appendChild(img);
-    grid.appendChild(div);
+    const locked = stage < d.stage;
+    const card = document.createElement('div');
+    card.className = 'dragon-card' + (locked ? ' locked' : '');
+    card.innerHTML = `<div class="dragon-pic"><img src="${escapeHtml(d.image)}" alt="${escapeHtml(d.name)}">${locked ? '<span class="lock">🔒</span>' : ''}</div><div class="dragon-name">${locked ? '???' : escapeHtml(d.name)}</div>`;
+    grid.appendChild(card);
   }
   await waitClick('#continue');
 }
@@ -107,13 +113,13 @@ export async function collection({ strings, dragons, stage, part }) {
 const relSpan = (rel, cls) => `<span class="rel ${cls || ''}">${escapeHtml(rel)}</span>`;
 const hintImg = (src) => (src ? `<img src="${escapeHtml(src)}" class="hint-img" alt="">` : '');
 
-function trialBodyHtml(trial, { questionWordFirst = true } = {}) {
+function trialBodyHtml(trial) {
+  const q = trial.question;
+  const question = `<div class="question">${escapeHtml(q.word)} ${escapeHtml(q.left)} ${relSpan(q.rel, q.relClass)} ${escapeHtml(q.right)}?</div>`;
   if (trial.kind === 'math') {
-    return `<div class="trial-propositions">${trial.lines.map((l) => `<div class="trial-proposition">${l.relClass ? relSpan(l.text, l.relClass) : escapeHtml(l.text)}</div>`).join('')}</div>
-      <div class="trial-question">${escapeHtml(trial.question.word)} ${escapeHtml(trial.question.left)} ${relSpan(trial.question.rel, trial.question.relClass)} ${escapeHtml(trial.question.right)}?</div>`;
+    return `<div class="propositions">${trial.lines.map((l) => `<div class="prop ${l.relClass ? 'prop-meta' : ''}">${l.relClass ? relSpan(l.text, l.relClass) : escapeHtml(l.text)}</div>`).join('')}</div>${question}`;
   }
-  return `<div class="trial-propositions">${trial.propositions.map((p) => `<div class="trial-proposition">${escapeHtml(p.left)} ${relSpan(p.rel, p.relClass)} ${escapeHtml(p.right)}</div>`).join('')}</div>
-    <div class="trial-question">${escapeHtml(trial.question.word)} ${escapeHtml(trial.question.left)} ${relSpan(trial.question.rel, trial.question.relClass)} ${escapeHtml(trial.question.right)}?</div>`;
+  return `<div class="propositions">${trial.propositions.map((p) => `<div class="prop">${escapeHtml(p.left)} ${relSpan(p.rel, p.relClass)} ${escapeHtml(p.right)}</div>`).join('')}</div>${question}`;
 }
 
 function hintBoxHtml(trial) {
@@ -121,7 +127,7 @@ function hintBoxHtml(trial) {
   let rows = '';
   if (trial.kind === 'standard' && trial.hint.images.length) {
     rows = trial.propositions.map((p) => `<div class="hint-row">${hintImg(p.hintLeft)} ${relSpan(p.rel, p.relClass)} ${hintImg(p.hintRight)}</div>`).join('')
-      + `<div class="hint-row"><i>${escapeHtml(q.word)} ${hintImg(q.hintLeft)} ${relSpan(q.rel, q.relClass)} ${hintImg(q.hintRight)}?</i></div>`;
+      + `<div class="hint-row hint-question">${escapeHtml(q.word)} ${hintImg(q.hintLeft)} ${relSpan(q.rel, q.relClass)} ${hintImg(q.hintRight)}?</div>`;
   }
   if (trial.hint.text) rows += `<div class="hint-text">${trial.hint.text}</div>`;
   return rows;
@@ -133,23 +139,22 @@ function hintBoxHtml(trial) {
  */
 export async function trial({ trial: t, strings, timeoutMs, hintEnabled, randomizePositions, header, autoAnswer }) {
   const yesFirst = randomizePositions ? Math.random() < 0.5 : true;
-  const yesBtn = `<div class="response-option" id="yes"><b>${strings.yes}</b></div>`;
-  const noBtn = `<div class="response-option" id="no"><b>${strings.no}</b></div>`;
+  const yesBtn = `<button class="answer answer-yes" id="yes"><span class="answer-icon">✓</span>${strings.yes}</button>`;
+  const noBtn = `<button class="answer answer-no" id="no"><span class="answer-icon">✕</span>${strings.no}</button>`;
   const showHint = hintEnabled && t.hint.available;
   render(`
-    <div class="trial-layout">
-      <div class="trial-left">
-        ${trialBodyHtml(t)}
-        <div class="footer-trials"><div class="response-options">${yesFirst ? yesBtn + noBtn : noBtn + yesBtn}</div></div>
-      </div>
-      ${showHint ? `<div class="trial-right"><button id="hint-button" class="hint-button">${strings.ui.hintButton}</button><div id="hint-box" class="hint-box" hidden>${hintBoxHtml(t)}</div></div>` : ''}
+    <div class="trial-card">
+      ${showHint ? `<button id="hint-button" class="hint-fab"><span class="hint-bulb">💡</span>${strings.ui.hintButton}</button>` : ''}
+      ${trialBodyHtml(t)}
+      ${showHint ? `<div id="hint-box" class="hint-panel" hidden>${hintBoxHtml(t)}</div>` : ''}
+      <div class="answers">${yesFirst ? yesBtn + noBtn : noBtn + yesBtn}</div>
     </div>`);
   let usedHint = false;
   if (showHint) {
     $('#hint-button').addEventListener('click', () => {
       $('#hint-box').hidden = false;
       $('#hint-button').disabled = true;
-      $('.trial-layout').classList.add('hint-colors-on');
+      $('.trial-card').classList.add('hint-colors-on');
       usedHint = true;
     });
   }
@@ -166,7 +171,12 @@ export async function trial({ trial: t, strings, timeoutMs, hintEnabled, randomi
 /** Brief "Correct!" / "Oops!" overlay. */
 export async function flash({ kind, text, note, ms }) {
   play(kind === 'correct' ? 'correct' : 'incorrect');
-  render(`<div class="feedback-text-${kind}"><p>${text}</p>${note ? `<p class="hint-note">${note}</p>` : ''}</div>`);
+  render(`
+    <div class="flash flash-${kind}">
+      <div class="flash-icon">${kind === 'correct' ? '✓' : '✕'}</div>
+      <div class="flash-text">${text}</div>
+      ${note ? `<div class="flash-note">${note}</div>` : ''}
+    </div>`);
   await sleep(ms);
 }
 
@@ -176,12 +186,12 @@ export async function corrective({ trial: t, strings, header }) {
   const answer = t.correctResponse === 'yes' ? strings.yes : strings.no;
   const hint = hintBoxHtml(t);
   render(`
-    <div class="trial-layout hint-colors-on corrective">
-      <div class="trial-left">${trialBodyHtml(t)}</div>
-      ${hint ? `<div class="trial-right"><div class="hint-box">${hint}</div></div>` : ''}
-    </div>
-    <div class="corrective-answer"><b>${fill(strings.feedback.correctAnswerIs, { answer })}</b></div>
-    <div class="centered"><button class="continue-button" id="continue">${strings.ui.continue}</button></div>`);
+    <div class="trial-card hint-colors-on corrective">
+      ${trialBodyHtml(t)}
+      ${hint ? `<div class="hint-panel">${hint}</div>` : ''}
+      <div class="answer-reveal ${t.correctResponse === 'yes' ? 'is-yes' : 'is-no'}">${fill(strings.feedback.correctAnswerIs, { answer: `<b>${answer}</b>` })}</div>
+      <div class="story-actions"><button class="btn btn-primary" id="continue">${strings.ui.continue}</button></div>
+    </div>`);
   await waitClick('#continue');
 }
 
@@ -191,20 +201,21 @@ export async function battleIntro({ strings, current, next, testTrials }) {
 
 export async function battleAnimation({ strings, current, next, ms }) {
   render(`
-    <div class="battle-screen">
-      <p class="battle-title">${strings.battleTitle}</p>
+    <div class="arena">
+      <div class="arena-title">${strings.battleTitle}</div>
       <div class="battle">
         <img src="${escapeHtml(current.image)}" class="Dragon-battle current" alt="">
+        <div class="vs">VS</div>
         <img src="${escapeHtml(next.image)}" class="Dragon-battle new" alt="">
         <div class="explosion" hidden></div>
       </div>
     </div>`);
-  const cur = $('.Dragon-battle.current'), nw = $('.Dragon-battle.new'), ex = $('.explosion');
+  const cur = $('.Dragon-battle.current'), nw = $('.Dragon-battle.new'), ex = $('.explosion'), vs = $('.vs');
   setTimeout(() => {
-    cur.style.transform = 'translateX(150px)';
-    nw.style.transform = 'translateX(-150px)';
+    cur.style.transform = 'translateX(120px)';
+    nw.style.transform = 'translateX(-120px)';
     setTimeout(() => {
-      ex.hidden = false;
+      ex.hidden = false; vs.hidden = true;
       play('battle');
       setTimeout(() => { cur.style.visibility = 'hidden'; nw.style.visibility = 'hidden'; ex.hidden = true; }, 1000);
     }, 1000);
@@ -220,19 +231,26 @@ export async function battleLost({ strings, current, next }) {
 export async function battleWon({ strings, current, next }) {
   play('fanfare');
   render(`
-    <div class="centered result">
-      <p id="result-text">${fill(strings.battleWon, { dragon: current.name, next: next.name })}</p>
-      <button class="continue-button" id="continue">${fill(strings.catchButton, { next: next.name })}</button>
+    <div class="arena result">
+      <div class="result-card">
+        <img src="${escapeHtml(current.image)}" alt="" class="result-dragon">
+        <p id="result-text">${fill(strings.battleWon, { dragon: current.name, next: next.name })}</p>
+        <button class="btn btn-primary btn-lg" id="continue">${fill(strings.catchButton, { next: next.name })}</button>
+      </div>
     </div>`);
   await waitClick('#continue');
 }
 
 export async function catchAnimation({ strings, current, next, ms }) {
   render(`
-    <div class="centered result">
-      <p id="result-text">${fill(strings.battleWon, { dragon: current.name, next: next.name })}</p>
-      <img id="Dragon" src="${escapeHtml(next.image)}" alt="" class="Dragon">
-      <img id="stone" src="static/Dragonstone.png" alt="" class="stone-throw hidden">
+    <div class="arena result">
+      <div class="result-card">
+        <p id="result-text">${fill(strings.battleWon, { dragon: current.name, next: next.name })}</p>
+        <div class="catch-stage">
+          <img id="Dragon" src="${escapeHtml(next.image)}" alt="" class="Dragon">
+          <img id="stone" src="static/Dragonstone.png" alt="" class="stone-throw hidden">
+        </div>
+      </div>
     </div>`);
   setTimeout(() => {
     const stone = $('#stone'), dragon = $('#Dragon');
@@ -257,5 +275,5 @@ export async function ending({ strings, current }) {
 }
 
 export async function completed({ strings }) {
-  await professor({ html: strings.completed, image: 'static/the_gang.png', imageClass: 'side-image wide', button: strings.ui.continue });
+  await professor({ html: strings.completed, image: 'static/the_gang.png', imageClass: 'story-image wide', button: strings.ui.continue });
 }

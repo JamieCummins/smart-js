@@ -19,8 +19,8 @@ export default {
   //   type: 'local'  - this browser only (localStorage). Good for demos/testing.
   //   type: 'rest'   - a server implementing server/API.md (see server/cloudflare).
   backend: {
-    type: 'local',
-    url: '',           // e.g. 'https://smart-api.<your-subdomain>.workers.dev'
+    type: 'rest',
+    url: 'https://smart-api.zita-meijer.workers.dev',
     studyCode: '',     // if the server requires a study code to register, prefill it here (or leave empty to ask)
   },
 
