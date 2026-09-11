@@ -1,0 +1,1389 @@
+/* Please define your custom styles here */
+.left-top {
+  width: 33.33333%;
+  float: left;
+  height: 100%;
+  color: white;
+  min-height: 100px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.header-image {
+  max-width: 100%; /* Prevents exceeding container width */
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.text-container {
+  position: relative;
+  text-align: center;
+  float: right;
+}
+
+.speech-bubble {
+  height: 15vh;
+  width: 30vh;
+  float: left;
+}
+
+.Dragon-speech {
+  color: black;
+  font-size: 14px;
+  overflow-wrap: break-word; 
+  text-align: left;
+  float: left;
+  padding-left: 20%;
+  padding-top: 2%;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden {
+  display: none;
+}
+
+#target-character {
+  position: absolute;
+  top: 50%;
+  right: 10%; /* Place at the end of the path */
+  transform: translate(-50%, -50%);
+  width: 30%; /* Adjust size as needed */
+  height: auto;
+}
+
+.middle-top {
+  width: 33.33333%;
+  float: left;
+  height: 100%;
+  margin: 0;
+}
+
+.right-top {
+  width: 33.33333%;
+  float: right;
+  height: 100%;
+}
+
+
+.timer_caption {
+  font-style: arial;
+  font-size: 48;
+  float: left;
+  padding-left: 150px;
+}
+
+.timer_float {
+  padding-top: 15%;
+  float: right;
+}
+
+#trial_timer_left {
+  width: 100%;
+  height: 100px;
+}
+
+#trial_timer_right {
+  width: 100%;
+  height: 100px;
+  font-size: 80px;
+  color: black;
+}
+
+#timer_container {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  flex-direction: row;
+}
+
+.character-section {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.professor-image {
+  width: 350px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Optional: make it circular */
+  margin: 10px; /* Optional: add spacing around the image */
+}
+
+
+.full-container { 
+  display : flex;
+  flex-direction : row;
+}
+
+.full-container div {
+  flex: 1;
+  height:10vh;
+}
+
+#clock-image {
+  float: right;
+  width:10vh;
+  height:10vh;
+}
+
+.introduction-central-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#dragonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.dragon img {
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #000;
+}
+
+.locked {
+  filter: brightness(0);
+}
+
+.inner-main-divs {
+  height: auto;
+  background: transparent;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.trial-layout {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2%;
+  box-sizing: border-box;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+
+}
+
+.trial-left {
+  width: 65%;
+}
+
+.trial-right {
+  width: 30%;
+}
+
+.hint-button,
+.hint-box {
+  padding: 1rem;
+  font-size: clamp(12px, 1.2vw, 18px);
+  border-radius: 12px;
+}
+
+.hint-button {
+  width: 50%;
+  background: #00ADEF;
+  border: none;
+  cursor: pointer;
+}
+
+.hint-box {
+  width: 100%;
+  margin-top: 1rem;
+  border: 2px solid #ccc;
+  background: #fff;
+}
+
+.hint-img {
+  height: 4vw;
+  margin: 0 1px;
+}
+
+/* default: no special coloring */
+.rel { color: inherit; }
+
+/* after hint click, color the relation words */
+.hint-colors-on .rel-same { color: #1a8f2a; }   /* green */
+.hint-colors-on .rel-opp  { color: #c62828; }   /* red */
+
+.hint-colors-on .rel-more { color: #1565c0; }   /* blue (optional) */
+.hint-colors-on .rel-less { color: #6a1b9a; }   /* purple (optional) */
+
+.hint-colors-on .rel-before { color: #ef6c00; } /* orange (optional) */
+.hint-colors-on .rel-after  { color: #00838f; } /* teal (optional) */
+
+.hint-colors-on .rel-in       { color: #2e7d32; } /* optional */
+.hint-colors-on .rel-contains { color: #ad1457; } /* optional */
+
+
+
+/* Please define your custom styles here */
+.options_container {
+  margin: auto auto auto auto;
+}
+
+
+/* Trial screen css */
+
+.header-plain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: none;
+}
+
+.left-top, .middle-top, .right-top {
+  flex: 1;
+}
+
+.top-section {
+  width: 100%;
+  height: 110px;
+}
+
+.character-section {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+
+.header-image {
+  width:15vh;
+  height:15vh;
+}
+
+.full-container { 
+  display : flex;
+  flex-direction : row;
+}
+
+.middle-top {
+  width: 33.33333%;
+  float: left;
+  height: 100%;
+  margin: 0;
+}
+
+.right-top {
+  width: 33.33333%;
+  float: right;
+  height: 100%;
+}
+
+.level-text {
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0 auto;
+  color: #00ADEF;
+}
+
+.trial-text {
+  margin: auto;
+  justify-content: center;
+  font-size: 32px;
+  color: black;
+}
+
+.trial-propositions {
+  font-size: 40px;
+  height: 150px;
+  color: black;
+  position: relative;
+  left: 50vw;                     /* move to the middle of the viewport */
+  transform: translateX(-50%);    /* shift back by half of own width */
+  text-align: center;             /* center text inside */
+  width: auto;
+}
+
+#analogy-trial-shortener {
+  height: 130px;
+}
+
+
+.trial-question {
+  font-size: 42px;
+  font-style: italic;
+  padding-top: 20px;
+  color: black;
+  position: relative;
+  left: 50vw;
+  transform: translateX(-50%);
+  text-align: center;
+  width: auto;
+}
+
+.response-options {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.response-option {
+  font-size: 40px;
+  color: white;
+  height: 60px;
+  width: 160px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#session-countdown {
+  color:black;
+  position: absolute;
+  left: 90%;
+  bottom: 10%;
+  transform: translate(-50%,0%);
+}
+
+#session-timer-container {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, 0%);
+  width: 80%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#session-timer-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #00adef;
+  transition: width 0.1s linear;
+}
+
+
+#yes {
+  background-color: #00ADEF;
+  float: right;
+}
+
+#yes:hover {
+  background-color: rgb(0, 148, 207); 
+}
+
+#no {
+  background-color:#F68712;
+  float: left;
+}
+
+#no:hover {
+  background-color: rgb(217, 120, 16) ; 
+}
+
+
+/* Timer CSS */
+
+.base-timer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  text-align: right;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: #03879E;
+}
+
+.base-timer__path-remaining.orange {
+  color: #F68712;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+#static-timer-circle {
+  height: 7vw;
+  width: 7vw;
+  background: #00ADEF;
+  color: white;
+  font-size: 4vw;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3.5vw;
+  -moz-border-radius: 3.5vw;
+  -webkit-border-radius: 3.5vw;
+}
+
+#static-timer-circle p {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* other CSS */
+
+.intro-screen-img {
+  height: 400px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-img {
+  height: 200px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.continue-button {
+  background-color: #00ADEF;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.continue-button:hover {
+  background-color: #F68712; /* Green */
+}
+
+.footer-instructions {
+  background-color: white;
+  border: none;
+  position: fixed;
+  bottom: 0;
+  width: 96.5%;
+  height: 150px;
+}
+
+.footer-trials {
+  position: relative;     /* stays in flow (won't remove hint box) */
+  left: calc(50vw - 4rem);
+  transform: translateX(-50%); /* shift left by half its own width -> center */
+  width: auto;            /* let content define width */
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+  
+}
+
+.footer-full {
+  background-color: transparent;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.body-trials {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.40);
+}
+
+
+
+
+.options_container {
+  margin: auto;
+}
+
+
+.trial-text {
+  margin: auto;
+  justify-content: center;
+  font-size: 2.5vw;
+  color: #545454;
+}
+
+.trial-propositions, .trial-question {
+  font-size: calc(1.2vw + .75vh); /* Responsive font size */
+  color: black;
+  width: 80vw; /* Scale with viewport width */
+  margin: auto; /* Center align */
+  padding: 1.5vw;
+  left: calc(50vw - 4rem);
+  pointer-events: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    width: fit-content;
+    gap: 1vw;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    width: 30vw; /* Fixed width */
+    height: 5vw; /* Fixed height */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #00ADEF;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    overflow: hidden; /* Hide overflowed content */
+    text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    line-height: 5vw; /* Match line height to container height */
+    font-size: 1.5vw;
+}
+
+.grid-item:hover {
+  background-color: #F68712; 
+}
+
+.grid-item:checked {
+    background-color: #F68712; /* Different background color for clicked state */
+    /* Add other styles if needed to indicate the clicked state */
+}
+
+.grid-item input[type="checkbox"] {
+    display: none;
+}
+
+.grid-item input:checked + b {
+    border: solid 1px #000;
+    color: greenyellow;
+    background: #00ADEF;
+}
+
+.grid-container.two-items {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: 1fr; /* single row */
+}
+
+/* For 3 items (2 rows, with the second row's single item centered) */
+.grid-container.three-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "item1 item2"
+    "item3 item3"; /* Assuming you want the third item to span both columns */
+}
+
+.grid-container.three-items .grid-item:nth-child(3) {
+    grid-column: 1 / span 2; /* Centers the third item */
+    justify-self: center;
+}
+
+/* Adjustments for different grid layouts */
+.grid-container.four-items {
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.grid-container.six-items {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.grid-container.eight-items {
+    grid-template-rows: repeat(4, 1fr);
+}
+
+
+/* Other Styling */
+.intro-screen-img {
+  height: 15vw;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-img {
+  height: 10vw;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.continue-button {
+  background-color: #00ADEF;
+  color: white;
+  border: none;
+  padding: 1vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  border-radius: 1vw;
+  margin: auto;
+  font-size: 1vw;
+}
+
+.continue-button:hover {
+  background-color: #F68712; /* Green */
+}
+
+.footer-instructions {
+  background-color: white;
+  border: none;
+  position: fixed;
+  bottom: 0;
+  width: 96.5%;
+  height: 80px;
+}
+
+.footer-trials {
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  position: relative;
+  width: 100%;
+  height: 3vm; 
+  color: white; 
+  text-align: center;
+  line-height: 3vm; 
+  background-color:transparent;
+  margin: auto;
+}
+
+.trial-submit-button {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  font-size: 1vw;
+  margin: auto;
+  background-color: #00ADEF;
+  color: white;
+}
+
+.trial-submit-button:hover {
+  background-color: #F68712; 
+}
+
+.stone-container {
+  display: flex; /* Arrange Pokéballs in a row */
+  justify-content: center; /* Center align the Pokéballs */
+  gap: 10px; /* Add space between Pokéballs */
+}
+
+.stone {
+  width: 12%; /* Adjust the size of the stone */
+  opacity: 0.2; /* Make stones initially transparent */
+  transition: opacity 0.3s ease; /* Smooth transition when opacity changes */
+}
+
+.stone.visible {
+  opacity: 1; /* Fully visible stone */
+}
+
+.stone-throw {
+  position: absolute;
+  bottom: 50px; /* Start from bottom */
+  left: 50%; /* Center horizontally */
+  width: 50px;
+  height: 50px;
+  transform: translateX(-50%);
+    }
+
+ .hidden {
+        display: none;
+    }
+
+/* Green feedback for correct responses */
+.feedback-text-correct {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Ensure proper centering */
+  font-size: 3vw; /* Responsive size */
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Optional translucent background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for visibility */
+  z-index: 100; /* Ensure it appears above other elements */
+  color: green;
+  border: 2px solid green;
+}
+
+.hint-note {
+  font-size: 2vw;
+  color: #555;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+/* Red feedback for incorrect responses */
+.feedback-text-false {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Ensure proper centering */
+  font-size: 3vw; /* Responsive size */
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Optional translucent background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for visibility */
+  z-index: 100; /* Ensure it appears above other elements */
+  color: orange;
+  border: 2px solid orange;
+}
+
+.battle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.Dragon-battle {
+  width: 250px;
+  height: auto;
+  transition: transform 1s ease;
+}
+
+.Dragon-battle.current {
+  transform: translateX(-50px);
+  width: 250px;
+  height: auto;
+}
+
+.Dragon-battle.new {
+  transform: translateX(50px);
+  width: 250px;
+  height: auto;
+}
+
+.vs {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 20px;
+}
+
+
+.background-level-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('static/Background_1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-2 {
+  background-image: url('static/Background_2.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-3 {
+  background-image: url('static/Background_3.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-4 {
+  background-image: url('static/Background_4.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-5 {
+  background-image: url('static/Background_5.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-6 {
+  background-image: url('static/Background_6.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-7 {
+  background-image: url('static/Background_7.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-8 {
+  background-image: url('static/Background_8.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-9 {
+  background-image: url('static/Background_9.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-10 {
+  background-image: url('static/Background_10.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-11 {
+  background-image: url('static/Background_11.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-12 {
+  background-image: url('static/Background_12.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-13 {
+  background-image: url('static/Background_13.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-14 {
+  background-image: url('static/Background_14.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-15 {
+  background-image: url('static/Background_15.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-16 {
+  background-image: url('static/Background_16.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-17 {
+  background-image: url('static/Background_17.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-18 {
+  background-image: url('static/Background_18.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-19 {
+  background-image: url('static/Background_19.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-20 {
+  background-image: url('static/Background_20.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-21 {
+  background-image: url('static/Background_21.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-22 {
+  background-image: url('static/Background_22.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-23 {
+  background-image: url('static/Background_23.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-24 {
+  background-image: url('static/Background_24.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-25 {
+  background-image: url('static/Background_25.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-26 {
+  background-image: url('static/Background_26.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-27 {
+  background-image: url('static/Background_27.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-28 {
+  background-image: url('static/Background_28.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-29 {
+  background-image: url('static/Background_29.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-30 {
+  background-image: url('static/Background_30.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-31 {
+  background-image: url('static/Background_31.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.background-level-32 {
+  background-image: url('static/Background_32.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header p {
+  text-align: center;
+  font-size: 24px;
+  animation: battleText 1s infinite alternate;
+}
+
+.battle {
+  display: flex;
+  justify-content: space-between; /* Start Pokémon far apart */
+  align-items: center;
+  position: relative;
+  width: 400px; /* Adjust based on the space you need */
+  margin: 0 auto; /* Center the battle container */
+}
+
+.Dragon-battle {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transition: transform 1s ease; /* Smooth movement */
+}
+
+.explosion {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url('static/explosion.png') no-repeat center;
+  background-size: contain;
+  z-index: 2;
+  animation: explode 0.5s ease-out forwards;
+}
+
+#current-character {
+  transition: transform 0.5s ease-in-out;
+}
+
+.Dragon {
+  position: static; /* Use static positioning for natural flow */
+  margin-bottom: 20px; /* Add space between the image and button */
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  opacity: 0;
+  animation: appear 1s ease-in-out forwards;
+}
+
+/* Animations */
+
+@keyframes explode {
+  0% {
+    transform: translate(-50%, -50%) scale(0); /* Start at 0 */
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2); /* Midpoint of explosion */
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3); /* Final size of explosion */
+    opacity: 0; /* Fade out */
+  }
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(10px, 0); }
+  50% { transform: translate(0, 0); }
+  75% { transform: translate(-10px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* Animations */
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes throwStone {
+        0% {
+            transform: translateX(-50%) translateY(0) scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: translateX(-50%) translateY(-30vh) scale(1.2); /* Higher arc */
+        }
+        100% {
+            transform: translateX(0vw) translateY(-10vh) scale(1); /* Lands lower and centered */
+        }
+    }
+
+@keyframes shake {
+        0%, 100% { transform: translateX(0vw) translateY(-10vh) rotate(0deg); }
+        20% { transform: translateX(0vw) translateY(-10vh) rotate(-10deg); }
+        40% { transform: translateX(0vw) translateY(-10vh) rotate(10deg); }
+        60% { transform: translateX(0vw) translateY(-10vh) rotate(-5deg); }
+        80% { transform: translateX(0vw) translateY(-10vh) rotate(5deg); }
+    }
+
+
+/* Hide hint images with missing/invalid src */
+img.hint-img:not([src]),
+img.hint-img[src=""],
+img.hint-img[src="undefined"],
+img.hint-img[src="null"] {
+  display: none;
+}

@@ -1,0 +1,7 @@
+relation_1,stim_3_id,relation_2,stim_4_id,stim_5_id,relation_3,stim_6_id,q_stim_1_id,q_rel,q_stim_2_id,correct_response,yes_x_coord,no_x_coord,stage,NAARR_1,NAARR_2,NAARR_3,NAARR_4
+komt voor,2,komt voor,3,,,,1,na,2,no,-250,250,60,static/temporal-1.png,static/temporal-2.png,static/temporal-3.png,
+komt voor,2,komt voor,3,,,,2,na,3,no,-250,250,60,static/temporal-1.png,static/temporal-2.png,static/temporal-3.png,
+komt voor,2,komt voor,3,,,,1,na,3,no,-250,250,60,static/temporal-1.png,static/temporal-2.png,static/temporal-3.png,
+komt voor,2,komt voor,3,,,,2,na,1,yes,-250,250,60,static/temporal-1.png,static/temporal-2.png,static/temporal-3.png,
+komt voor,2,komt voor,3,,,,3,na,2,yes,-250,250,60,static/temporal-1.png,static/temporal-2.png,static/temporal-3.png,
+komt voor,2,komt voor,3,,,,3,na,1,yes,-250,250,60,static/temporal-1.png,static/temporal-2.png,static/temporal-3.png,

@@ -1,0 +1,17 @@
+name = "smart-api"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "smart"
+database_id = "REPLACE_WITH_YOUR_DATABASE_ID"   # printed by: npx wrangler d1 create smart
+
+[vars]
+# Comma-separated origins allowed to call the API, or "*" while testing.
+ALLOWED_ORIGINS = "*"
+
+# Secrets are NOT stored here. Set them with:
+#   npx wrangler secret put AUTH_SECRET     (any long random string)
+#   npx wrangler secret put ADMIN_TOKEN     (password for admin.html)
+#   npx wrangler secret put STUDY_CODE      (optional: code children must enter to register)

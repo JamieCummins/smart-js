@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development (npx wrangler dev). Never commit .dev.vars.
+AUTH_SECRET=local-dev-secret-change-me
+ADMIN_TOKEN=admin
+STUDY_CODE=
