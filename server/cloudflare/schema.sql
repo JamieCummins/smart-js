@@ -5,11 +5,14 @@ CREATE TABLE IF NOT EXISTS users (
   pin_hash TEXT NOT NULL,
   salt TEXT NOT NULL,
   language TEXT,
+  study TEXT,            -- study code used at registration (see STUDY_CODE)
   created_at TEXT NOT NULL,
   last_login_at TEXT,
   failed_logins INTEGER DEFAULT 0,
   locked_until TEXT
 );
+
+CREATE INDEX IF NOT EXISTS users_study ON users(study);
 
 CREATE TABLE IF NOT EXISTS progress (
   user_id INTEGER PRIMARY KEY REFERENCES users(id),

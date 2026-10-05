@@ -16,16 +16,16 @@ export function createLocalBackend({ firstStage }) {
   let current = null;
   const users = () => storage.get(USERS, {});
   const saveUsers = (u) => storage.set(USERS, u);
-  const publicUser = (u) => ({ id: u.id, username: u.username, language: u.language, stage: u.stage, sessionsCompleted: u.sessionsCompleted, createdAt: u.createdAt, isNew: false });
+  const publicUser = (u) => ({ id: u.id, username: u.username, language: u.language, study: u.study || null, stage: u.stage, sessionsCompleted: u.sessionsCompleted, createdAt: u.createdAt, isNew: false });
 
   return {
     type: 'local',
     requiresStudyCode: false,
     async init() {},
-    async register({ username, pin, language }) {
+    async register({ username, pin, language, studyCode }) {
       const all = users();
       if (all[username]) throw new BackendError('taken');
-      const u = { id: uuid(), username, pin, language, stage: firstStage, sessionsCompleted: 0, createdAt: new Date().toISOString() };
+      const u = { id: uuid(), username, pin, language, study: studyCode || null, stage: firstStage, sessionsCompleted: 0, createdAt: new Date().toISOString() };
       all[username] = u;
       saveUsers(all);
       current = u;

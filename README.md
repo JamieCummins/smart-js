@@ -143,6 +143,15 @@ a PHP script on existing hosting, a Supabase edge function, a small Node
 service. Firebase/Firestore would need a new adapter in `app/data/` with the
 same six methods as `rest.js`; the rest of the app does not care.
 
+## Studies
+
+Several studies can share one server. Each accepted study code is configured
+on the server (`STUDY_CODE`, e.g. `draak2026=SMART RCT,pilot27=Pilot`), and
+each study gets its own link, `https://<site>/?study=CODE`, which hides the
+code field and tags every account registered through it. Exports can be
+filtered per study; `admin.html` lists the studies with participant counts and
+links. See `server/cloudflare/README.md`.
+
 ## Accounts and progress
 
 Children log in with a **username and PIN** (4 to 8 digits). A new child

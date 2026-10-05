@@ -14,7 +14,7 @@ with an HTTP error status; the app shows a message for these codes:
 | Method | Path | Body | Response |
 | --- | --- | --- | --- |
 | GET | `/config` | | `{studyCodeRequired, firstStage}` (public) |
-| POST | `/auth/register` | `{username, pin, language, studyCode?}` | `201 {token, user}` |
+| POST | `/auth/register` | `{username, pin, language, studyCode?}` | `201 {token, user}`; the code must be one of the server's `STUDY_CODE` list and is stored as the account's `study` tag |
 | POST | `/auth/login` | `{username, pin}` | `{token, user}` |
 | GET | `/me` | | `{user}` |
 | PUT | `/progress` | `{stage, extra?}` | `{ok}` |
@@ -23,7 +23,7 @@ with an HTTP error status; the app shows a message for these codes:
 | POST | `/trials` | `{trials: [record, ...]}` (max 200) | `{saved}` |
 | POST | `/trials/beacon` | `{token, trials}` | `{saved}` (token in the body; kept for clients that cannot send headers, unused by the app) |
 
-`user` is `{id, username, language, stage, sessionsCompleted, createdAt, extra}`.
+`user` is `{id, username, language, study, stage, sessionsCompleted, createdAt, extra}`.
 `stage` is the stage the child starts at in their next session.
 
 Trial uploads must be idempotent: records are unique by `(sessionId, seq)` and a
@@ -49,10 +49,11 @@ record as JSON in `payload`.
 
 | Method | Path | Notes |
 | --- | --- | --- |
-| GET | `/admin/users` | participants with stage, sessions and trial counts |
-| POST | `/admin/users` | `{users: [{username, pin, language?, stage?}]}` bulk-create accounts |
-| PATCH | `/admin/users` | `{username, stage?, pin?}` reset a PIN or move a child to a stage |
+| GET | `/admin/users` | participants with study, stage, sessions and trial counts |
+| GET | `/admin/studies` | configured study codes with labels and participant counts |
+| POST | `/admin/users` | `{users: [{username, pin, language?, stage?, study?}]}` bulk-create accounts |
+| PATCH | `/admin/users` | `{username, stage?, pin?, study?}` reset a PIN, move a child to a stage, or retag |
 | DELETE | `/admin/users?username=` | remove a participant and all their data (e.g. load-test accounts) |
-| GET | `/admin/export/trials?username=&since=&format=csv|json` | also `sessions`, `users`, `progress` |
+| GET | `/admin/export/trials?study=&username=&since=&until=&format=csv|json` | streamed in pages, any size; also `sessions`, `users`, `progress` |
 
 `admin.html` in the repository root is a small page that uses these.

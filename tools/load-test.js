@@ -10,6 +10,7 @@
  *
  * Usage:
  *   STUDY_CODE=... ADMIN_TOKEN=... node tools/load-test.js [--api URL] [--users 10] [--trials 200] [--fast] [--cleanup]
+ *   STUDY_CODE=... node tools/load-test.js --sessions 50,25,10 --stagger 30000
  *
  *   --api      API base URL (default: backend.url from app/config.js)
  *   --users    simultaneous simulated children (default 10)
@@ -17,6 +18,10 @@
  *   --fast     no pauses between trials (pure server stress); default paces
  *              at ~0.3 s per trial so 200 trials take about a minute
  *   --cleanup  delete the test accounts afterwards (needs ADMIN_TOKEN)
+ *   --sessions comma list: users in session 1, 2, 3...; later sessions log in
+ *              (instead of registering), check that the saved stage and session
+ *              count match what the previous session left, and resume from there
+ *   --stagger  spread the start of each later session over this many ms (default 30000)
  *
  * Without ADMIN_TOKEN the traffic still runs but rows cannot be verified.
  */
@@ -28,6 +33,8 @@ const USERS = Number(args.users) || 10;
 const TRIALS = Number(args.trials) || 200;
 const FAST = Boolean(args.fast);
 const CLEANUP = Boolean(args.cleanup);
+const SESSIONS = args.sessions ? String(args.sessions).split(',').map(Number) : [USERS];
+const STAGGER = Number(args.stagger) || 30000;
 const STUDY_CODE = process.env.STUDY_CODE || '';
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || '';
 const BATCH = config.data.batchSize || 5;
@@ -57,13 +64,24 @@ async function call(kind, method, path, body, token, attempts = 4) {
   }
 }
 
-async function simulateChild(i) {
+const progressIssues = [];
+
+async function simulateChild(i, sessionNo = 1, expected = null) {
   const username = `loadtest-${RUN}-${i}`;
   const pin = '1234';
-  const { token } = await call('register', 'POST', '/auth/register', { username, pin, language: 'nl', studyCode: STUDY_CODE });
+  if (sessionNo > 1) await sleep(Math.random() * STAGGER);
+  const auth = sessionNo === 1
+    ? await call('register', 'POST', '/auth/register', { username, pin, language: 'nl', studyCode: STUDY_CODE })
+    : await call('login', 'POST', '/auth/login', { username, pin });
+  const token = auth.token;
+  if (expected) {
+    if (auth.user.stage !== expected.stage) progressIssues.push(`${username} session ${sessionNo}: saved stage ${auth.user.stage}, expected ${expected.stage}`);
+    if (auth.user.sessionsCompleted !== expected.sessions) progressIssues.push(`${username} session ${sessionNo}: sessionsCompleted ${auth.user.sessionsCompleted}, expected ${expected.sessions}`);
+  }
+  let stage = auth.user.stage;
+  const stageStart = stage;
   const sessionId = crypto.randomUUID();
-  await call('session-start', 'POST', '/sessions', { id: sessionId, stage: 5, language: 'nl', startedAt: new Date().toISOString(), userAgent: 'load-test', screen: '1x1', viewport: '1x1', debug: true }, token);
-  let stage = 5;
+  await call('session-start', 'POST', '/sessions', { id: sessionId, stage, language: 'nl', startedAt: new Date().toISOString(), userAgent: 'load-test', screen: '1x1', viewport: '1x1', debug: true }, token);
   let pending = [];
   for (let seq = 1; seq <= TRIALS; seq++) {
     pending.push({
@@ -80,8 +98,11 @@ async function simulateChild(i) {
   // re-send the last batch on purpose: the server must ignore the duplicates
   const dup = Array.from({ length: BATCH }, (_, k) => ({ sessionId, seq: TRIALS - k, stage, phase: 'training', correct: 1 }));
   await call('trials-dup', 'POST', '/trials', { trials: dup }, token);
-  await call('session-end', 'PATCH', `/sessions/${sessionId}`, { endedAt: new Date().toISOString(), stageEnd: stage, levelsPassed: stage - 5, trialsCompleted: TRIALS, endReason: 'time' }, token);
-  return { username, sessionId };
+  await call('session-end', 'PATCH', `/sessions/${sessionId}`, { endedAt: new Date().toISOString(), stageEnd: stage, levelsPassed: stage - stageStart, trialsCompleted: TRIALS, endReason: 'time' }, token);
+  // what the next session must find on the server
+  const me = await call('me', 'GET', '/me', null, token);
+  if (me.user.stage !== stage) progressIssues.push(`${username} session ${sessionNo}: /me stage ${me.user.stage} right after saving ${stage}`);
+  return { username, sessionId, stage, sessionsCompleted: me.user.sessionsCompleted };
 }
 
 async function verify(users) {
@@ -89,40 +110,61 @@ async function verify(users) {
   let allOk = true;
   console.log('\nVerification (admin export):');
   for (const u of users) {
-    const rows = await call('admin-export', 'GET', `/admin/export/trials?username=${u.username}&format=json`, null, ADMIN_TOKEN);
+    const all = await call('admin-export', 'GET', `/admin/export/trials?username=${u.username}&format=json`, null, ADMIN_TOKEN);
+    const rows = all.filter((r) => r.session_id === u.sessionId);
     const seqs = rows.map((r) => r.seq).sort((a, b) => a - b);
     const missing = []; for (let s = 1; s <= TRIALS; s++) if (!seqs.includes(s)) missing.push(s);
     const dupes = seqs.length - new Set(seqs).size;
     const ok = rows.length === TRIALS && !missing.length && !dupes;
     allOk &&= ok;
-    console.log(`  ${ok ? 'OK  ' : 'FAIL'} ${u.username}: ${rows.length}/${TRIALS} rows${missing.length ? `, missing ${missing.length} (e.g. ${missing.slice(0, 5).join(',')})` : ''}${dupes ? `, ${dupes} duplicates` : ''}`);
+    if (ok) continue;
+    console.log(`  FAIL ${u.username} session ${u.sessionId.slice(0, 8)}: ${rows.length}/${TRIALS} rows${missing.length ? `, missing ${missing.length} (e.g. ${missing.slice(0, 5).join(',')})` : ''}${dupes ? `, ${dupes} duplicates` : ''}`);
   }
   const sessions = await call('admin-export', 'GET', '/admin/export/sessions?format=json', null, ADMIN_TOKEN);
   const ended = users.filter((u) => sessions.find((s) => s.id === u.sessionId && s.ended_at)).length;
-  console.log(`  sessions closed: ${ended}/${users.length}`);
+  console.log(`  ${users.length} sessions checked, ${allOk ? 'all rows present exactly once' : 'problems above'}; sessions closed: ${ended}/${users.length}`);
   return allOk && ended === users.length;
 }
 
 async function cleanup(users) {
   if (!CLEANUP) { console.log(`\nTest accounts kept (prefix loadtest-${RUN}-). Re-run with --cleanup to delete them, or remove them via admin.html.`); return; }
   if (!ADMIN_TOKEN) { console.log('\n--cleanup needs ADMIN_TOKEN; accounts kept.'); return; }
-  for (const u of users) await call('admin-delete', 'DELETE', `/admin/users?username=${u.username}`, null, ADMIN_TOKEN);
-  console.log(`\nDeleted ${users.length} test accounts.`);
+  const names = [...new Set(users.map((u) => u.username))];
+  for (const name of names) await call('admin-delete', 'DELETE', `/admin/users?username=${name}`, null, ADMIN_TOKEN);
+  console.log(`\nDeleted ${names.length} test accounts.`);
 }
 
-console.log(`Load test: ${USERS} simultaneous children x ${TRIALS} trials against ${API}${FAST ? ' (fast mode)' : ''}`);
+console.log(`Load test against ${API}${FAST ? ' (fast mode)' : ''}: sessions with ${SESSIONS.join(' -> ')} children, ${TRIALS} trials each`);
 const t0 = performance.now();
-const results = await Promise.allSettled(Array.from({ length: USERS }, (_, i) => simulateChild(i)));
-const users = results.filter((r) => r.status === 'fulfilled').map((r) => r.value);
-const failed = results.filter((r) => r.status === 'rejected');
-console.log(`\nFinished in ${((performance.now() - t0) / 1000).toFixed(1)} s. Children completed: ${users.length}/${USERS}`);
-for (const f of failed) console.log('  child failed:', f.reason.message);
+const users = [];          // every completed (user, session) pair, for verification/cleanup
+const failed = [];
+const state = new Map();   // username -> {stage, sessions} as left by the previous session
+for (let k = 0; k < SESSIONS.length; k++) {
+  const n = SESSIONS[k];
+  const tk = performance.now();
+  console.log(`\nSession ${k + 1}: ${n} children${k ? ` (logging in, starts spread over ${STAGGER / 1000} s)` : ' (registering, all at once)'}`);
+  const results = await Promise.allSettled(Array.from({ length: n }, (_, i) => {
+    const prev = state.get(`loadtest-${RUN}-${i}`);
+    if (k > 0 && !prev) return Promise.reject(new Error(`loadtest-${RUN}-${i}: no completed previous session`));
+    return simulateChild(i, k + 1, prev ? { stage: prev.stage, sessions: prev.sessions } : null);
+  }));
+  for (const r of results) {
+    if (r.status === 'fulfilled') { users.push(r.value); state.set(r.value.username, { stage: r.value.stage, sessions: r.value.sessionsCompleted }); }
+    else failed.push(r);
+  }
+  const done = results.filter((r) => r.status === 'fulfilled').length;
+  console.log(`  finished in ${((performance.now() - tk) / 1000).toFixed(1)} s, completed ${done}/${n}` + (done ? `, stages now ${Math.min(...results.filter((r) => r.status === 'fulfilled').map((r) => r.value.stage))}-${Math.max(...results.filter((r) => r.status === 'fulfilled').map((r) => r.value.stage))}` : ''));
+}
+console.log(`\nTotal ${((performance.now() - t0) / 1000).toFixed(1)} s. Sessions completed: ${users.length}/${SESSIONS.reduce((a, b) => a + b, 0)}`);
+for (const f of failed) console.log('  failed:', f.reason.message);
+console.log(`\nCross-session progress: ${progressIssues.length ? progressIssues.length + ' inconsistencies' : 'every login found the stage and session count left by the previous session'}`);
+for (const p of progressIssues.slice(0, 20)) console.log('  !! ' + p);
 console.log('\nRequests (ms):');
 console.log('  kind            count  fail   p50   p95   max');
 for (const [k, v] of Object.entries(timings)) console.log(`  ${k.padEnd(15)} ${String(v.ms.length).padStart(5)} ${String(v.fail).padStart(5)} ${String(Math.round(pct(v.ms, 0.5))).padStart(5)} ${String(Math.round(pct(v.ms, 0.95))).padStart(5)} ${String(Math.round(Math.max(...v.ms))).padStart(5)}`);
 let verified = false;
 try { verified = await verify(users); } catch (e) { console.log(`\nVerification failed: ${e.message}`); }
-const ok = verified && !failed.length;
+const ok = verified && !failed.length && !progressIssues.length;
 try { await cleanup(users); } catch (e) { console.log(`\nCleanup failed: ${e.message}`); }
 console.log(ok ? '\nRESULT: PASS' : '\nRESULT: FAIL');
 process.exit(ok ? 0 : 1);

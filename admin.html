@@ -33,12 +33,19 @@
   </fieldset>
 
   <fieldset>
+    <legend>Studies</legend>
+    <div id="studies">–</div>
+    <p><small>Study codes are configured on the server (<code>STUDY_CODE</code> secret, e.g. <code>draak2026=SMART RCT,pilot27=Pilot</code>). Give each study its own link: <code>…/smart-js/?study=CODE</code>.</small></p>
+  </fieldset>
+
+  <fieldset>
     <legend>Participants</legend>
     <div id="users">–</div>
   </fieldset>
 
   <fieldset>
     <legend>Export</legend>
+    <label>Only this study code (optional) <input id="ex-study"></label>
     <label>Only this username (optional) <input id="ex-user"></label>
     <label>Only records since (optional, ISO date e.g. 2026-09-01) <input id="ex-since"></label>
     <button data-table="trials">Download trials.csv</button>
@@ -50,8 +57,8 @@
 
   <fieldset>
     <legend>Create accounts in bulk</legend>
-    <p><small>One account per line: <code>username,pin[,language[,stage]]</code>. Usernames: 2–32 characters, letters/digits/-/_ ; PIN: 4–8 digits.</small></p>
-    <textarea id="bulk" rows="6" placeholder="emma3,1234,nl&#10;liam7,4321,en"></textarea>
+    <p><small>One account per line: <code>username,pin[,language[,stage[,study]]]</code>. Usernames: 2–32 characters, letters/digits/-/_ ; PIN: 4–8 digits.</small></p>
+    <textarea id="bulk" rows="6" placeholder="emma3,1234,nl,5,draak2026&#10;liam7,4321,en,5,draak2026"></textarea>
     <button id="create">Create accounts</button>
     <pre id="create-result"></pre>
   </fieldset>
@@ -61,6 +68,7 @@
     <label>Username <input id="fix-user"></label>
     <label>Set stage to (optional) <input id="fix-stage" type="number" min="5"></label>
     <label>Reset PIN to (optional) <input id="fix-pin"></label>
+    <label>Set study code to (optional) <input id="fix-study"></label>
     <button id="fix">Apply</button>
   </fieldset>
 

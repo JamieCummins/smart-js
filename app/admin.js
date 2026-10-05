@@ -28,9 +28,13 @@ async function loadUsers() {
   try {
     const users = await (await api('GET', '/admin/users')).json();
     if (!users.length) { $('#users').textContent = 'No participants yet.'; status('', true); return; }
-    const cols = ['username', 'language', 'stage', 'sessions_completed', 'trials', 'created_at', 'last_login_at', 'updated_at'];
+    const cols = ['username', 'study', 'language', 'stage', 'sessions_completed', 'trials', 'created_at', 'last_login_at', 'updated_at'];
     $('#users').innerHTML = `<table><thead><tr>${cols.map((c) => `<th>${c}</th>`).join('')}</tr></thead><tbody>${users.map((u) => `<tr>${cols.map((c) => `<td>${u[c] ?? ''}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
     status(`${users.length} participants`, true);
+    const studies = await (await api('GET', '/admin/studies')).json();
+    $('#studies').innerHTML = studies.length
+      ? `<table><thead><tr><th>code</th><th>study</th><th>participants</th><th>link</th></tr></thead><tbody>${studies.map((s) => `<tr><td>${s.code ?? ''}</td><td>${s.label}</td><td>${s.participants}</td><td>${s.code ? `<code>${location.origin}${location.pathname.replace(/admin\.html$/, '')}?study=${s.code}</code>` : ''}</td></tr>`).join('')}</tbody></table>`
+      : 'No study codes configured: registration is open and accounts are untagged.';
   } catch (e) { status(`Could not load participants: ${e.message}`); }
 }
 
@@ -38,6 +42,7 @@ async function download(table) {
   status(`Exporting ${table}…`);
   try {
     const q = new URLSearchParams();
+    if ($('#ex-study').value.trim()) q.set('study', $('#ex-study').value.trim());
     if ($('#ex-user').value.trim()) q.set('username', $('#ex-user').value.trim());
     if ($('#ex-since').value.trim()) q.set('since', $('#ex-since').value.trim());
     const res = await api('GET', `/admin/export/${table}?${q}`);
@@ -55,8 +60,8 @@ document.querySelectorAll('button[data-table]').forEach((b) => b.addEventListene
 
 $('#create').addEventListener('click', async () => {
   const users = $('#bulk').value.split('\n').map((l) => l.trim()).filter(Boolean).map((l) => {
-    const [username, pin, language, stage] = l.split(',').map((s) => s.trim());
-    return { username, pin, language: language || undefined, stage: stage ? Number(stage) : undefined };
+    const [username, pin, language, stage, study] = l.split(',').map((s) => s.trim());
+    return { username, pin, language: language || undefined, stage: stage ? Number(stage) : undefined, study: study || undefined };
   });
   try {
     const r = await (await api('POST', '/admin/users', { users })).json();
@@ -69,5 +74,6 @@ $('#fix').addEventListener('click', async () => {
   const body = { username: $('#fix-user').value.trim() };
   if ($('#fix-stage').value) body.stage = Number($('#fix-stage').value);
   if ($('#fix-pin').value) body.pin = $('#fix-pin').value.trim();
+  if ($('#fix-study').value) body.study = $('#fix-study').value.trim();
   try { await api('PATCH', '/admin/users', body); status('Updated', true); loadUsers(); } catch (e) { status(`Update failed: ${e.message}`); }
 });

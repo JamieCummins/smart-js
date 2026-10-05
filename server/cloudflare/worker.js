@@ -5,7 +5,9 @@
  *   DB               D1 database (schema.sql)
  *   AUTH_SECRET      secret used to sign login tokens        (wrangler secret put AUTH_SECRET)
  *   ADMIN_TOKEN      secret for the /admin endpoints          (wrangler secret put ADMIN_TOKEN)
- *   STUDY_CODE       optional: required to register           (wrangler secret put STUDY_CODE)
+ *   STUDY_CODE       optional: study codes accepted at registration (wrangler secret put STUDY_CODE)
+ *                    "draak2026" or "draak2026=SMART RCT,zomer27=Pilot wave 2"; the code is stored
+ *                    on the account as its `study` tag. Empty = open registration, no tag.
  *   ALLOWED_ORIGINS  comma-separated list of allowed origins, or "*" (default)
  */
 
@@ -52,6 +54,16 @@ async function verifyToken(env, token) {
   } catch { return null; }
 }
 
+/** Parse STUDY_CODE into a Map of code -> label. */
+function studyCodes(env) {
+  const map = new Map();
+  for (const part of String(env.STUDY_CODE || '').split(',')) {
+    const [code, label] = part.split('=').map((x) => x.trim());
+    if (code) map.set(code, label || code);
+  }
+  return map;
+}
+
 class HttpError extends Error {
   constructor(status, error, message) { super(message || error); this.status = status; this.error = error; }
 }
@@ -76,7 +88,7 @@ async function readJson(request) {
 }
 
 const publicUser = (u, p) => ({
-  id: u.id, username: u.username, language: u.language, createdAt: u.created_at,
+  id: u.id, username: u.username, language: u.language, study: u.study || null, createdAt: u.created_at,
   stage: p?.stage ?? FIRST_STAGE, sessionsCompleted: p?.sessions_completed ?? 0, extra: p?.extra ? JSON.parse(p.extra) : null,
 });
 
@@ -112,13 +124,16 @@ async function register(env, body) {
   const pin = String(body.pin || '').trim();
   if (!USERNAME_RE.test(username)) throw new HttpError(400, 'username');
   if (!PIN_RE.test(pin)) throw new HttpError(400, 'pin');
-  if (env.STUDY_CODE && String(body.studyCode || '').trim() !== env.STUDY_CODE) throw new HttpError(403, 'studyCode');
+  const codes = studyCodes(env);
+  const code = String(body.studyCode || '').trim();
+  if (codes.size && !codes.has(code)) throw new HttpError(403, 'studyCode');
+  const study = codes.size ? code : null;
   const existing = await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(username).first();
   if (existing) throw new HttpError(409, 'taken');
   const { hash, salt } = await hashPin(pin);
   const language = String(body.language || 'nl').slice(0, 8);
-  const res = await env.DB.prepare('INSERT INTO users (username, pin_hash, salt, language, created_at) VALUES (?, ?, ?, ?, ?)')
-    .bind(username, hash, salt, language, now()).run();
+  const res = await env.DB.prepare('INSERT INTO users (username, pin_hash, salt, language, study, created_at) VALUES (?, ?, ?, ?, ?, ?)')
+    .bind(username, hash, salt, language, study, now()).run();
   const id = res.meta.last_row_id;
   await env.DB.prepare('INSERT INTO progress (user_id, stage, sessions_completed, updated_at) VALUES (?, ?, 0, ?)').bind(id, FIRST_STAGE, now()).run();
   const { u, p } = await loadUser(env, id);
@@ -160,30 +175,85 @@ async function saveTrials(env, userId, trials) {
   return json({ saved: inserted, received: trials.length });
 }
 
+const EXPORTS = {
+  users: { sql: 'SELECT id, username, language, study, created_at, last_login_at FROM users', key: 'id', userCol: null, timeCol: null },
+  progress: { sql: 'SELECT * FROM progress', key: 'user_id', userCol: 'user_id', timeCol: null },
+  sessions: { sql: 'SELECT * FROM sessions', key: 'rowid', userCol: 'user_id', timeCol: 'started_at' },
+  trials: { sql: 'SELECT * FROM trials', key: 'id', userCol: 'user_id', timeCol: 'created_at' },
+};
+
+/**
+ * Streams a table as CSV (or JSON) in pages of 500 rows, so exports of
+ * millions of rows neither exhaust worker memory nor time out.
+ * Filters: ?username=  ?since=ISO  ?until=ISO  ?format=json  ?limit=N
+ */
 async function exportTable(env, url, table) {
-  const allowed = { users: 'SELECT id, username, language, created_at, last_login_at FROM users', progress: 'SELECT * FROM progress', sessions: 'SELECT * FROM sessions', trials: 'SELECT * FROM trials' };
-  if (!allowed[table]) throw new HttpError(404, 'not_found');
+  const spec = EXPORTS[table];
+  if (!spec) throw new HttpError(404, 'not_found');
   const where = [];
   const args = [];
   const username = url.searchParams.get('username');
-  if (username && table !== 'users') {
+  if (username && spec.userCol) {
     const u = await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(username.toLowerCase()).first();
-    where.push('user_id = ?'); args.push(u ? u.id : -1);
+    where.push(`${spec.userCol} = ?`); args.push(u ? u.id : -1);
   }
-  const since = url.searchParams.get('since');
-  if (since && (table === 'trials' || table === 'sessions')) { where.push((table === 'trials' ? 'created_at' : 'started_at') + ' >= ?'); args.push(since); }
-  const limit = Math.min(Number(url.searchParams.get('limit')) || 1000000, 1000000);
-  const sql = `${allowed[table]}${where.length ? ' WHERE ' + where.join(' AND ') : ''} ORDER BY ${table === 'users' ? 'id' : table === 'progress' ? 'user_id' : table === 'sessions' ? 'started_at' : 'id'} LIMIT ?`;
-  const { results } = await env.DB.prepare(sql).bind(...args, limit).all();
-  if (url.searchParams.get('format') === 'json') return json(results);
-  return new Response(toCsv(results), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="smart-${table}.csv"` } });
+  const study = url.searchParams.get('study');
+  if (study) {
+    if (spec.userCol) { where.push(`${spec.userCol} IN (SELECT id FROM users WHERE study = ?)`); args.push(study); }
+    else { where.push('study = ?'); args.push(study); }
+  }
+  for (const [param, op] of [['since', '>='], ['until', '<']]) {
+    const v = url.searchParams.get(param);
+    if (v && spec.timeCol) { where.push(`${spec.timeCol} ${op} ?`); args.push(v); }
+  }
+  const limit = Math.min(Number(url.searchParams.get('limit')) || Infinity, 50_000_000);
+  const asJson = url.searchParams.get('format') === 'json';
+  const PAGE = 500;
+  const key = spec.key === 'rowid' ? 'rowid' : spec.key;
+  const baseSql = spec.sql.replace('SELECT *', `SELECT ${key === 'rowid' ? 'rowid AS _k, ' : ''}*`);
+
+  const esc = (v) => { const t = v == null ? '' : String(v); return /[",\n\r]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+  const encoder = new TextEncoder();
+  const stream = new ReadableStream({
+    async start(controller) {
+      let after = -1, sent = 0, first = true, cols = null;
+      try {
+        if (asJson) controller.enqueue(encoder.encode('['));
+        while (sent < limit) {
+          const sql = `${baseSql} WHERE ${[...where, `${key} > ?`].join(' AND ')} ORDER BY ${key} LIMIT ?`;
+          const { results } = await env.DB.prepare(sql).bind(...args, after, Math.min(PAGE, limit - sent)).all();
+          if (!results.length) break;
+          for (const r of results) {
+            after = r._k ?? r[key];
+            delete r._k;
+            if (asJson) { controller.enqueue(encoder.encode((first ? '' : ',') + JSON.stringify(r))); }
+            else {
+              if (first) { cols = Object.keys(r); controller.enqueue(encoder.encode(cols.join(',') + '\n')); }
+              controller.enqueue(encoder.encode(cols.map((c) => esc(r[c])).join(',') + '\n'));
+            }
+            first = false; sent++;
+          }
+          if (results.length < PAGE) break;
+        }
+        if (asJson) controller.enqueue(encoder.encode(']'));
+        controller.close();
+      } catch (e) { controller.error(e); }
+    },
+  });
+  return new Response(stream, {
+    headers: asJson
+      ? { 'Content-Type': 'application/json' }
+      : { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="smart-${table}.csv"` },
+  });
 }
 
 async function adminUsers(env) {
   const { results } = await env.DB.prepare(`
-    SELECT u.id, u.username, u.language, u.created_at, u.last_login_at, p.stage, p.sessions_completed, p.updated_at,
+    SELECT u.id, u.username, u.language, u.study, u.created_at, u.last_login_at, p.stage, p.sessions_completed, p.updated_at,
       (SELECT COUNT(*) FROM trials t WHERE t.user_id = u.id) AS trials
-    FROM users u LEFT JOIN progress p ON p.user_id = u.id ORDER BY u.username`).all();
+    FROM users u LEFT JOIN progress p ON p.user_id = u.id ORDER BY u.study, u.username`).all();
+  const codes = studyCodes(env);
+  for (const r of results) r.study_label = r.study ? codes.get(r.study) || r.study : null;
   return json(results);
 }
 
@@ -197,8 +267,9 @@ async function adminCreateUsers(env, body) {
     const existing = await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(username).first();
     if (existing) { errors.push({ username, error: 'taken' }); continue; }
     const { hash, salt } = await hashPin(pin);
-    const res = await env.DB.prepare('INSERT INTO users (username, pin_hash, salt, language, created_at) VALUES (?, ?, ?, ?, ?)')
-      .bind(username, hash, salt, String(entry.language || 'nl').slice(0, 8), now()).run();
+    const study = entry.study ? String(entry.study).trim() : null;
+    const res = await env.DB.prepare('INSERT INTO users (username, pin_hash, salt, language, study, created_at) VALUES (?, ?, ?, ?, ?, ?)')
+      .bind(username, hash, salt, String(entry.language || 'nl').slice(0, 8), study, now()).run();
     const stage = Number(entry.stage) || FIRST_STAGE;
     await env.DB.prepare('INSERT INTO progress (user_id, stage, sessions_completed, updated_at) VALUES (?, ?, 0, ?)').bind(res.meta.last_row_id, stage, now()).run();
     created.push(username);
@@ -211,6 +282,7 @@ async function adminSetProgress(env, body) {
   const u = await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(username).first();
   if (!u) throw new HttpError(404, 'not_found');
   if (body.stage != null) await env.DB.prepare('UPDATE progress SET stage = ?, updated_at = ? WHERE user_id = ?').bind(Number(body.stage), now(), u.id).run();
+  if (body.study !== undefined) await env.DB.prepare('UPDATE users SET study = ? WHERE id = ?').bind(body.study ? String(body.study).trim() : null, u.id).run();
   if (body.pin != null) {
     if (!PIN_RE.test(String(body.pin))) throw new HttpError(400, 'pin');
     const { hash, salt } = await hashPin(String(body.pin));
@@ -240,7 +312,7 @@ async function route(request, env) {
   const m = request.method;
 
   if (path === '/health' && m === 'GET') return json({ ok: true, time: now() });
-  if (path === '/config' && m === 'GET') return json({ studyCodeRequired: Boolean(env.STUDY_CODE), firstStage: FIRST_STAGE });
+  if (path === '/config' && m === 'GET') return json({ studyCodeRequired: studyCodes(env).size > 0, firstStage: FIRST_STAGE });
 
   if (path === '/auth/register' && m === 'POST') return register(env, await readJson(request));
   if (path === '/auth/login' && m === 'POST') return login(env, await readJson(request));
@@ -258,6 +330,13 @@ async function route(request, env) {
     if (path === '/admin/users' && m === 'POST') return adminCreateUsers(env, await readJson(request));
     if (path === '/admin/users' && m === 'PATCH') return adminSetProgress(env, await readJson(request));
     if (path === '/admin/users' && m === 'DELETE') return adminDeleteUser(env, url);
+    if (path === '/admin/studies' && m === 'GET') {
+      const { results } = await env.DB.prepare('SELECT study, COUNT(*) AS participants FROM users GROUP BY study').all();
+      const codes = studyCodes(env);
+      const known = [...codes].map(([code, label]) => ({ code, label, participants: results.find((r) => r.study === code)?.participants || 0 }));
+      const unknown = results.filter((r) => !codes.has(r.study)).map((r) => ({ code: r.study, label: r.study ? '(code no longer configured)' : '(no study)', participants: r.participants }));
+      return json([...known, ...unknown]);
+    }
     const ex = path.match(/^\/admin\/export\/(\w+)$/);
     if (ex && m === 'GET') return exportTable(env, url, ex[1]);
     throw new HttpError(404, 'not_found');

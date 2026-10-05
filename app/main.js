@@ -5,7 +5,7 @@ import { TrialSampler, resolveTrial } from './engine/trials.js';
 import { LevelRunner } from './engine/level.js';
 import { createBackend } from './data/index.js';
 import { createTrialQueue } from './data/queue.js';
-import { uuid } from './data/storage.js';
+import { uuid, storage } from './data/storage.js';
 import { createHeader } from './ui/header.js';
 import { preloadAudio } from './ui/audio.js';
 import { $, render, fill } from './ui/dom.js';
@@ -19,6 +19,7 @@ async function boot() {
   if (DEBUG) config = mergeConfig(config, config.debug);
   if (params.get('backend') === 'local') config = mergeConfig(config, { backend: { type: 'local' } });
   if (params.get('api')) config = mergeConfig(config, { backend: { type: 'rest', url: params.get('api') } });
+  if (params.get('study')) config = mergeConfig(config, { backend: { studyCode: params.get('study') } }); // study link: hides the code field
   if (DEBUG && params.get('sessionSec')) config = mergeConfig(config, { session: { durationSec: Number(params.get('sessionSec')) } });
 
   const lang = config.languages.includes(params.get('lang')) ? params.get('lang') : config.language;
@@ -85,6 +86,7 @@ async function runSession(ctx, startStage) {
   const unload = (e) => { e.preventDefault(); e.returnValue = strings.ui.unloadWarning; return strings.ui.unloadWarning; };
   window.addEventListener('beforeunload', unload);
 
+  await flushPendingProgress(ctx); // a save that failed at the end of a previous session
   const pool = new StimulusPool(bucketsFromRows(ctx.syllableRows));
   header.show();
   header.startMotivations();
@@ -110,13 +112,14 @@ async function runSession(ctx, startStage) {
     if (passed) {
       stage++;
       levelsPassed++;
-      backend.saveProgress({ stage, extra: { lastDragon: dragons.get(Math.min(stage, stages.last)).name } }).catch((e) => console.warn('saveProgress failed', e));
+      saveProgressReliably(ctx, { stage, extra: { lastDragon: dragons.get(Math.min(stage, stages.last)).name } });
     }
   }
 
   window.removeEventListener('beforeunload', unload);
   header.stopAll();
   await queue.flush();
+  await flushPendingProgress(ctx);
   queue.stop();
   const summary = { endedAt: new Date().toISOString(), stageEnd: stage, levelsPassed, trialsCompleted, endReason: stage > stages.last ? 'completed' : 'time' };
   try { await backend.endSession(sessionId, summary); } catch (e) { console.warn('endSession failed', e); }
@@ -198,6 +201,38 @@ async function runLevel(ctx, { stage, pool, clock, record }) {
     }
   }
   return false;
+}
+
+/**
+ * Progress saves matter more than any single trial (a lost save sends the
+ * child back a level next time), so they are retried with back-off and, if
+ * still failing, remembered and re-sent at the end of the session and at the
+ * start of the next one in this browser.
+ */
+const progressKey = (ctx) => `smart.progress.pending.${ctx.backend.type}.${ctx.user.username}`;
+
+function saveProgressReliably(ctx, progress) {
+  storage.set(progressKey(ctx), progress);
+  ctx.progressSave = (async () => {
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        await ctx.backend.saveProgress(progress);
+        if (storage.get(progressKey(ctx))?.stage === progress.stage) storage.remove(progressKey(ctx));
+        return;
+      } catch (e) {
+        console.warn(`saveProgress failed (attempt ${attempt + 1})`, e);
+        await new Promise((r) => setTimeout(r, 2000 * 2 ** attempt));
+      }
+    }
+  })();
+}
+
+async function flushPendingProgress(ctx) {
+  if (ctx.progressSave) await ctx.progressSave;
+  const pending = storage.get(progressKey(ctx));
+  if (!pending) return;
+  try { await ctx.backend.saveProgress(pending); storage.remove(progressKey(ctx)); }
+  catch (e) { console.warn('pending progress still not saved', e); }
 }
 
 function setupDebugPanel(ctx) {

@@ -7,6 +7,7 @@
  *   ?debug              apply `debug` overrides (short levels/session) and show the debug panel
  *   ?backend=local      force the browser-only backend (no server)
  *   ?api=https://...    REST backend base URL (overrides backend.url)
+ *   ?study=draak2026    study code for registration; the field is hidden and the account is tagged with it
  *   ?stage=104          (debug only) start this session at a given stage, e.g. to preview a level
  *   ?sessionSec=90      (debug only) session length in seconds
  */
@@ -21,7 +22,7 @@ export default {
   backend: {
     type: 'rest',
     url: 'https://smart-api.zita-meijer.workers.dev',
-    studyCode: '',     // if the server requires a study code to register, prefill it here (or leave empty to ask)
+    studyCode: '',     // study code sent at registration; usually left empty and supplied per study via ?study=CODE in the link
   },
 
   session: {
